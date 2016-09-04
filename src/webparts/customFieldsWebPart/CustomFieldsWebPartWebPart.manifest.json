@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "01eedc9a-aefb-4327-8bf9-bded02e1aff8",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "01eedc9a-aefb-4327-8bf9-bded02e1aff8",
+    "group": { "default": "Under Development" },
+    "title": { "default": "CustomFieldsWebPart" },
+    "description": { "default": "CustomFieldsWebPart description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "CustomFieldsWebPart",
+      "date": "2011-04-11",
+      "date2": "1980-06-30"
+    }
+  }]
+}
