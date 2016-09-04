@@ -15,7 +15,7 @@ This sample shows how to include a DatePicker custom field in your new client si
 
 To use this custom field in your solution, follow these steps :
 
-1) Include in your solution the /controls directory with the <addr>PropertyFieldDatePicker.ts</addr> and PropertyFieldDatePickerHost.tsx files
+1) Include in your solution the /controls directory with the `PropertyFieldDatePicker.ts` and PropertyFieldDatePickerHost.tsx files
 
 2) In you web part file (for example MyWebPart.ts), import the custom field:
 ```javascript
