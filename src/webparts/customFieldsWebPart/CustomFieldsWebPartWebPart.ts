@@ -45,7 +45,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
 	}
 
   private formatDateIso(date: Date): string {
-    //example for ISO date: date.toISOString();
+    //example for ISO date formatting
     return date.toISOString();
   }
 

@@ -11,9 +11,11 @@ This sample shows how to include a DatePicker custom field in your new client si
 
 ![PropertyFieldDatePicker](./assets/PropertyFieldDatePicker.gif)
 
+### How to use this custom field in your project
+
 To use this custom field in your solution, follow these steps :
 
-1) Include in your solution the /controls directory with the PropertyFieldDatePicker.ts and PropertyFieldDatePickerHost.tsx files
+1) Include in your solution the /controls directory with the <addr>PropertyFieldDatePicker.ts</addr> and PropertyFieldDatePickerHost.tsx files
 
 2) In you web part file (for example MyWebPart.ts), import the custom field:
 ```javascript
@@ -62,6 +64,46 @@ You can find the complete list of labels to add in the sample files
 [en-us.js](./src/webparts/customFieldsWebPart/loc/en-us.js) of this sample.
 
 
+### About the PropertyFieldDatePicker properties
+
+With the PropertyFieldDatePicker you can define the following properties:
+* **label** (mandatory): Defines the label displayed on top of the DatePicker control
+* **initialDate** (optional): Defines the default value of the control. You should use the value of the mapped property of the WP property bag
+* **onPropertyChange** (mandatory): Sets the function of the WP to raise when the property's value changed. You must map with the onPropertyChange method of your web part object
+* **formatDate** (optional): Sets a method used to format as you want your date property (see the sample bellow)
+
+If you want to define a specific Date format, you can define the formatDate function as follow:
+
+```javascript
+  private formatDateIso(date: Date): string {
+    return date.toISOString();
+  }
+
+  protected get propertyPaneSettings(): IPropertyPaneSettings {
+    return {
+      pages: [
+        {
+          header: {
+            description: strings.PropertyPaneDescription
+          },
+          groups: [
+            {
+              groupName: strings.BasicGroupName,
+              groupFields: [
+                PropertyFieldDatePicker('date2', {
+                  label: strings.DateFieldLabel,
+                  initialDate: this.properties.date2,
+                  formatDate: this.formatDateIso,
+                  onPropertyChange: this.onPropertyChange
+                })
+              ]
+            }
+          ]
+        }
+      ]
+    };
+```
+
 ## Build and run this sample in the SharePoint workbench
 
 ```bash
@@ -73,6 +115,12 @@ gulp serve
 
 If you need more information about to develop SharePoint Framework client side web part, deploy and test it on your workbench
 station, you can consult the following tutorial: https://github.com/SharePoint/sp-dev-docs/wiki/Setup-SharePoint-Tenant
+
+## known limitations
+
+This custom fields has the following limitations :
+* In Non-Reactive mode, the 'Apply' button of the web part properties is not automatically enabled when you're selecting a new date
+* This component only manage date and not the time also
 
 ##The MIT License (MIT)
 
