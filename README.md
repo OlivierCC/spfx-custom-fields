@@ -116,7 +116,7 @@ gulp serve
 If you need more information about to develop SharePoint Framework client side web part, deploy and test it on your workbench
 station, you can consult the following tutorial: https://github.com/SharePoint/sp-dev-docs/wiki/Setup-SharePoint-Tenant
 
-## known limitations
+## Known limitations
 
 This custom fields has the following limitations :
 * In Non-Reactive mode, the 'Apply' button of the web part properties is not automatically enabled when you're selecting a new date
