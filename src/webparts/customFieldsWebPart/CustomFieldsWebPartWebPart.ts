@@ -19,7 +19,6 @@ import { ICustomFieldsWebPartWebPartProps } from './ICustomFieldsWebPartWebPartP
 //Include the PropertyFieldDatePicker component
 import { PropertyFieldDatePicker } from './controls/PropertyFieldDatePicker';
 
-
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
   public constructor(context: IWebPartContext) {
@@ -34,7 +33,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
     const element: React.ReactElement<ICustomFieldsWebPartProps> = React.createElement(CustomFieldsWebPart, {
       description: this.properties.description,
       date: this.properties.date,
-      date2: this.properties.date2
+      date2: this.properties.date2,
+      people: this.properties.people
     });
 
     ReactDom.render(element, this.domElement);

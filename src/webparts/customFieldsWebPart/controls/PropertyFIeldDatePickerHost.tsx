@@ -8,7 +8,6 @@
 import * as React from 'react';
 import { IPropertyFieldDatePickerPropsInternal } from './PropertyFieldDatePicker';
 import { DatePicker, IDatePickerStrings } from 'office-ui-fabric-react/lib/DatePicker';
-import { Label } from 'office-ui-fabric-react/lib/Label';
 import * as strings from 'mystrings';
 
 /**

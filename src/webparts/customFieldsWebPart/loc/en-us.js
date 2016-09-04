@@ -4,6 +4,7 @@ define([], function() {
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
     "DateFieldLabel": "Date Field",
+    "PeopleFieldLabel": "People Picker Field",
 
     //DatePicker labels
     "DatePickerMonthLongJanuary": "January",

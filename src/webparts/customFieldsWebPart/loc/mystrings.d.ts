@@ -3,6 +3,7 @@ declare interface IStrings {
   BasicGroupName: string;
   DescriptionFieldLabel: string;
   DateFieldLabel: string;
+  PeopleFieldLabel: string;
 
   //DatePicker labels
   DatePickerMonthLongJanuary: string;
