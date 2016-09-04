@@ -11,8 +11,51 @@ This sample shows how to include a DatePicker custom field in your new client si
 
 ![PropertyFieldDatePicker](./assets/PropertyFieldDatePicker.gif)
 
+To use this custom field in your solution, follow these steps :
 
-## Run this web part in the SharePoint workbench
+1. Include in your solution the /controls directory with the PropertyFieldDatePicker.ts and PropertyFieldDatePickerHost.tsx files
+
+2. In you web part file (for example MyWebPart.ts), import the custom field:
+```javascript
+import { PropertyFieldDatePicker } from './controls/PropertyFieldDatePicker';
+```
+
+3. In your web part constructor bind the onPropertyChange method:
+```javascript
+this.onPropertyChange = this.onPropertyChange.bind(this);
+```
+4. Create a new property for your web part normally of type string. For this example, the property is called 'date'
+
+5. Add a PropertyFieldDatePicker in your Web Part properties to map on this property:
+```javascript
+protected get propertyPaneSettings(): IPropertyPaneSettings {
+    return {
+      pages: [
+        {
+          header: {
+            description: strings.PropertyPaneDescription
+          },
+          groups: [
+            {
+              groupName: strings.BasicGroupName,
+              groupFields: [
+                PropertyPaneTextField('description', {
+                  label: strings.DescriptionFieldLabel
+                }),
+                PropertyFieldDatePicker('date', {
+                  label: strings.DateFieldLabel,
+                  initialDate: this.properties.date,
+                  onPropertyChange: this.onPropertyChange
+                })
+              ]
+            }
+          ]
+        }
+      ]
+    };
+```
+
+## Build and run this sample in the SharePoint workbench
 
 ```bash
 git clone the repo
