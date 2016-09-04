@@ -15,9 +15,9 @@ This sample shows how to include a DatePicker custom field in your new client si
 
 To use this custom field in your solution, follow these steps :
 
-1) Include in your solution the /controls directory with the `PropertyFieldDatePicker.ts` and PropertyFieldDatePickerHost.tsx files
+1) Include in your solution the `/controls` directory with the `PropertyFieldDatePicker.ts` and `PropertyFieldDatePickerHost.tsx` files
 
-2) In you web part file (for example MyWebPart.ts), import the custom field:
+2) In you web part file (for example `MyWebPart.ts`), import the custom field:
 ```javascript
 import { PropertyFieldDatePicker } from './controls/PropertyFieldDatePicker';
 ```
@@ -58,7 +58,7 @@ protected get propertyPaneSettings(): IPropertyPaneSettings {
 ```
 6) Add the PropertyFieldDatePicker labels to your localisation files. This is to add to your solution the
 localised labels for months, days, etc. To do that include the labels definitions to your files called
-src/webparts/yourwebpart/loc/mystrings.d.ts and src/webparts/yourwebpart/loc/en-us.js (or any other langage).
+`src/webparts/yourwebpart/loc/mystrings.d.ts` and `src/webparts/yourwebpart/loc/en-us.js` (or any other langage).
 You can find the complete list of labels to add in the sample files
 [mystrings.d.ts](./src/webparts/customFieldsWebPart/loc/mystrings.d.ts) and
 [en-us.js](./src/webparts/customFieldsWebPart/loc/en-us.js) of this sample.
