@@ -57,7 +57,7 @@ protected get propertyPaneSettings(): IPropertyPaneSettings {
     };
 ```
 6) Add the PropertyFieldDatePicker labels to your localisation files. This is to add to your solution the
-localised labels for months, days, etc. To do that include the labels definitions to your files called
+localized labels for months, days, etc. To do that include the labels definitions to your files called
 `src/webparts/yourwebpart/loc/mystrings.d.ts` and `src/webparts/yourwebpart/loc/en-us.js` (or any other langage).
 You can find the complete list of labels to add in the sample files
 [mystrings.d.ts](./src/webparts/customFieldsWebPart/loc/mystrings.d.ts) and
