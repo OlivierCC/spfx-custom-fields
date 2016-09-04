@@ -104,6 +104,12 @@ If you want to define a specific Date format, you can define the formatDate func
     };
 ```
 
+### Known limitations
+
+This custom field has the following limitations :
+* In Non-Reactive mode, the 'Apply' button of the web part properties is not automatically enabled when you're selecting a new date
+* It manages only date, and not the time also
+
 ## Build and run this sample in the SharePoint workbench
 
 ```bash
@@ -115,12 +121,6 @@ gulp serve
 
 If you need more information about to develop SharePoint Framework client side web part, deploy and test it on your workbench
 station, you can consult the following tutorial: https://github.com/SharePoint/sp-dev-docs/wiki/Setup-SharePoint-Tenant
-
-## Known limitations
-
-This custom fields has the following limitations :
-* In Non-Reactive mode, the 'Apply' button of the web part properties is not automatically enabled when you're selecting a new date
-* This component only manage date and not the time also
 
 ##The MIT License (MIT)
 
