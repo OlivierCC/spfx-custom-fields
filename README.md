@@ -1,4 +1,4 @@
-## SPFx custom fields samples
+# SPFx custom fields samples
 
 > Note: The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production enviornments.
 
@@ -7,11 +7,11 @@ include an implementation of PropertyFieldDatePicker and PropertyFieldPeoplePick
  based on the Office UI Fabric DatePicker component.
 
 More information on custom fields here:
-* [PropertyFieldDatePicker](## PropertyFieldDatePicker control)
-* [PropertyFieldPeoplePicker](## PropertyFieldPeoplePicker control)
+* [PropertyFieldDatePicker](# PropertyFieldDatePicker control)
+* [PropertyFieldPeoplePicker](# PropertyFieldPeoplePicker control)
 
 
-## PropertyFieldDatePicker control
+# PropertyFieldDatePicker control
 
 This sample shows how to include a DatePicker custom field in your client side web part for SPFx:
 
@@ -121,7 +121,7 @@ This custom field has the following limitations :
 * It manages only date, and not the time also
 
 
-## PropertyFieldPeoplePicker control
+# PropertyFieldPeoplePicker control
 
 This sample shows how to include a PeoplePicker custom field in your client side web part for SPFx:
 
@@ -129,7 +129,7 @@ This sample shows how to include a PeoplePicker custom field in your client side
 
 
 
-## Build and run this sample in the SharePoint workbench
+# Build and run this sample in the SharePoint workbench
 
 ```bash
 git clone the repo
@@ -141,7 +141,7 @@ gulp serve
 If you need more information about to develop SharePoint Framework client side web part, deploy and test it on your workbench
 station, you can consult the following tutorial: https://github.com/SharePoint/sp-dev-docs/wiki/Setup-SharePoint-Tenant
 
-##The MIT License (MIT)
+# The MIT License (MIT)
 
 Copyright (c) 2016 Olivier Carpentier
 
