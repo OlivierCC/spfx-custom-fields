@@ -124,9 +124,85 @@ This sample shows how to include a PeoplePicker custom field in your client side
 
 ### How to use this custom field in your project
 
+To use this custom field in your solution, follow these steps :
+
+1) Include in your solution the `/controls` directory with the `PropertyFieldPeoplePicker.ts` and `PropertyFieldPeoplePickerHost.tsx` files
+
+2) In you web part file (for example `MyWebPart.ts`), import the custom field:
+```javascript
+import { PropertyFieldPeoplePicker } from './controls/PropertyFieldPeoplePicker';
+```
+
+3) In your web part constructor, bind the onPropertyChange method:
+```javascript
+this.onPropertyChange = this.onPropertyChange.bind(this);
+```
+
+4) Create a new property for your web part normally as a collection of IPropertyFieldPeople.
+For this example, the property is called 'people':
+```javascript
+import { IPropertyFieldPeople } from './controls/PropertyFieldPeoplePicker';
+
+export interface ICustomFieldsWebPartWebPartProps {
+  people: IPropertyFieldPeople[];
+}
+```
+
+5) Add a PropertyFieldDatePicker in your Web Part properties to map on this property:
+```javascript
+protected get propertyPaneSettings(): IPropertyPaneSettings {
+    return {
+      pages: [
+        {
+          header: {
+            description: strings.PropertyPaneDescription
+          },
+          groups: [
+            {
+              groupName: strings.BasicGroupName,
+              groupFields: [
+                PropertyFieldPeoplePicker('people', {
+                  label: strings.PeopleFieldLabel,
+                  initialData: this.properties.people,
+                  allowDuplicate: true,
+                  onPropertyChange: this.onPropertyChange,
+                  context: this.context
+                })
+              ]
+            }
+          ]
+        }
+      ]
+    };
+```
+6) Add the PropertyFieldPeoplePicker labels to your localization files. To do that include the labels definitions to your files called
+`src/webparts/yourwebpart/loc/mystrings.d.ts` and `src/webparts/yourwebpart/loc/en-us.js` (or any other langage).
+You can find the complete list of labels to add in the sample files
+[mystrings.d.ts](./src/webparts/customFieldsWebPart/loc/mystrings.d.ts) and
+[en-us.js](./src/webparts/customFieldsWebPart/loc/en-us.js) of this sample.
+Open the file `src/webparts/yourwebpart/controls/PropertyFieldPeoplePicker.ts` and modify
+in the following line with the right localization module's name of your solution:
+```javascript
+import * as strings from 'customFieldsWebPartStrings';
+```
+
 ### About the PropertyFieldDatePicker properties
 
+With the PropertyFieldDatePicker you can define the following properties:
+* **label** (mandatory): Defines the label displayed on top of the PeoplePicker control
+* **allowDuplicate** (optional): Defines if the component accepts to add the same user several times
+* **context** (mandatory): Defines the webpart context, you should use this.context
+* **initialData** (optional): Defines the default values of the control. You should use the value of the mapped property of the WP property bag
+* **onPropertyChange** (mandatory): Sets the function of the WP to raise when the property's value changed. You must map with the onPropertyChange method of your web part object
+
 ### Known limitations
+
+This custom field has the following limitations :
+* In Non-Reactive mode, the 'Apply' button of the web part properties is not automatically enabled when you're selecting people
+* It manages only users, not security groups, distribution lists, etc.
+* The component will return only firstName, jobTitle, login, email and initials. No other fields as ID, picture url, sipaddress, etc.
+* You always need to select a user from the suggestions, you can not only enter a textual value
+* The suggested contacts appears only when you're entering more than 3 letters
 
 # Build and run this sample in the SharePoint workbench
 
