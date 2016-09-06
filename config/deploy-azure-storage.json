@@ -1,6 +1,6 @@
 {
   "workingDir": "./temp/deploy/",
   "account": "<!-- STORAGE ACCOUNT NAME -->",
-  "container": "custom-fields",
+  "container": "custom-fields-web-part",
   "accessKey": "<!-- ACCESS KEY -->"
 }

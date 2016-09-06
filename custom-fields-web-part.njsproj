@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="GulpToVs" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Gulp" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{e0df572b-9760-4539-a381-94be25a13cd6}</ProjectGuid>
+    <ProjectGuid>{2b4dd7e2-fd70-4563-80b4-0df3af5f18e1}</ProjectGuid>
     <ProjectHome />
     <ProjectView>ProjectFiles</ProjectView>
     <StartupFile>node_modules\gulp\bin\gulp.js</StartupFile>
@@ -20,9 +20,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
-  <Target Name="GulpToVs">
+  <Target Name="Gulp">
     <Message Text="Running gulp2vs.js" Importance="normal" />
-    <Exec Command="CMD.EXE /c node $(MSBuildThisFileDirectory)\node_modules\@microsoft\npmx\lib\gulp2vs.js" />
+    <Exec Command="CMD.EXE /c node $(MSBuildThisFileDirectory)\node_modules\gulp\bin\gulp.js bundle" />
   </Target>
   <ItemGroup>
     <Content Include="*.js" />

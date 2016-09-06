@@ -3,12 +3,18 @@ import { css } from 'office-ui-fabric-react';
 
 import styles from '../CustomFieldsWebPart.module.scss';
 import { ICustomFieldsWebPartWebPartProps } from '../ICustomFieldsWebPartWebPartProps';
+import { IPropertyFieldPeople } from '../controls/PropertyFieldPeoplePicker';
 
 export interface ICustomFieldsWebPartProps extends ICustomFieldsWebPartWebPartProps {
 }
 
 export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWebPartProps, {}> {
   public render(): JSX.Element {
+
+    var peopleList: IPropertyFieldPeople[] = [];
+    if (this.props && this.props.people)
+      peopleList = this.props.people;
+
     return (
       <div className={styles.customFieldsWebPart}>
         <div className={styles.container}>
@@ -26,6 +32,22 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
               <p className='ms-font-l ms-fontColor-white'>
                 Date 2: {this.props.date2}
               </p>
+              <div className='ms-font-l ms-fontColor-white'>
+                Users:
+                <ul>
+                {
+                  peopleList.map((element: IPropertyFieldPeople, i:number) => {
+                    return (
+                      <li>
+                        Username : {element.fullName}<br/>
+                        Login: {element.login}<br/>
+                        Email: {element.email}<br/>
+                        JobTitle: {element.jobTitle}<br/>
+                      </li>
+                    );
+                })}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

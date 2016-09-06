@@ -13,12 +13,13 @@ import {
   IWebPartContext,
   PropertyPaneTextField
 } from '@microsoft/sp-client-preview';
-import * as strings from 'mystrings';
+import * as strings from 'customFieldsWebPartStrings';
 import CustomFieldsWebPart, { ICustomFieldsWebPartProps } from './components/CustomFieldsWebPart';
 import { ICustomFieldsWebPartWebPartProps } from './ICustomFieldsWebPartWebPartProps';
 //Include the PropertyFieldDatePicker component
 import { PropertyFieldDatePicker } from './controls/PropertyFieldDatePicker';
-
+//Include the PropertyFieldPeoplePicker component
+import { PropertyFieldPeoplePicker } from './controls/PropertyFieldPeoplePicker';
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -34,7 +35,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
     const element: React.ReactElement<ICustomFieldsWebPartProps> = React.createElement(CustomFieldsWebPart, {
       description: this.properties.description,
       date: this.properties.date,
-      date2: this.properties.date2
+      date2: this.properties.date2,
+      people: this.properties.people
     });
 
     ReactDom.render(element, this.domElement);
@@ -73,6 +75,13 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   initialDate: this.properties.date2,
                   formatDate: this.formatDateIso,
                   onPropertyChange: this.onPropertyChange
+                }),
+                PropertyFieldPeoplePicker('people', {
+                  label: strings.PeopleFieldLabel,
+                  initialData: this.properties.people,
+                  allowDuplicate: true,
+                  onPropertyChange: this.onPropertyChange,
+                  context: this.context
                 })
               ]
             }

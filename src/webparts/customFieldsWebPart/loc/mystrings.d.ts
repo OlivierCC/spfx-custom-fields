@@ -3,6 +3,12 @@ declare interface IStrings {
   BasicGroupName: string;
   DescriptionFieldLabel: string;
   DateFieldLabel: string;
+  PeopleFieldLabel: string;
+
+  //PeoplePicker labels
+  PeoplePickerSuggestedContacts: string;
+  PeoplePickerNoResults: string;
+  PeoplePickerLoading: string;
 
   //DatePicker labels
   DatePickerMonthLongJanuary: string;
@@ -45,7 +51,7 @@ declare interface IStrings {
   DatePickerDayShortSaturday: string;
 }
 
-declare module 'mystrings' {
+declare module 'customFieldsWebPartStrings' {
   const strings: IStrings;
   export = strings;
 }

@@ -1,10 +1,10 @@
 {
   "solution": {
-    "name": "custom-fields-client-side-solution",
-    "id": "e0df572b-9760-4539-a381-94be25a13cd6",
+    "name": "custom-fields-web-part-client-side-solution",
+    "id": "2b4dd7e2-fd70-4563-80b4-0df3af5f18e1",
     "version": "1.0.0.0"
   },
   "paths": {
-    "zippedPackage": "custom-fields.spapp"
+    "zippedPackage": "custom-fields-web-part.spapp"
   }
 }

@@ -4,6 +4,12 @@ define([], function() {
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
     "DateFieldLabel": "Date Field",
+    "PeopleFieldLabel": "People Picker Field",
+
+    //PeoplePicker labels
+    "PeoplePickerSuggestedContacts": "Suggested contacts",
+    "PeoplePickerNoResults": "No result found",
+    "PeoplePickerLoading": "Loading contacts...",
 
     //DatePicker labels
     "DatePickerMonthLongJanuary": "January",

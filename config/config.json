@@ -16,6 +16,6 @@
     "react-dom/server": "node_modules/react-dom/dist/react-dom-server.min.js"
   },
   "localizedResources": {
-    "mystrings": "webparts/customFieldsWebPart/loc/{locale}.js"
+    "customFieldsWebPartStrings": "webparts/customFieldsWebPart/loc/{locale}.js"
   }
 }
