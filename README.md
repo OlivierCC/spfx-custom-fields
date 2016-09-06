@@ -7,11 +7,11 @@ include an implementation of PropertyFieldDatePicker and PropertyFieldPeoplePick
  based on the Office UI Fabric DatePicker component.
 
 More information on custom fields here:
-* [PropertyFieldDatePicker](# PropertyFieldDatePicker control)
-* [PropertyFieldPeoplePicker](# PropertyFieldPeoplePicker control)
+* [PropertyFieldDatePicker](#PropertyFieldDatePicker)
+* [PropertyFieldPeoplePicker](#PropertyFieldPeoplePicker)
 
 
-# PropertyFieldDatePicker control
+#PropertyFieldDatePicker
 
 This sample shows how to include a DatePicker custom field in your client side web part for SPFx:
 
@@ -121,7 +121,7 @@ This custom field has the following limitations :
 * It manages only date, and not the time also
 
 
-# PropertyFieldPeoplePicker control
+#PropertyFieldPeoplePicker
 
 This sample shows how to include a PeoplePicker custom field in your client side web part for SPFx:
 
