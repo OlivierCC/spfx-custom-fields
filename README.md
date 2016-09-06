@@ -3,13 +3,8 @@
 > Note: The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production enviornments.
 
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). This samples
-include an implementation of PropertyFieldDatePicker and PropertyFieldPeoplePicker controls,
+include an implementation of **PropertyFieldDatePicker** and **PropertyFieldPeoplePicker** controls,
  based on the Office UI Fabric DatePicker component.
-
-More information on custom fields here:
-* [PropertyFieldDatePicker](#PropertyFieldDatePicker)
-* [PropertyFieldPeoplePicker](#PropertyFieldPeoplePicker)
-
 
 #PropertyFieldDatePicker
 
@@ -127,7 +122,11 @@ This sample shows how to include a PeoplePicker custom field in your client side
 
 ![PropertyFieldPeoplePicker](./assets/PropertyFieldPeoplePicker.gif)
 
+### How to use this custom field in your project
 
+### About the PropertyFieldDatePicker properties
+
+### Known limitations
 
 # Build and run this sample in the SharePoint workbench
 
