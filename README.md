@@ -7,8 +7,8 @@ include an implementation of PropertyFieldDatePicker and PropertyFieldPeoplePick
  based on the Office UI Fabric DatePicker component.
 
 More information on custom fields here:
-* [PropertyFieldDatePicker](#PropertyFieldDatePicker)
-* [PropertyFieldPeoplePicker](#PropertyFieldPeoplePicker)
+* [PropertyFieldDatePicker](.#PropertyFieldDatePicker)
+* [PropertyFieldPeoplePicker](.#PropertyFieldPeoplePicker)
 
 
 #PropertyFieldDatePicker
