@@ -7,7 +7,7 @@ includes for example an implementation of PropertyFieldDatePicker control based 
 
 ## PropertyFieldDatePicker control
 
-This sample shows how to include a DatePicker custom field in your new client side web part for SPFx:
+This sample shows how to include a DatePicker custom field in your client side web part for SPFx:
 
 ![PropertyFieldDatePicker](./assets/PropertyFieldDatePicker.gif)
 
@@ -113,6 +113,13 @@ If you want to define a specific Date format, you can define the formatDate func
 This custom field has the following limitations :
 * In Non-Reactive mode, the 'Apply' button of the web part properties is not automatically enabled when you're selecting a new date
 * It manages only date, and not the time also
+
+## PropertyFieldPeoplePicker control
+
+This sample shows how to include a PeoplePicker custom field in your client side web part for SPFx:
+
+![PropertyFieldPeoplePicker](./assets/PropertyFieldPeoplePicker.gif)
+
 
 ## Build and run this sample in the SharePoint workbench
 
