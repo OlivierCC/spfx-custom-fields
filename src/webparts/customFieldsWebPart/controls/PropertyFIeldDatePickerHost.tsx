@@ -29,7 +29,8 @@ class DatePickerStrings implements IDatePickerStrings {
      * The array is 0-based, so months[0] should be the full name of January.
      */
     public months: string[] = [
-      strings.DatePickerMonthLongJanuary, strings.DatePickerMonthLongFebruary, strings.DatePickerMonthLongApril,
+      strings.DatePickerMonthLongJanuary, strings.DatePickerMonthLongFebruary,
+      strings.DatePickerMonthLongMarch, strings.DatePickerMonthLongApril,
       strings.DatePickerMonthLongMay, strings.DatePickerMonthLongJune, strings.DatePickerMonthLongJuly,
       strings.DatePickerMonthLongAugust, strings.DatePickerMonthLongSeptember, strings.DatePickerMonthLongOctober,
       strings.DatePickerMonthLongNovember, strings.DatePickerMonthLongDecember
@@ -39,7 +40,8 @@ class DatePickerStrings implements IDatePickerStrings {
      * The array is 0-based, so shortMonths[0] should be the short name of January.
      */
     public shortMonths: string[] = [
-      strings.DatePickerMonthShortJanuary, strings.DatePickerMonthShortFebruary, strings.DatePickerMonthShortApril,
+      strings.DatePickerMonthShortJanuary, strings.DatePickerMonthShortFebruary,
+      strings.DatePickerMonthShortMarch, strings.DatePickerMonthShortApril,
       strings.DatePickerMonthShortMay, strings.DatePickerMonthShortJune, strings.DatePickerMonthShortJuly,
       strings.DatePickerMonthShortAugust, strings.DatePickerMonthShortSeptember, strings.DatePickerMonthShortOctober,
       strings.DatePickerMonthShortNovember, strings.DatePickerMonthShortDecember
