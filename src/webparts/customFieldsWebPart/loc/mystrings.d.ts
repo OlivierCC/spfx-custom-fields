@@ -4,11 +4,15 @@ declare interface IStrings {
   DescriptionFieldLabel: string;
   DateFieldLabel: string;
   PeopleFieldLabel: string;
+  SPListFieldLabel: string;
 
   //PeoplePicker labels
   PeoplePickerSuggestedContacts: string;
   PeoplePickerNoResults: string;
   PeoplePickerLoading: string;
+
+  //SPListPicker labels
+  SPListPickerLoading: string;
 
   //DatePicker labels
   DatePickerMonthLongJanuary: string;

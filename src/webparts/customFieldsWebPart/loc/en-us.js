@@ -5,11 +5,15 @@ define([], function() {
     "DescriptionFieldLabel": "Description Field",
     "DateFieldLabel": "Date Field",
     "PeopleFieldLabel": "People Picker Field",
+    "SPListFieldLabel": "SharePoint List Field",
 
     //PeoplePicker labels
     "PeoplePickerSuggestedContacts": "Suggested contacts",
     "PeoplePickerNoResults": "No result found",
     "PeoplePickerLoading": "Loading contacts...",
+
+    //SPListPicker labels
+    "SPListPickerLoading": "Loading lists...",
 
     //DatePicker labels
     "DatePickerMonthLongJanuary": "January",

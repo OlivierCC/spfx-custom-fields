@@ -27,6 +27,9 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 Edit this WebPart to test the custom fields.
               </p>
               <p className='ms-font-l ms-fontColor-white'>
+                List: {this.props.list}
+              </p>
+              <p className='ms-font-l ms-fontColor-white'>
                 Date 1: {this.props.date}
               </p>
               <p className='ms-font-l ms-fontColor-white'>
