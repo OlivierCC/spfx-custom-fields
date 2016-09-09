@@ -8,9 +8,9 @@ include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeopleP
 
 Custom Field | Description |  Overview
 ------------ | ----------- | -----------
-[PropertyFieldDatePicker](/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDatePicker) | Custom field to select a Date with a mini-calendar based on the Office UI Fabric DatePicker control | ![PropertyFieldDatePicker](./assets/OverviewDatePicker.png)
-[PropertyFieldPeoplePicker](/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPeoplePicker) | Custom field to select users from the SharePoint users database with a search field. Start to enter a lastname or a firstname, and pick a user  | ![PropertyFieldPeoplePicker](./assets/OverviewPeoplePicker.png)
-[PropertyFieldSPListPicker](/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListPicker)| Custom field to select a list from the current SharePoint web site.   | ![PropertyFieldSPListPicker](./assets/OverviewSPListPicker.png)
+[PropertyFieldDatePicker](wiki/PropertyFieldDatePicker) | Custom field to select a Date with a mini-calendar based on the Office UI Fabric DatePicker control | ![PropertyFieldDatePicker](./assets/OverviewDatePicker.png)
+[PropertyFieldPeoplePicker](wiki/PropertyFieldPeoplePicker) | Custom field to select users from the SharePoint users database with a search field. Start to enter a lastname or a firstname, and pick a user  | ![PropertyFieldPeoplePicker](./assets/OverviewPeoplePicker.png)
+[PropertyFieldSPListPicker](wiki/PropertyFieldSPListPicker)| Custom field to select a list from the current SharePoint web site.   | ![PropertyFieldSPListPicker](./assets/OverviewSPListPicker.png)
 PropertyFieldSPListMultiplePicker | Under development
 
 
