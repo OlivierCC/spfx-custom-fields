@@ -41,7 +41,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       date: this.properties.date,
       date2: this.properties.date2,
       people: this.properties.people,
-      list: this.properties.list
+      list: this.properties.list,
+      lists: this.properties.lists
     });
 
     ReactDom.render(element, this.domElement);

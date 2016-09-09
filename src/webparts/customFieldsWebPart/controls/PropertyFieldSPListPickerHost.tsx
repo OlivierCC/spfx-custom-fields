@@ -14,7 +14,7 @@ import { IPropertyFieldSPListPickerPropsInternal, PropertyFieldSPListPickerOrder
 
 /**
  * @interface
- * PropertyFieldDatePickerHost properties interface
+ * PropertyFieldSPListPickerHost properties interface
  *
  */
 export interface IPropertyFieldSPListPickerHostProps extends IPropertyFieldSPListPickerPropsInternal {
@@ -22,7 +22,7 @@ export interface IPropertyFieldSPListPickerHostProps extends IPropertyFieldSPLis
 
 /**
  * @class
- * Renders the controls for PropertyFieldDatePicker component
+ * Renders the controls for PropertyFieldSPListPicker component
  */
 export default class PropertyFieldSPListPickerHost extends React.Component<IPropertyFieldSPListPickerHostProps, {}> {
 
@@ -79,7 +79,7 @@ export default class PropertyFieldSPListPickerHost extends React.Component<IProp
 
   /**
    * @function
-   * Renders the datepicker controls with Office UI  Fabric
+   * Renders the SPListpicker controls with Office UI  Fabric
    */
   public render(): JSX.Element {
     //Renders content

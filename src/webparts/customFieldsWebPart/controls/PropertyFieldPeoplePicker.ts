@@ -78,7 +78,7 @@ export interface IPropertyFieldPeoplePickerProps {
   allowDuplicate?: boolean;
   /**
    * @function
-   * Defines a onPropertyChange function to raise when the selected date changed.
+   * Defines a onPropertyChange function to raise when the selected value changed.
    * Normally this function must be always defined with the 'this.onPropertyChange'
    * method of the web part object.
    */
@@ -141,7 +141,7 @@ class PropertyFieldPeoplePickerBuilder implements IPropertyPaneField<IPropertyFi
 
   /**
    * @function
-   * Renders the DatePicker field content
+   * Renders the PeoplePicker field content
    */
   private render(elem: HTMLElement): void {
     //Construct the JSX properties

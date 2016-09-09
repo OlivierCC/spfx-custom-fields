@@ -24,7 +24,7 @@ export enum PropertyFieldSPListPickerOrderBy {
 
 /**
  * @interface
- * Public properties of the PropertyFieldDatePicker custom field
+ * Public properties of the PropertyFieldSPListPicker custom field
  *
  */
 export interface IPropertyFieldSPListPickerProps {
@@ -40,7 +40,7 @@ export interface IPropertyFieldSPListPickerProps {
   orderBy?: PropertyFieldSPListPickerOrderBy;
   /**
    * @function
-   * Defines a onPropertyChange function to raise when the selected date changed.
+   * Defines a onPropertyChange function to raise when the selected value changed.
    * Normally this function must be always defined with the 'this.onPropertyChange'
    * method of the web part object.
    */
@@ -49,10 +49,10 @@ export interface IPropertyFieldSPListPickerProps {
 
 /**
  * @interface
- * Private properties of the PropertyFieldDatePicker custom field.
+ * Private properties of the PropertyFieldSPListPicker custom field.
  * We separate public & private properties to include onRender & onDispose method waited
  * by the PropertyFieldCustom, witout asking to the developer to add it when he's using
- * the PropertyFieldDatePicker.
+ * the PropertyFieldSPListPicker.
  *
  */
 export interface IPropertyFieldSPListPickerPropsInternal extends IPropertyFieldSPListPickerProps {
@@ -70,7 +70,7 @@ export interface IPropertyFieldSPListPickerPropsInternal extends IPropertyFieldS
 
 /**
  * @interface
- * Represents a PropertyFieldDatePicker object
+ * Represents a PropertyFieldSPListPicker object
  *
  */
 class PropertyFieldSPListPickerBuilder implements IPropertyPaneField<IPropertyFieldSPListPickerPropsInternal> {
@@ -110,7 +110,7 @@ class PropertyFieldSPListPickerBuilder implements IPropertyPaneField<IPropertyFi
 
   /**
    * @function
-   * Renders the DatePicker field content
+   * Renders the SPListPicker field content
    */
   private render(elem: HTMLElement): void {
     //Construct the JSX properties
@@ -142,9 +142,9 @@ class PropertyFieldSPListPickerBuilder implements IPropertyPaneField<IPropertyFi
 
 /**
  * @function
- * Helper method to create a Date Picker on the PropertyPane.
- * @param targetProperty - Target property the date picker is associated to.
- * @param properties - Strongly typed Date Picker properties.
+ * Helper method to create a SPList Picker on the PropertyPane.
+ * @param targetProperty - Target property the SharePoint list picker is associated to.
+ * @param properties - Strongly typed SPList Picker properties.
  */
 export function PropertyFieldSPListPicker(targetProperty: string, properties: IPropertyFieldSPListPickerProps): IPropertyPaneField<IPropertyFieldSPListPickerPropsInternal> {
 
@@ -161,7 +161,7 @@ export function PropertyFieldSPListPicker(targetProperty: string, properties: IP
       onDispose: null,
       onRender: null
     };
-    //Calles the PropertyFieldDatePicker builder object
+    //Calles the PropertyFieldSPListPicker builder object
     //This object will simulate a PropertyFieldCustom to manage his rendering process
     return new PropertyFieldSPListPickerBuilder(targetProperty, newProperties);
 }
