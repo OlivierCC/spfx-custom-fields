@@ -1,20 +1,26 @@
 declare interface IStrings {
+  //Web Parts property labels
+  //You don't need to copy this fields
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
   DateFieldLabel: string;
   PeopleFieldLabel: string;
   SPListFieldLabel: string;
+  ColorFieldLabel: string;
 
   //PeoplePicker labels
+  //Copy the following labels in your project if you want to use the PeoplePicker
   PeoplePickerSuggestedContacts: string;
   PeoplePickerNoResults: string;
   PeoplePickerLoading: string;
 
   //SPListPicker labels
+  //Copy the following labels in your project if you want to use the SPListPicker
   SPListPickerLoading: string;
 
   //DatePicker labels
+  //Copy the following labels in your project if you want to use the DatePicker
   DatePickerMonthLongJanuary: string;
   DatePickerMonthShortJanuary: string;
   DatePickerMonthLongFebruary: string;

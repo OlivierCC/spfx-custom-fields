@@ -19,6 +19,8 @@ import { ICustomFieldsWebPartWebPartProps } from './ICustomFieldsWebPartWebPartP
 
 //Include the PropertyFieldDatePicker component
 import { PropertyFieldDatePicker } from './controls/PropertyFieldDatePicker';
+//Include the PropertyFieldColorPicker component
+import { PropertyFieldColorPicker } from './controls/PropertyFieldColorPicker';
 //Include the PropertyFieldPeoplePicker component
 import { PropertyFieldPeoplePicker } from './controls/PropertyFieldPeoplePicker';
 //Include the PropertyFieldSPListPicker component
@@ -40,6 +42,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
   public render(): void {
     const element: React.ReactElement<ICustomFieldsWebPartProps> = React.createElement(CustomFieldsWebPart, {
       description: this.properties.description,
+      color: this.properties.color,
       date: this.properties.date,
       date2: this.properties.date2,
       people: this.properties.people,
@@ -73,6 +76,12 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
                 }),
+                PropertyFieldColorPicker('color', {
+                  label: strings.ColorFieldLabel,
+                  initialColor: this.properties.color,
+                  onPropertyChange: this.onPropertyChange
+                })
+                /*,
                 PropertyFieldDatePicker('date', {
                   label: strings.DateFieldLabel,
                   initialDate: this.properties.date,
@@ -108,7 +117,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   orderBy: PropertyFieldSPListMultiplePickerOrderBy.Title,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
-                })
+                })*/
               ]
             }
           ]

@@ -30,41 +30,8 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 Edit this WebPart to test the custom fields.
               </p>
               <p className='ms-font-l ms-fontColor-white'>
-                Date 1: {this.props.date}
+                Color: {this.props.color}
               </p>
-              <p className='ms-font-l ms-fontColor-white'>
-                Date 2: {this.props.date2}
-              </p>
-              <div className='ms-font-l ms-fontColor-white'>
-                Users:
-                <ul>
-                {
-                  peopleList.map((element: IPropertyFieldPeople, i:number) => {
-                    return (
-                      <li>
-                        Username : {element.fullName}<br/>
-                        Login: {element.login}<br/>
-                        Email: {element.email}<br/>
-                        JobTitle: {element.jobTitle}<br/>
-                      </li>
-                    );
-                })}
-                </ul>
-              </div>
-              <p className='ms-font-l ms-fontColor-white'>
-                List: {this.props.list}
-              </p>
-              <div className='ms-font-l ms-fontColor-white'>
-                Lists:
-                <ul>
-                {
-                  lists.map((element: string, i:number) => {
-                    return (
-                      <li>{element}</li>
-                    );
-                })}
-                </ul>
-              </div>
             </div>
           </div>
         </div>

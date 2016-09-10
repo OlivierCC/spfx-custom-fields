@@ -2,6 +2,7 @@ import { IPropertyFieldPeople } from './controls/PropertyFieldPeoplePicker';
 
 export interface ICustomFieldsWebPartWebPartProps {
   description: string;
+  color: string;
   date: string;
   date2: string;
   people: IPropertyFieldPeople[];

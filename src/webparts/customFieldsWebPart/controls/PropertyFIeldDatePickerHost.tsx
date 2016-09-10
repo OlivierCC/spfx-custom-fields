@@ -96,7 +96,7 @@ export default class PropertyFieldDatePickerHost extends React.Component<IProper
 
   /**
    * @function
-   * Function called when the DatePicket Office UI Fabric component selected date changed
+   * Function called when the DatePicker Office UI Fabric component selected date changed
    */
   private onSelectDate(date: Date): void {
     //Checks if there is a method to called
