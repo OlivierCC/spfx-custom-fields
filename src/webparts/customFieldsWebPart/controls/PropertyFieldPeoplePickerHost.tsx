@@ -198,7 +198,7 @@ export default class PropertyFieldPeoplePickerHost extends React.Component<IProp
    */
   private getPersonaFromPeople(element: IPropertyFieldPeople, index: number): IPersonaProps {
       return {
-        primaryText: element.fullName, secondaryText: element.jobTitle,
+        primaryText: element.fullName, secondaryText: element.jobTitle, imageUrl: element.imageUrl,
         imageInitials: element.initials, presence: PersonaPresence.none, initialsColor: this.getRandomInitialsColor(index)
       };
   }
@@ -355,6 +355,7 @@ class PropertyFieldSearchService implements IPropertyFieldSearchService {
                 persona.email = element.EntityData.Email;
                 persona.jobTitle = element.EntityData.Title;
                 persona.initials = this.getFullNameInitials(persona.fullName);
+                persona.imageUrl = this.getUserPhotoUrl(persona.email, this.context.pageContext.web.absoluteUrl);
                 res.push(persona);
               });
               return res;
@@ -382,6 +383,14 @@ class PropertyFieldSearchService implements IPropertyFieldSearchService {
     else {
       return (words[0].charAt(0) + words[1].charAt(0));
     }
+  }
+
+  /**
+   * @function
+   * Gets the user photo url
+   */
+  private getUserPhotoUrl(userEmail: string, siteUrl: string): string {
+    return `${siteUrl}/_layouts/15/userphoto.aspx?size=S&accountname=${userEmail}`;
   }
 
 

@@ -48,6 +48,11 @@ export interface IPropertyFieldPeople {
    * User's initials (optional)
    */
   initials?: string;
+  /**
+   * @var
+   * User's image url (optional)
+   */
+  imageUrl?: string;
 }
 
 /**
