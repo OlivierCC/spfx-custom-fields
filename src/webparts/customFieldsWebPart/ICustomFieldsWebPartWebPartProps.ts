@@ -6,5 +6,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   date2: string;
   people: IPropertyFieldPeople[];
   list: string;
-  lists: string[];
+  listsCollection: string[];
 }

@@ -3,7 +3,10 @@
 > Note: The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production enviornments.
 
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
-include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeoplePicker** and **PropertyFieldSPListPicker** controls, based on the Office UI Fabric framework and React. You can use these custom fields to your own client side web parts. You can find bellow the complete list of all these custom fields and you can click on the custom field name to consult the complete documentation.
+include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeoplePicker**, **PropertyFieldSPListPicker**
+and **PropertyFieldSPListMultiplePicker** controls, based on the Office UI Fabric framework and React.
+You can use these custom fields to your own client side web parts. You can find bellow the complete list of
+all these custom fields and you can click on the custom field name to consult the complete documentation.
 
 
 Custom Field | Description |  Overview
@@ -11,7 +14,7 @@ Custom Field | Description |  Overview
 [PropertyFieldDatePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDatePicker) | Custom field to select a Date with a mini-calendar based on the Office UI Fabric DatePicker control | ![PropertyFieldDatePicker](./assets/OverviewDatePicker.png)
 [PropertyFieldPeoplePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPeoplePicker) | Custom field to select users from the SharePoint users database with a search field. Start to enter a lastname or a firstname, and pick a user  | ![PropertyFieldPeoplePicker](./assets/OverviewPeoplePicker.png)
 [PropertyFieldSPListPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListPicker)| Custom field to select a list from the current SharePoint web site.   | ![PropertyFieldSPListPicker](./assets/OverviewSPListPicker.png)
-PropertyFieldSPListMultiplePicker | Under development
+[PropertyFieldSPListMultiplePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListMultiplePicker)| Custom field to select multiple lists from the current SharePoint web site.   | ![PropertyFieldSPListMultiplePicker](./assets/OverviewSPListMultiplePicker.png)
 
 
 # Build and run this sample in the SharePoint workbench

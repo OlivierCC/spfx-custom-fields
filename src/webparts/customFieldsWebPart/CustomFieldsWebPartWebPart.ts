@@ -23,6 +23,8 @@ import { PropertyFieldDatePicker } from './controls/PropertyFieldDatePicker';
 import { PropertyFieldPeoplePicker } from './controls/PropertyFieldPeoplePicker';
 //Include the PropertyFieldSPListPicker component
 import { PropertyFieldSPListPicker, PropertyFieldSPListPickerOrderBy } from './controls/PropertyFieldSPListPicker';
+//Include the PropertyFieldSPListMultiplePicker component
+import { PropertyFieldSPListMultiplePicker, PropertyFieldSPListMultiplePickerOrderBy } from './controls/PropertyFieldSPListMultiplePicker';
 
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
@@ -42,7 +44,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       date2: this.properties.date2,
       people: this.properties.people,
       list: this.properties.list,
-      lists: this.properties.lists
+      listsCollection: this.properties.listsCollection
     });
 
     ReactDom.render(element, this.domElement);
@@ -95,6 +97,15 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   includeHidden: false,
                   //baseTemplate: 109,
                   orderBy: PropertyFieldSPListPickerOrderBy.Title,
+                  onPropertyChange: this.onPropertyChange,
+                  context: this.context
+                }),
+                PropertyFieldSPListMultiplePicker('listsCollection', {
+                  label: strings.SPListFieldLabel,
+                  selectedLists: this.properties.listsCollection,
+                  includeHidden: false,
+                  //baseTemplate: 109,
+                  orderBy: PropertyFieldSPListMultiplePickerOrderBy.Title,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
                 })

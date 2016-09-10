@@ -1,5 +1,5 @@
 /**
- * @file PropertyFieldPeoplePickerHost.tsx
+ * @file PropertyFieldSPListPickerHost.tsx
  * Renders the controls for PropertyFieldSPListPicker component
  *
  * @copyright 2016 Olivier Carpentier
@@ -134,7 +134,7 @@ class SPListPickerService {
 
   /**
    * @function
-   * Gets the list of picture libs in the current SharePoint site
+   * Gets the collection of libs in the current SharePoint site
    */
   public getLibs(): Promise<ISPLists> {
     if (this.context.environment.type === EnvironmentType.Local) {

@@ -14,6 +14,9 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
     var peopleList: IPropertyFieldPeople[] = [];
     if (this.props && this.props.people)
       peopleList = this.props.people;
+    var lists: string[] = [];
+    if (this.props && this.props.listsCollection)
+      lists = this.props.listsCollection;
 
     return (
       <div className={styles.customFieldsWebPart}>
@@ -51,6 +54,17 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
               <p className='ms-font-l ms-fontColor-white'>
                 List: {this.props.list}
               </p>
+              <div className='ms-font-l ms-fontColor-white'>
+                Lists:
+                <ul>
+                {
+                  lists.map((element: string, i:number) => {
+                    return (
+                      <li>{element}</li>
+                    );
+                })}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
