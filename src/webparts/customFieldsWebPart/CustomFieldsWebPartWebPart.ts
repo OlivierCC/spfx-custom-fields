@@ -76,12 +76,6 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
                 }),
-                PropertyFieldColorPicker('color', {
-                  label: strings.ColorFieldLabel,
-                  initialColor: this.properties.color,
-                  onPropertyChange: this.onPropertyChange
-                })
-                /*,
                 PropertyFieldDatePicker('date', {
                   label: strings.DateFieldLabel,
                   initialDate: this.properties.date,
@@ -100,6 +94,11 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
                 }),
+                PropertyFieldColorPicker('color', {
+                  label: strings.ColorFieldLabel,
+                  initialColor: this.properties.color,
+                  onPropertyChange: this.onPropertyChange
+                }),
                 PropertyFieldSPListPicker('list', {
                   label: strings.SPListFieldLabel,
                   selectedList: this.properties.list,
@@ -117,7 +116,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   orderBy: PropertyFieldSPListMultiplePickerOrderBy.Title,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
-                })*/
+                })
               ]
             }
           ]
