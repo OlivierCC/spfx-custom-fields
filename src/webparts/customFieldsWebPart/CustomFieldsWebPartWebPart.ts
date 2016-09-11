@@ -29,6 +29,9 @@ import { PropertyFieldSPListPicker, PropertyFieldSPListPickerOrderBy } from './c
 import { PropertyFieldSPListMultiplePicker, PropertyFieldSPListMultiplePickerOrderBy } from './controls/PropertyFieldSPListMultiplePicker';
 //Include the PropertyFieldSPFolderPicker component
 import { PropertyFieldSPFolderPicker } from './controls/PropertyFieldSPFolderPicker';
+//Include the PropertyFieldPassword component
+import { PropertyFieldPassword } from './controls/PropertyFieldPassword';
+
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -49,7 +52,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       folder: this.properties.folder,
       people: this.properties.people,
       list: this.properties.list,
-      listsCollection: this.properties.listsCollection
+      listsCollection: this.properties.listsCollection,
+      password: this.properties.password
     });
 
     ReactDom.render(element, this.domElement);
@@ -77,6 +81,11 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyFieldPassword('password', {
+                  label: strings.PasswordFieldLabel,
+                  initialValue: this.properties.password,
+                  onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldDatePicker('date', {
                   label: strings.DateFieldLabel,

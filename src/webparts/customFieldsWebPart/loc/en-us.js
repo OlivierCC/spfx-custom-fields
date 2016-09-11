@@ -8,6 +8,7 @@ define([], function() {
     "SPListFieldLabel": "SharePoint List Field",
     "ColorFieldLabel": "Color Field",
     "SPFolderFieldLabel": "SharePoint Folder Field",
+    "PasswordFieldLabel": "Password Field",
 
     //PeoplePicker labels
     //Copy the following labels in your project if you want to use the PeoplePicker

@@ -9,4 +9,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   list: string;
   listsCollection: string[];
   folder: string;
+  password: string;
 }

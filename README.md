@@ -18,6 +18,7 @@ Custom Field | Description |  Overview
 [PropertyFieldSPListPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListPicker)| Custom field to select a list from the current SharePoint web site.   | ![PropertyFieldSPListPicker](./assets/OverviewSPListPicker.png)
 [PropertyFieldSPListMultiplePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListMultiplePicker)| Custom field to select multiple lists from the current SharePoint web site.   | ![PropertyFieldSPListMultiplePicker](./assets/OverviewSPListMultiplePicker.png)
 [PropertyFieldSPFolderPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPFolderPicker)| Custom field to select a folder from the current SharePoint web site.   | ![PropertyFieldSPFolderPicker](./assets/OverviewSPFolderPicker.png)
+[PropertyFieldPassword](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPassword) | Custom field to select a password | ![PropertyFieldPassword](./assets/OverviewPassword.png)
 
 
 # Build and run this sample in the SharePoint workbench
