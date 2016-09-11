@@ -57,6 +57,9 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
               <p className='ms-font-l ms-fontColor-white'>
                 List: {this.props.list}
               </p>
+              <p className='ms-font-l ms-fontColor-white'>
+                Folder: {this.props.folder}
+              </p>
               <div className='ms-font-l ms-fontColor-white'>
                 Lists:
                 <ul>

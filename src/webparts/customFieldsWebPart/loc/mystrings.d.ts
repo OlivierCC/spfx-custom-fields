@@ -8,6 +8,7 @@ declare interface IStrings {
   PeopleFieldLabel: string;
   SPListFieldLabel: string;
   ColorFieldLabel: string;
+  SPFolderFieldLabel: string;
 
   //PeoplePicker labels
   //Copy the following labels in your project if you want to use the PeoplePicker
@@ -18,6 +19,12 @@ declare interface IStrings {
   //SPListPicker labels
   //Copy the following labels in your project if you want to use the SPListPicker
   SPListPickerLoading: string;
+
+  //SPFolderPicker labels
+  //Copy the following labels in your project if you want to use the SPFolderPicker
+  SPFolderPickerDialogTitle: string;
+  SPFolderPickerSelectButton: string;
+  SPFolderPickerCancelButton: string;
 
   //DatePicker labels
   //Copy the following labels in your project if you want to use the DatePicker

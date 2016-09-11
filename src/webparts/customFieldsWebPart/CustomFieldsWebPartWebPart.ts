@@ -27,7 +27,8 @@ import { PropertyFieldPeoplePicker } from './controls/PropertyFieldPeoplePicker'
 import { PropertyFieldSPListPicker, PropertyFieldSPListPickerOrderBy } from './controls/PropertyFieldSPListPicker';
 //Include the PropertyFieldSPListMultiplePicker component
 import { PropertyFieldSPListMultiplePicker, PropertyFieldSPListMultiplePickerOrderBy } from './controls/PropertyFieldSPListMultiplePicker';
-
+//Include the PropertyFieldSPFolderPicker component
+import { PropertyFieldSPFolderPicker } from './controls/PropertyFieldSPFolderPicker';
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -45,6 +46,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       color: this.properties.color,
       date: this.properties.date,
       date2: this.properties.date2,
+      folder: this.properties.folder,
       people: this.properties.people,
       list: this.properties.list,
       listsCollection: this.properties.listsCollection
@@ -94,6 +96,13 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
                 }),
+                PropertyFieldSPFolderPicker('folder', {
+                  label: strings.SPFolderFieldLabel,
+                  initialFolder: this.properties.folder,
+                  //baseFolder: '/sites/devcenter/_catalogs',
+                  context: this.context,
+                  onPropertyChange: this.onPropertyChange
+                }),
                 PropertyFieldColorPicker('color', {
                   label: strings.ColorFieldLabel,
                   initialColor: this.properties.color,
@@ -112,7 +121,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   label: strings.SPListFieldLabel,
                   selectedLists: this.properties.listsCollection,
                   includeHidden: false,
-                  //baseTemplate: 109,
+                  baseTemplate: 109,
                   orderBy: PropertyFieldSPListMultiplePickerOrderBy.Title,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context

@@ -4,7 +4,8 @@
 
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
 include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**
-**PropertyFieldSPListPicker** and **PropertyFieldSPListMultiplePicker** controls, based on the Office UI Fabric framework and React.
+**PropertyFieldSPListPicker**, **PropertyFieldSPListMultiplePicker** and **PropertyFieldSPFolderPicker**
+ controls, based on the Office UI Fabric framework and React.
 You can use these custom fields to your own client side web parts. You can find bellow the complete list of
 all these custom fields and you can click on the custom field name to consult the complete documentation.
 
@@ -16,6 +17,7 @@ Custom Field | Description |  Overview
 [PropertyFieldColorPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldColorPicker) | Custom field to select a Color with a visual RGB editor based on the Office UI Fabric ColorPicker control | ![PropertyFieldColorPicker](./assets/OverviewColorPicker.png)
 [PropertyFieldSPListPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListPicker)| Custom field to select a list from the current SharePoint web site.   | ![PropertyFieldSPListPicker](./assets/OverviewSPListPicker.png)
 [PropertyFieldSPListMultiplePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListMultiplePicker)| Custom field to select multiple lists from the current SharePoint web site.   | ![PropertyFieldSPListMultiplePicker](./assets/OverviewSPListMultiplePicker.png)
+[PropertyFieldSPFolderPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPFolderPicker)| Custom field to select a folder from the current SharePoint web site.   | ![PropertyFieldSPFolderPicker](./assets/OverviewSPFolderPicker.png)
 
 
 # Build and run this sample in the SharePoint workbench

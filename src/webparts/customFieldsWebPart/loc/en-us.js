@@ -7,16 +7,26 @@ define([], function() {
     "PeopleFieldLabel": "People Picker Field",
     "SPListFieldLabel": "SharePoint List Field",
     "ColorFieldLabel": "Color Field",
+    "SPFolderFieldLabel": "SharePoint Folder Field",
 
     //PeoplePicker labels
+    //Copy the following labels in your project if you want to use the PeoplePicker
     "PeoplePickerSuggestedContacts": "Suggested contacts",
     "PeoplePickerNoResults": "No result found",
     "PeoplePickerLoading": "Loading contacts...",
 
     //SPListPicker labels
+    //Copy the following labels in your project if you want to use the SPListPicker
     "SPListPickerLoading": "Loading lists...",
 
+    //SPFolderPicker labels
+    //Copy the following labels in your project if you want to use the SPFolderPicker
+    "SPFolderPickerDialogTitle": "Select a folder",
+    "SPFolderPickerSelectButton": "Select",
+    "SPFolderPickerCancelButton": "Cancel",
+
     //DatePicker labels
+    //Copy the following labels in your project if you want to use the DatePicker
     "DatePickerMonthLongJanuary": "January",
     "DatePickerMonthShortJanuary": "Jan",
     "DatePickerMonthLongFebruary": "February",

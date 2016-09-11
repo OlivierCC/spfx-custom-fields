@@ -8,4 +8,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   people: IPropertyFieldPeople[];
   list: string;
   listsCollection: string[];
+  folder: string;
 }
