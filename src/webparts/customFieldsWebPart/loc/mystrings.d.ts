@@ -10,6 +10,7 @@ declare interface IStrings {
   ColorFieldLabel: string;
   SPFolderFieldLabel: string;
   PasswordFieldLabel: string;
+  FontFieldLabel: string;
 
   //PeoplePicker labels
   //Copy the following labels in your project if you want to use the PeoplePicker

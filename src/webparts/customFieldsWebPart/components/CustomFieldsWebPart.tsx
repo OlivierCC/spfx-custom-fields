@@ -33,6 +33,9 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 Password: {this.props.password}
               </p>
               <p className='ms-font-l ms-fontColor-white'>
+                Font: {this.props.font}
+              </p>
+              <p className='ms-font-l ms-fontColor-white'>
                 Date 1: {this.props.date}
               </p>
               <p className='ms-font-l ms-fontColor-white'>

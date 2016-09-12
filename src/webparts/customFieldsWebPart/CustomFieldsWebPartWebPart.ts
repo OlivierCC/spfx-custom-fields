@@ -31,7 +31,8 @@ import { PropertyFieldSPListMultiplePicker, PropertyFieldSPListMultiplePickerOrd
 import { PropertyFieldSPFolderPicker } from './controls/PropertyFieldSPFolderPicker';
 //Include the PropertyFieldPassword component
 import { PropertyFieldPassword } from './controls/PropertyFieldPassword';
-
+//Include the PropertyFieldFontPicker component
+import { PropertyFieldFontPicker } from './controls/PropertyFieldFontPicker';
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -53,7 +54,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       people: this.properties.people,
       list: this.properties.list,
       listsCollection: this.properties.listsCollection,
-      password: this.properties.password
+      password: this.properties.password,
+      font: this.properties.font
     });
 
     ReactDom.render(element, this.domElement);
@@ -81,6 +83,13 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyFieldFontPicker('font', {
+                  label: strings.FontFieldLabel,
+                  useSafeFont: true,
+                  previewFonts: true,
+                  initialValue: this.properties.font,
+                  onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldPassword('password', {
                   label: strings.PasswordFieldLabel,
