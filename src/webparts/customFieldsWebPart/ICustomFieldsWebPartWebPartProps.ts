@@ -11,4 +11,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   folder: string;
   password: string;
   font: string;
+  phone: string;
 }

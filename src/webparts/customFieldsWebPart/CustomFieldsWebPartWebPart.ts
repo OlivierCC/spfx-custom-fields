@@ -33,6 +33,8 @@ import { PropertyFieldSPFolderPicker } from './controls/PropertyFieldSPFolderPic
 import { PropertyFieldPassword } from './controls/PropertyFieldPassword';
 //Include the PropertyFieldFontPicker component
 import { PropertyFieldFontPicker } from './controls/PropertyFieldFontPicker';
+//Include the PropertyFieldPhoneNumber component
+import { PropertyFieldPhoneNumber, IPhoneNumberFormat } from './controls/PropertyFieldPhoneNumber';
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -55,7 +57,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       list: this.properties.list,
       listsCollection: this.properties.listsCollection,
       password: this.properties.password,
-      font: this.properties.font
+      font: this.properties.font,
+      phone: this.properties.phone
     });
 
     ReactDom.render(element, this.domElement);
@@ -83,6 +86,12 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyFieldPhoneNumber('phone', {
+                  label: strings.PhoneNumberFieldLabel,
+                  initialValue: this.properties.phone,
+                  phoneNumberFormat: IPhoneNumberFormat.UnitedStates,
+                  onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldFontPicker('font', {
                   label: strings.FontFieldLabel,
