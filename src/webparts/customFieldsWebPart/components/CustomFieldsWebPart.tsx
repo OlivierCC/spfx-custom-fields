@@ -39,6 +39,10 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
               </p>
 
               <p className='ms-font-l ms-fontColor-white'>
+                Credit Card: {this.props.maskedInput}
+              </p>
+
+              <p className='ms-font-l ms-fontColor-white'>
                 Date 1: {this.props.date}
               </p>
               <p className='ms-font-l ms-fontColor-white'>

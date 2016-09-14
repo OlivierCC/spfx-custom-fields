@@ -12,4 +12,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   password: string;
   font: string;
   phone: string;
+  maskedInput: string;
 }

@@ -35,6 +35,9 @@ import { PropertyFieldPassword } from './controls/PropertyFieldPassword';
 import { PropertyFieldFontPicker } from './controls/PropertyFieldFontPicker';
 //Include the PropertyFieldPhoneNumber component
 import { PropertyFieldPhoneNumber, IPhoneNumberFormat } from './controls/PropertyFieldPhoneNumber';
+//Include the PropertyFieldMaskedInput component
+import { PropertyFieldMaskedInput } from './controls/PropertyFieldMaskedInput';
+
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -58,7 +61,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       listsCollection: this.properties.listsCollection,
       password: this.properties.password,
       font: this.properties.font,
-      phone: this.properties.phone
+      phone: this.properties.phone,
+      maskedInput: this.properties.maskedInput
     });
 
     ReactDom.render(element, this.domElement);
@@ -91,6 +95,14 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   label: strings.PhoneNumberFieldLabel,
                   initialValue: this.properties.phone,
                   phoneNumberFormat: IPhoneNumberFormat.UnitedStates,
+                  onPropertyChange: this.onPropertyChange
+                }),
+                PropertyFieldMaskedInput('maskedInput', {
+                  label: strings.MaskedInputFieldLabel,
+                  initialValue: this.properties.maskedInput,
+                  pattern: '\d{4} \d{4} \d{4} \d{4}',
+                  placeholder: 'XXXX XXXX XXXX XXXX',
+                  maxLength: '19',
                   onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldFontPicker('font', {

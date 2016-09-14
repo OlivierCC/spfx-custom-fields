@@ -11,6 +11,7 @@ define([], function() {
     "PasswordFieldLabel": "Password Field",
     "FontFieldLabel": "Font Field",
     "PhoneNumberFieldLabel": "Phone Number Field",
+    "MaskedInputFieldLabel": "Masked Input Field",
 
     //PeoplePicker labels
     //Copy the following labels in your project if you want to use the PeoplePicker

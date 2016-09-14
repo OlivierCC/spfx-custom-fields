@@ -5,7 +5,7 @@
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
 include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
 **PropertyFieldFontPicker**, **PropertyFieldSPListPicker**, **PropertyFieldSPListMultiplePicker**, **PropertyFieldSPFolderPicker**,
- **PropertyFieldPhoneNumber**
+ **PropertyFieldPhoneNumber**, **PropertyFieldMaskedInput**
  controls, based on the Office UI Fabric framework and React.
 You can use these custom fields to your own client side web parts. You can find bellow the complete list of
 all these custom fields and you can click on the custom field name to consult the complete documentation.
@@ -22,6 +22,7 @@ Custom Field | Description |  Overview
 [PropertyFieldSPFolderPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPFolderPicker)| Custom field to select a folder from the current SharePoint web site.   | ![PropertyFieldSPFolderPicker](./assets/OverviewSPFolderPicker.png)
 [PropertyFieldPassword](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPassword) | Custom field to select a password | ![PropertyFieldPassword](./assets/OverviewPassword.png)
 [PropertyFieldPhoneNumber](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPhoneNumber) | Custom field to select a phone number with a masked control based on phone numbers international formats. | ![PropertyFieldPhoneNumber](./assets/OverviewPhoneNumber.png)
+[PropertyFieldMaskedInput](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldMaskedInput) | Custom field to add a text input with a specified masked based on regexp. | ![PropertyFieldMaskedInput](./assets/OverviewMaskedInput.png)
 
 
 # Build and run this sample in the SharePoint workbench
