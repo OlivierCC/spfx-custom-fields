@@ -13,4 +13,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   font: string;
   phone: string;
   maskedInput: string;
+  geolocation: string;
 }

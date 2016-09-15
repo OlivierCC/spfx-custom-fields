@@ -89,6 +89,12 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldMaskedInput" target="_doc">(Doc)</a> :&nbsp;
                 {this.props.maskedInput}
               </p>
+              <p>
+                <i className="ms-Icon ms-Icon--globe" aria-hidden="true"></i>&nbsp;
+                <b>Geolocation</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldMapPicker" target="_doc">(Doc)</a> :&nbsp;
+                {this.props.geolocation}
+              </p>
 
               <p className="ms-fontSize-xxl">
                <i className="ms-Icon ms-Icon--gear" aria-hidden="true"></i>

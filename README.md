@@ -29,6 +29,7 @@ Custom Field | Description |  Overview
 [PropertyFieldPassword](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPassword) | Custom field to select a password | ![PropertyFieldPassword](./assets/OverviewPassword.png)
 [PropertyFieldPhoneNumber](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPhoneNumber) | Custom field to select a phone number with a masked control based on phone numbers international formats. | ![PropertyFieldPhoneNumber](./assets/OverviewPhoneNumber.png)
 [PropertyFieldMaskedInput](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldMaskedInput) | Custom field to add a text input with a specified masked based on regexp. | ![PropertyFieldMaskedInput](./assets/OverviewMaskedInput.png)
+[PropertyFieldMapPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldMapPicker) | Custom field to add a gps localisation with map preview. | ![PropertyFieldMapPicker](./assets/OverviewdMapPicker.png)
 
 
 # Build and run this sample in the SharePoint workbench

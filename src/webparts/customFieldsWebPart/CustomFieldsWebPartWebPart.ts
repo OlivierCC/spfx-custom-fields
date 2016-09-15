@@ -63,7 +63,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       password: this.properties.password,
       font: this.properties.font,
       phone: this.properties.phone,
-      maskedInput: this.properties.maskedInput
+      maskedInput: this.properties.maskedInput,
+      geolocation: this.properties.geolocation
     });
 
     ReactDom.render(element, this.domElement);
@@ -140,8 +141,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                 }),
                 PropertyFieldMapPicker('geolocation', {
                   label: strings.GeoLocationFieldLabel,
-                  longitude: '0',
-                  latitude: '51.477222',
+                  longitude: this.properties.geolocation != null ? this.properties.geolocation.substr(0, this.properties.geolocation.indexOf(",")) : '0',
+                  latitude: this.properties.geolocation != null ? this.properties.geolocation.substr(this.properties.geolocation.indexOf(",") + 1, this.properties.geolocation.length - this.properties.geolocation.indexOf(",")) : '0',
                   onPropertyChange: this.onPropertyChange
                 }),
 
