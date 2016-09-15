@@ -7,9 +7,15 @@ include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeopleP
 **PropertyFieldFontPicker**, **PropertyFieldSPListPicker**, **PropertyFieldSPListMultiplePicker**, **PropertyFieldSPFolderPicker**,
  **PropertyFieldPhoneNumber**, **PropertyFieldMaskedInput**
  controls, based on the Office UI Fabric framework and React.
-You can use these custom fields to your own client side web parts. You can find bellow the complete list of
-all these custom fields and you can click on the custom field name to consult the complete documentation.
 
+# Overview
+
+![PropertyFieldDatePicker](./assets/Overview.gif)
+
+# Custom fields documentation
+
+You can use these custom fields to your own client side web parts. You can find bellow the list of
+all these custom fields and you can click on the custom field name to consult the documentation.
 
 Custom Field | Description |  Overview
 ------------ | ----------- | -----------
