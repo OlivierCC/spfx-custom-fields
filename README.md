@@ -10,7 +10,7 @@ include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeopleP
 
 # Overview
 
-![PropertyFieldDatePicker](./assets/Overview.gif)
+![Overview](./assets/Overview.gif)
 
 # Custom fields documentation
 
