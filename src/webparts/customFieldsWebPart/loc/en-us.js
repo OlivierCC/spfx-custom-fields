@@ -1,6 +1,6 @@
 define([], function() {
   return {
-    "PropertyPaneDescription": "Description",
+    "PropertyPaneDescription": "Customize your web part",
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
     "DateFieldLabel": "Date Field",
@@ -12,6 +12,7 @@ define([], function() {
     "FontFieldLabel": "Font Field",
     "PhoneNumberFieldLabel": "Phone Number Field",
     "MaskedInputFieldLabel": "Masked Input Field",
+    "GeoLocationFieldLabel": "Geolocation Field",
 
     //PeoplePicker labels
     //Copy the following labels in your project if you want to use the PeoplePicker

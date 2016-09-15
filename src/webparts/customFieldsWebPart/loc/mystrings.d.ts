@@ -13,6 +13,7 @@ declare interface IStrings {
   FontFieldLabel: string;
   PhoneNumberFieldLabel: string;
   MaskedInputFieldLabel: string;
+  GeoLocationFieldLabel: string;
 
   //PeoplePicker labels
   //Copy the following labels in your project if you want to use the PeoplePicker

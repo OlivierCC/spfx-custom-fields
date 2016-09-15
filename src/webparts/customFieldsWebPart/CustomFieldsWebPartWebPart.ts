@@ -37,7 +37,8 @@ import { PropertyFieldFontPicker } from './controls/PropertyFieldFontPicker';
 import { PropertyFieldPhoneNumber, IPhoneNumberFormat } from './controls/PropertyFieldPhoneNumber';
 //Include the PropertyFieldMaskedInput component
 import { PropertyFieldMaskedInput } from './controls/PropertyFieldMaskedInput';
-
+//Include the PropertyFieldMaskedInput component
+import { PropertyFieldMapPicker } from './controls/PropertyFieldMapPicker';
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -84,27 +85,12 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
           header: {
             description: strings.PropertyPaneDescription
           },
+          //Display the web part properties as accordion
+          displayGroupsAsAccordion: true,
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: 'Layout Fields',
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                }),
-                PropertyFieldPhoneNumber('phone', {
-                  label: strings.PhoneNumberFieldLabel,
-                  initialValue: this.properties.phone,
-                  phoneNumberFormat: IPhoneNumberFormat.UnitedStates,
-                  onPropertyChange: this.onPropertyChange
-                }),
-                PropertyFieldMaskedInput('maskedInput', {
-                  label: strings.MaskedInputFieldLabel,
-                  initialValue: this.properties.maskedInput,
-                  pattern: '\d{4} \d{4} \d{4} \d{4}',
-                  placeholder: 'XXXX XXXX XXXX XXXX',
-                  maxLength: '19',
-                  onPropertyChange: this.onPropertyChange
-                }),
                 PropertyFieldFontPicker('font', {
                   label: strings.FontFieldLabel,
                   useSafeFont: true,
@@ -112,6 +98,16 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   initialValue: this.properties.font,
                   onPropertyChange: this.onPropertyChange
                 }),
+                PropertyFieldColorPicker('color', {
+                  label: strings.ColorFieldLabel,
+                  initialColor: this.properties.color,
+                  onPropertyChange: this.onPropertyChange
+                })
+              ],
+            },
+            {
+              groupName: 'Text Input Fields',
+              groupFields: [
                 PropertyFieldPassword('password', {
                   label: strings.PasswordFieldLabel,
                   initialValue: this.properties.password,
@@ -128,24 +124,39 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   formatDate: this.formatDateIso,
                   onPropertyChange: this.onPropertyChange
                 }),
+                PropertyFieldPhoneNumber('phone', {
+                  label: strings.PhoneNumberFieldLabel,
+                  initialValue: this.properties.phone,
+                  phoneNumberFormat: IPhoneNumberFormat.UnitedStates,
+                  onPropertyChange: this.onPropertyChange
+                }),
+                PropertyFieldMaskedInput('maskedInput', {
+                  label: strings.MaskedInputFieldLabel,
+                  initialValue: this.properties.maskedInput,
+                  pattern: '\d{4} \d{4} \d{4} \d{4}',
+                  placeholder: 'XXXX XXXX XXXX XXXX',
+                  maxLength: '19',
+                  onPropertyChange: this.onPropertyChange
+                }),
+                PropertyFieldMapPicker('geolocation', {
+                  label: strings.GeoLocationFieldLabel,
+                  longitude: '0',
+                  latitude: '51.477222',
+                  onPropertyChange: this.onPropertyChange
+                }),
+
+            ],
+            },
+            {
+              groupName: 'SharePoint Fields',
+              groupFields: [
+
                 PropertyFieldPeoplePicker('people', {
                   label: strings.PeopleFieldLabel,
                   initialData: this.properties.people,
                   allowDuplicate: true,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
-                }),
-                PropertyFieldSPFolderPicker('folder', {
-                  label: strings.SPFolderFieldLabel,
-                  initialFolder: this.properties.folder,
-                  //baseFolder: '/sites/devcenter/_catalogs',
-                  context: this.context,
-                  onPropertyChange: this.onPropertyChange
-                }),
-                PropertyFieldColorPicker('color', {
-                  label: strings.ColorFieldLabel,
-                  initialColor: this.properties.color,
-                  onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldSPListPicker('list', {
                   label: strings.SPListFieldLabel,
@@ -155,6 +166,13 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   orderBy: PropertyFieldSPListPickerOrderBy.Title,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
+                }),
+                PropertyFieldSPFolderPicker('folder', {
+                  label: strings.SPFolderFieldLabel,
+                  initialFolder: this.properties.folder,
+                  //baseFolder: '/sites/devcenter/_catalogs',
+                  context: this.context,
+                  onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldSPListMultiplePicker('listsCollection', {
                   label: strings.SPListFieldLabel,
