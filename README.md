@@ -5,7 +5,7 @@
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
 include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
 **PropertyFieldFontPicker**, **PropertyFieldSPListPicker**, **PropertyFieldSPListMultiplePicker**, **PropertyFieldSPFolderPicker**,
- **PropertyFieldPhoneNumber**, **PropertyFieldMaskedInput**
+ **PropertyFieldPhoneNumber**, **PropertyFieldMaskedInput**, **PropertyFieldMapPicker**
  controls, based on the Office UI Fabric framework and React.
 
 # Overview
