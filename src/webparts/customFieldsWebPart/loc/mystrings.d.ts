@@ -11,6 +11,7 @@ declare interface IStrings {
   SPFolderFieldLabel: string;
   PasswordFieldLabel: string;
   FontFieldLabel: string;
+  FontSizeFieldLabel: string;
   PhoneNumberFieldLabel: string;
   MaskedInputFieldLabel: string;
   GeoLocationFieldLabel: string;

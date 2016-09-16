@@ -33,6 +33,8 @@ import { PropertyFieldSPFolderPicker } from './controls/PropertyFieldSPFolderPic
 import { PropertyFieldPassword } from './controls/PropertyFieldPassword';
 //Include the PropertyFieldFontPicker component
 import { PropertyFieldFontPicker } from './controls/PropertyFieldFontPicker';
+//Include the PropertyFieldFontSizePicker component
+import { PropertyFieldFontSizePicker } from './controls/PropertyFieldFontSizePicker';
 //Include the PropertyFieldPhoneNumber component
 import { PropertyFieldPhoneNumber, IPhoneNumberFormat } from './controls/PropertyFieldPhoneNumber';
 //Include the PropertyFieldMaskedInput component
@@ -62,6 +64,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       listsCollection: this.properties.listsCollection,
       password: this.properties.password,
       font: this.properties.font,
+      fontSize: this.properties.fontSize,
       phone: this.properties.phone,
       maskedInput: this.properties.maskedInput,
       geolocation: this.properties.geolocation
@@ -96,6 +99,20 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   label: strings.FontFieldLabel,
                   useSafeFont: true,
                   previewFonts: true,
+                  initialValue: this.properties.font,
+                  onPropertyChange: this.onPropertyChange
+                }),
+                PropertyFieldFontSizePicker('fontSize', {
+                  label: strings.FontSizeFieldLabel,
+                  usePixels: false,
+                  preview: true,
+                  initialValue: this.properties.font,
+                  onPropertyChange: this.onPropertyChange
+                }),
+                PropertyFieldFontSizePicker('fontSize', {
+                  label: strings.FontSizeFieldLabel,
+                  usePixels: true,
+                  preview: true,
                   initialValue: this.properties.font,
                   onPropertyChange: this.onPropertyChange
                 }),

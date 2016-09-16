@@ -10,6 +10,7 @@ define([], function() {
     "SPFolderFieldLabel": "SharePoint Folder Field",
     "PasswordFieldLabel": "Password Field",
     "FontFieldLabel": "Font Field",
+    "FontSizeFieldLabel": "Font Size Field",
     "PhoneNumberFieldLabel": "Phone Number Field",
     "MaskedInputFieldLabel": "Masked Input Field",
     "GeoLocationFieldLabel": "Geolocation Field",

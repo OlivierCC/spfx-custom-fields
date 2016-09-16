@@ -22,7 +22,7 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
       <div className={styles.customFieldsWebPart}>
         <div className={styles.container}>
           <div>
-            <div style={{ backgroundColor: this.props.color, fontFamily: this.props.font, padding: '20px' }}>
+            <div style={{ backgroundColor: this.props.color, fontFamily: this.props.font, fontSize: this.props.fontSize ? this.props.fontSize : '12px', padding: '20px' }}>
 
               <div className="ms-MessageBar">
                 <div className="ms-MessageBar-content">
@@ -45,6 +45,13 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 <b>Font</b>
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldFontPicker" target="_doc">(Doc)</a> : &nbsp;
                 {this.props.font}
+
+              </p>
+              <p>
+                <i className="ms-Icon ms-Icon--text" aria-hidden="true"></i>&nbsp;
+                <b>Font Size</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldFontSizePicker" target="_doc">(Doc)</a> : &nbsp;
+                {this.props.fontSize}
 
               </p>
               <p >
