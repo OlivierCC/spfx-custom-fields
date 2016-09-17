@@ -15,6 +15,15 @@ declare interface IStrings {
   PhoneNumberFieldLabel: string;
   MaskedInputFieldLabel: string;
   GeoLocationFieldLabel: string;
+  PictureFieldLabel: string;
+
+  //PicturePicker labels
+  //Copy the following labels in your project if you want to use the PicturePicker
+  PicturePickerTitle: string;
+  PicturePickerRecent: string;
+  PicturePickerSite: string;
+  PicturePickerButtonSelect: string;
+  PicturePickerButtonReset: string;
 
   //PeoplePicker labels
   //Copy the following labels in your project if you want to use the PeoplePicker

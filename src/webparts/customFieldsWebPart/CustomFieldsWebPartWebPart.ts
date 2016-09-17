@@ -41,6 +41,9 @@ import { PropertyFieldPhoneNumber, IPhoneNumberFormat } from './controls/Propert
 import { PropertyFieldMaskedInput } from './controls/PropertyFieldMaskedInput';
 //Include the PropertyFieldMaskedInput component
 import { PropertyFieldMapPicker } from './controls/PropertyFieldMapPicker';
+//Include the PropertyFieldPicturePicker component
+import { PropertyFieldPicturePicker } from './controls/PropertyFieldPicturePicker';
+
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -67,7 +70,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       fontSize: this.properties.fontSize,
       phone: this.properties.phone,
       maskedInput: this.properties.maskedInput,
-      geolocation: this.properties.geolocation
+      geolocation: this.properties.geolocation,
+      picture: this.properties.picture
     });
 
     ReactDom.render(element, this.domElement);
@@ -168,7 +172,12 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
             {
               groupName: 'SharePoint Fields',
               groupFields: [
-
+                PropertyFieldPicturePicker('picture', {
+                  label: strings.PictureFieldLabel,
+                  initialValue: this.properties.picture,
+                  onPropertyChange: this.onPropertyChange,
+                  context: this.context
+                }),
                 PropertyFieldPeoplePicker('people', {
                   label: strings.PeopleFieldLabel,
                   initialData: this.properties.people,
@@ -176,7 +185,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
                 }),
-                PropertyFieldSPListPicker('list', {
+               PropertyFieldSPListPicker('list', {
                   label: strings.SPListFieldLabel,
                   selectedList: this.properties.list,
                   includeHidden: false,

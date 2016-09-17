@@ -14,6 +14,15 @@ define([], function() {
     "PhoneNumberFieldLabel": "Phone Number Field",
     "MaskedInputFieldLabel": "Masked Input Field",
     "GeoLocationFieldLabel": "Geolocation Field",
+    "PictureFieldLabel": "Picture Field",
+
+    //PicturePicker labels
+    //Copy the following labels in your project if you want to use the PicturePicker
+    "PicturePickerTitle": "Select a picture",
+    "PicturePickerRecent": "Recent",
+    "PicturePickerSite": "Site",
+    "PicturePickerButtonSelect": "Select a picture",
+    "PicturePickerButtonReset": "Reset",
 
     //PeoplePicker labels
     //Copy the following labels in your project if you want to use the PeoplePicker

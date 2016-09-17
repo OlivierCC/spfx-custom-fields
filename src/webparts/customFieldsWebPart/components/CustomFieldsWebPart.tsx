@@ -128,6 +128,12 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
               </div>
 
               <p>
+                <i className="ms-Icon ms-Icon--pictureAdd" aria-hidden="true"></i>&nbsp;
+                <b>Picture</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPicturePicker" target="_doc">(Doc)</a> :&nbsp;
+                {this.props.picture}
+              </p>
+              <p>
                 <i className="ms-Icon ms-Icon--listBullets" aria-hidden="true"></i>&nbsp;
                 <b>List</b>
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListPicker" target="_doc">(Doc)</a> :&nbsp;

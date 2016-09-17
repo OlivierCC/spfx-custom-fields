@@ -3,7 +3,7 @@
 > Note: The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production enviornments.
 
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
-include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
+include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPicturePicker**, **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
 **PropertyFieldFontPicker**, **PropertyFieldFontSizePicker**, **PropertyFieldSPListPicker**, **PropertyFieldSPListMultiplePicker**, **PropertyFieldSPFolderPicker**,
  **PropertyFieldPhoneNumber**, **PropertyFieldMaskedInput**, **PropertyFieldMapPicker**
  controls, based on the Office UI Fabric framework and React.
@@ -31,6 +31,7 @@ Custom Field | Description |  Overview
 [PropertyFieldPhoneNumber](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPhoneNumber) | Custom field to select a phone number with a masked control based on phone numbers international formats. | ![PropertyFieldPhoneNumber](./assets/OverviewPhoneNumber.png)
 [PropertyFieldMaskedInput](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldMaskedInput) | Custom field to add a text input with a specified masked based on regexp. | ![PropertyFieldMaskedInput](./assets/OverviewMaskedInput.png)
 [PropertyFieldMapPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldMapPicker) | Custom field to add a gps localisation with map preview. | ![PropertyFieldMapPicker](./assets/OverviewMapPicker.png)
+[PropertyFieldPicturePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPicturePicker)| Custom field to select a picture thanks to a SharePoint visual browser.  | ![PropertyFieldPicturePicker](./assets/OverviewPicturePicker.png)
 
 
 # Build and run this sample in the SharePoint workbench
