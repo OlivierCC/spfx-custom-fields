@@ -420,8 +420,10 @@ export default class PropertyFieldIconPickerHost extends React.Component<IProper
     if (props.initialValue != null && props.initialValue != '') {
       for (var i = 0; i < this.fonts.length; i++) {
         var font = this.fonts[i];
-        this.state.selectedFont = font.Name;
-        this.state.safeSelectedFont = font.SafeValue;
+        if (font.SafeValue == props.initialValue) {
+          this.state.selectedFont = font.Name;
+          this.state.safeSelectedFont = font.SafeValue;
+        }
       }
     }
   }
