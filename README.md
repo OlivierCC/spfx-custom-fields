@@ -2,6 +2,8 @@
 
 > Note: The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production enviornments.
 
+This example is a kit of **15 + components** to customize SPFx web parts custom fields, to make the optimal experience to edit your Web parts.
+
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
 include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPicturePicker**, **PropertyFieldDocumentPicker**,
 **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
