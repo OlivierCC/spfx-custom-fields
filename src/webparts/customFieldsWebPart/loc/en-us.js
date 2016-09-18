@@ -4,6 +4,7 @@ define([], function() {
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
     "DateFieldLabel": "Date Field",
+    "DateTimeFieldLabel": "Date Time Field",
     "PeopleFieldLabel": "People Picker Field",
     "SPListFieldLabel": "SharePoint List Field",
     "ColorFieldLabel": "Color Field",
@@ -16,6 +17,7 @@ define([], function() {
     "GeoLocationFieldLabel": "Geolocation Field",
     "PictureFieldLabel": "Picture Field",
     "IconFieldLabel": "Icon Field",
+    "DocumentFieldLabel": "Document Field",
 
     //PicturePicker labels
     //Copy the following labels in your project if you want to use the PicturePicker
@@ -24,6 +26,14 @@ define([], function() {
     "PicturePickerSite": "Site",
     "PicturePickerButtonSelect": "Select a picture",
     "PicturePickerButtonReset": "Reset",
+
+    //DocumentPicker labels
+    //Copy the following labels in your project if you want to use the DocumentPicker
+    "DocumentPickerTitle": "Select a document",
+    "DocumentPickerRecent": "Recent",
+    "DocumentPickerSite": "Site",
+    "DocumentPickerButtonSelect": "Select a document",
+    "DocumentPickerButtonReset": "Reset",
 
     //PeoplePicker labels
     //Copy the following labels in your project if you want to use the PeoplePicker

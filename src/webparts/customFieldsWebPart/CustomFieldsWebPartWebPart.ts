@@ -18,6 +18,8 @@ import { ICustomFieldsWebPartWebPartProps } from './ICustomFieldsWebPartWebPartP
 
 //Include the PropertyFieldDatePicker component
 import { PropertyFieldDatePicker } from './controls/PropertyFieldDatePicker';
+//Include the PropertyFieldDateTimePicker component
+import { PropertyFieldDateTimePicker } from './controls/PropertyFieldDateTimePicker';
 //Include the PropertyFieldColorPicker component
 import { PropertyFieldColorPicker } from './controls/PropertyFieldColorPicker';
 //Include the PropertyFieldPeoplePicker component
@@ -44,6 +46,9 @@ import { PropertyFieldMapPicker } from './controls/PropertyFieldMapPicker';
 import { PropertyFieldPicturePicker } from './controls/PropertyFieldPicturePicker';
 //Include the PropertyFieldIconPicker component
 import { PropertyFieldIconPicker } from './controls/PropertyFieldIconPicker';
+//Include the PropertyFieldDocumentPicker component
+import { PropertyFieldDocumentPicker } from './controls/PropertyFieldDocumentPicker';
+
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -61,6 +66,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       color: this.properties.color,
       date: this.properties.date,
       date2: this.properties.date2,
+      datetime: this.properties.datetime,
       folder: this.properties.folder,
       people: this.properties.people,
       list: this.properties.list,
@@ -72,7 +78,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       maskedInput: this.properties.maskedInput,
       geolocation: this.properties.geolocation,
       picture: this.properties.picture,
-      icon: this.properties.icon
+      icon: this.properties.icon,
+      document: this.properties.document
     });
 
     ReactDom.render(element, this.domElement);
@@ -153,6 +160,12 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   formatDate: this.formatDateIso,
                   onPropertyChange: this.onPropertyChange
                 }),
+                PropertyFieldDateTimePicker('datetime', {
+                  label: strings.DateTimeFieldLabel,
+                  initialDate: this.properties.datetime,
+                  formatDate: this.formatDateIso,
+                  onPropertyChange: this.onPropertyChange
+                }),
                 PropertyFieldPhoneNumber('phone', {
                   label: strings.PhoneNumberFieldLabel,
                   initialValue: this.properties.phone,
@@ -181,6 +194,12 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                 PropertyFieldPicturePicker('picture', {
                   label: strings.PictureFieldLabel,
                   initialValue: this.properties.picture,
+                  onPropertyChange: this.onPropertyChange,
+                  context: this.context
+                }),
+                PropertyFieldDocumentPicker('document', {
+                  label: strings.DocumentFieldLabel,
+                  initialValue: this.properties.document,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
                 }),

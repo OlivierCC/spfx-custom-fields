@@ -5,6 +5,7 @@ declare interface IStrings {
   BasicGroupName: string;
   DescriptionFieldLabel: string;
   DateFieldLabel: string;
+  DateTimeFieldLabel: string;
   PeopleFieldLabel: string;
   SPListFieldLabel: string;
   ColorFieldLabel: string;
@@ -17,6 +18,7 @@ declare interface IStrings {
   GeoLocationFieldLabel: string;
   PictureFieldLabel: string;
   IconFieldLabel: string;
+  DocumentFieldLabel: string;
 
   //PicturePicker labels
   //Copy the following labels in your project if you want to use the PicturePicker
@@ -25,6 +27,14 @@ declare interface IStrings {
   PicturePickerSite: string;
   PicturePickerButtonSelect: string;
   PicturePickerButtonReset: string;
+
+  //DocumentPicker labels
+  //Copy the following labels in your project if you want to use the DocumentPicker
+  DocumentPickerTitle: string;
+  DocumentPickerRecent: string;
+  DocumentPickerSite: string;
+  DocumentPickerButtonSelect: string;
+  DocumentPickerButtonReset: string;
 
   //PeoplePicker labels
   //Copy the following labels in your project if you want to use the PeoplePicker

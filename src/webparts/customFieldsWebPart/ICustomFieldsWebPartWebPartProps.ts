@@ -5,6 +5,7 @@ export interface ICustomFieldsWebPartWebPartProps {
   color: string;
   date: string;
   date2: string;
+  datetime: string;
   people: IPropertyFieldPeople[];
   list: string;
   listsCollection: string[];
@@ -17,4 +18,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   geolocation: string;
   picture: string;
   icon: string;
+  document: string;
 }

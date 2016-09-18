@@ -1,6 +1,6 @@
 /**
- * @file PropertyFieldPicturePickerHost.tsx
- * Renders the controls for PropertyFieldPicturePicker component
+ * @file PropertyFieldDocumentPickerHost.tsx
+ * Renders the controls for PropertyFieldDocumentPicker component
  *
  * @copyright 2016 Olivier Carpentier
  * Released under MIT licence
@@ -8,7 +8,7 @@
 import * as React from 'react';
 import { EnvironmentType } from '@microsoft/sp-client-base';
 import { IWebPartContext } from '@microsoft/sp-client-preview';
-import { IPropertyFieldPicturePickerPropsInternal } from './PropertyFieldPicturePicker';
+import { IPropertyFieldDocumentPickerPropsInternal } from './PropertyFieldDocumentPicker';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Button, ButtonType } from 'office-ui-fabric-react/lib/Button';
 import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
@@ -17,13 +17,13 @@ import * as strings from 'customFieldsWebPartStrings';
 
 /**
  * @interface
- * PropertyFieldPicturePickerHost properties interface
+ * PropertyFieldDocumentPickerHost properties interface
  *
  */
-export interface IPropertyFieldPicturePickerHostProps extends IPropertyFieldPicturePickerPropsInternal {
+export interface IPropertyFieldDocumentPickerHostProps extends IPropertyFieldDocumentPickerPropsInternal {
 }
 
-export interface IPropertyFieldPicturePickerHostState {
+export interface IPropertyFieldDocumentPickerHostState {
   openPanel?: boolean;
   openRecent?: boolean;
   openSite?: boolean;
@@ -34,15 +34,15 @@ export interface IPropertyFieldPicturePickerHostState {
 
 /**
  * @class
- * Renders the controls for PropertyFieldPicturePicker component
+ * Renders the controls for PropertyFieldDocumentPicker component
  */
-export default class PropertyFieldPicturePickerHost extends React.Component<IPropertyFieldPicturePickerHostProps, IPropertyFieldPicturePickerHostState> {
+export default class PropertyFieldDocumentPickerHost extends React.Component<IPropertyFieldDocumentPickerHostProps, IPropertyFieldDocumentPickerHostState> {
 
   /**
    * @function
    * Contructor
    */
-  constructor(props: IPropertyFieldPicturePickerHostProps) {
+  constructor(props: IPropertyFieldDocumentPickerHostProps) {
     super(props);
     //Bind the current object to the external called onSelectDate method
     this.onOpenPanel = this.onOpenPanel.bind(this);
@@ -135,13 +135,14 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
         this.onClosePanel();
       } else if (messageObject.type == "success") {
         var imageUrl = messageObject.items[0].sharePoint.url;
-        if (imageUrl.indexOf(".jpg") > -1 || imageUrl.indexOf(".png") > -1 || imageUrl.indexOf(".jpeg") > -1 ||
-         imageUrl.indexOf(".gif") > -1 || imageUrl.indexOf(".tiff") > -1) {
+        if (imageUrl.indexOf(".doc") > -1 || imageUrl.indexOf(".docx") > -1 || imageUrl.indexOf(".ppt") > -1 ||
+         imageUrl.indexOf(".pptx") > -1 || imageUrl.indexOf(".xls") > -1 || imageUrl.indexOf(".xlsx") > -1 ||
+         imageUrl.indexOf(".pdf") > -1  || imageUrl.indexOf(".txt") > -1) {
           this.state.selectedImage = imageUrl;
           this.setState(this.state);
           this.saveImageProperty(imageUrl);
           this.onClosePanel();
-          }
+         }
       }
     }
   }
@@ -200,26 +201,30 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
     iframeUrl += "%22%7D&id=";
     iframeUrl += encodeURI(this.props.context.pageContext.web.serverRelativeUrl);
     iframeUrl += '&view=2&typeFilters=';
-    iframeUrl += encodeURI('folder,.gif,.jpg,.jpeg,.bmp,.dib,.tif,.tiff,.ico,.png');
+    iframeUrl += encodeURI('folder,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.pdf,.txt');
     iframeUrl += '&p=2';
+
+    var previewUrl = this.props.context.pageContext.web.absoluteUrl;
+    previewUrl += '/_layouts/15/getpreview.ashx?path=';
+    previewUrl += encodeURI(this.state.selectedImage);
 
     //Renders content
     return (
       <div style={{ marginBottom: '8px'}}>
         <Label>{this.props.label}</Label>
-        <Button onClick={this.onOpenPanel}>{strings.PicturePickerButtonSelect}</Button>
+        <Button onClick={this.onOpenPanel}>{strings.DocumentPickerButtonSelect}</Button>
         <Button onClick={this.onEraseButton} disabled={this.state.selectedImage != null && this.state.selectedImage != '' ? false: true}>
-        {strings.PicturePickerButtonReset}</Button>
+        {strings.DocumentPickerButtonReset}</Button>
         {this.state.selectedImage != null && this.state.selectedImage != '' ?
         <div style={{marginTop: '7px'}}>
-          <img src={this.state.selectedImage} width="225px" height="225px" />
+          <img src={previewUrl} width="225px" height="225px" />
         </div>
         : ''}
 
         <Panel
           isOpen={this.state.openPanel} hasCloseButton={true}
           isLightDismiss={true} type={PanelType.large}
-          headerText={strings.PicturePickerTitle}>
+          headerText={strings.DocumentPickerTitle}>
 
           <div style={{backgroundColor: '#F4F4F4', width: '100%', height:'80vh', paddingTop: '0px', display: 'inline-flex'}}>
 
@@ -234,7 +239,7 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
               backgroundColor: this.state.openRecent === true ? '#F4F4F4' : '#FFFFFF'
               }} onClick={this.onClickRecent}>
                 <i className="ms-Icon ms-Icon--clock" style={{fontSize: '30px'}}></i>
-                &nbsp;{strings.PicturePickerRecent}
+                &nbsp;{strings.DocumentPickerRecent}
               </div>
               <div style={{cursor: 'pointer', paddingLeft: '20px', paddingTop: '10px', paddingBottom: '10px',
               borderLeftWidth: '1px',
@@ -243,7 +248,7 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
               backgroundColor: this.state.openSite === true ? '#F4F4F4' : '#FFFFFF'
               }} onClick={this.onClickSite}>
                 <i className="ms-Icon ms-Icon--globe" style={{fontSize: '30px'}}></i>
-                &nbsp;{strings.PicturePickerSite}
+                &nbsp;{strings.DocumentPickerSite}
               </div>
           </div>
 

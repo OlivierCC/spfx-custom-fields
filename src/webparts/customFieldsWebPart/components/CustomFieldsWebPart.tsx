@@ -89,6 +89,12 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDatePicker" target="_doc">(Doc)</a> :&nbsp;
                 {this.props.date2}
               </p>
+              <p >
+                <i className="ms-Icon ms-Icon--calendarWorkWeek" aria-hidden="true"></i>&nbsp;
+                <b>Date Time</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDateTimePicker" target="_doc">(Doc)</a> :&nbsp;
+                {this.props.datetime}
+              </p>
 
               <p>
                 <i className="ms-Icon ms-Icon--phone" aria-hidden="true"></i>&nbsp;
@@ -138,6 +144,12 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 <b>Picture</b>
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPicturePicker" target="_doc">(Doc)</a> :&nbsp;
                 {this.props.picture}
+              </p>
+              <p>
+                <i className="ms-Icon ms-Icon--documentAdd" aria-hidden="true"></i>&nbsp;
+                <b>Document</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPicturePicker" target="_doc">(Doc)</a> :&nbsp;
+                {this.props.document}
               </p>
               <p>
                 <i className="ms-Icon ms-Icon--listBullets" aria-hidden="true"></i>&nbsp;
