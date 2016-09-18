@@ -18,6 +18,7 @@ define([], function() {
     "PictureFieldLabel": "Picture Field",
     "IconFieldLabel": "Icon Field",
     "DocumentFieldLabel": "Document Field",
+    "DisplayModeFieldLabel": "Display Mode Field",
 
     //PicturePicker labels
     //Copy the following labels in your project if you want to use the PicturePicker

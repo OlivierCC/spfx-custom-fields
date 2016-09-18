@@ -19,4 +19,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   picture: string;
   icon: string;
   document: string;
+  displayMode: string;
 }

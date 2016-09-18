@@ -48,6 +48,8 @@ import { PropertyFieldPicturePicker } from './controls/PropertyFieldPicturePicke
 import { PropertyFieldIconPicker } from './controls/PropertyFieldIconPicker';
 //Include the PropertyFieldDocumentPicker component
 import { PropertyFieldDocumentPicker } from './controls/PropertyFieldDocumentPicker';
+//Include the PropertyFieldDisplayMode component
+import { PropertyFieldDisplayMode } from './controls/PropertyFieldDisplayMode';
 
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
@@ -79,7 +81,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       geolocation: this.properties.geolocation,
       picture: this.properties.picture,
       icon: this.properties.icon,
-      document: this.properties.document
+      document: this.properties.document,
+      displayMode: this.properties.displayMode
     });
 
     ReactDom.render(element, this.domElement);
@@ -137,6 +140,11 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   label: strings.IconFieldLabel,
                   initialValue: this.properties.icon,
                   orderAlphabetical: true,
+                  onPropertyChange: this.onPropertyChange
+                }),
+                PropertyFieldDisplayMode('displayMode', {
+                  label: strings.DisplayModeFieldLabel,
+                  initialValue: this.properties.displayMode,
                   onPropertyChange: this.onPropertyChange
                 })
               ],

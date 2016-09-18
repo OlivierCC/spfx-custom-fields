@@ -19,6 +19,7 @@ declare interface IStrings {
   PictureFieldLabel: string;
   IconFieldLabel: string;
   DocumentFieldLabel: string;
+  DisplayModeFieldLabel: string;
 
   //PicturePicker labels
   //Copy the following labels in your project if you want to use the PicturePicker

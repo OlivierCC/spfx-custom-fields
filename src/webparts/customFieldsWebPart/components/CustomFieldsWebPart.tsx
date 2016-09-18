@@ -66,6 +66,12 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 <i className={'ms-Icon ' + this.props.icon} aria-hidden="true" style={{fontSize:'large'}}></i>
                 &nbsp;{this.props.icon}
               </p>
+              <p >
+                <i className="ms-Icon ms-Icon--listBullets" aria-hidden="true"></i>&nbsp;
+                <b>Display Mode</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDisplayMode" target="_doc">(Doc)</a> : &nbsp;
+                {this.props.displayMode}
+              </p>
 
               <p className="ms-fontSize-xxl">
                <i className="ms-Icon ms-Icon--fieldText" aria-hidden="true"></i>
