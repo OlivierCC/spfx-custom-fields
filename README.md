@@ -3,7 +3,8 @@
 > Note: The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production enviornments.
 
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
-include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPicturePicker**, **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
+include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPicturePicker**, **PropertyFieldDocumentPicker**,
+**PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
 **PropertyFieldFontPicker**, **PropertyFieldFontSizePicker**, **PropertyFieldIconPicker**,
  **PropertyFieldSPListPicker**, **PropertyFieldSPListMultiplePicker**, **PropertyFieldSPFolderPicker**,
  **PropertyFieldPhoneNumber**, **PropertyFieldMaskedInput**, **PropertyFieldMapPicker**
@@ -27,6 +28,7 @@ Custom Field | Description |  Overview
 [PropertyFieldIconPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldIconPicker) | Custom field to select an Icon style in the Office UI Fabric icons list | ![PropertyFieldIconPicker](./assets/OverviewIconPicker.png)
 [PropertyFieldPeoplePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPeoplePicker) | Custom field to select users from the SharePoint users database with a search field. Start to enter a lastname or a firstname, and pick a user  | ![PropertyFieldPeoplePicker](./assets/OverviewPeoplePicker.png)
 [PropertyFieldPicturePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPicturePicker)| Custom field to select a picture thanks to a SharePoint visual browser.  | ![PropertyFieldPicturePicker](./assets/OverviewPicturePicker.png)
+[PropertyFieldDocumentPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDocumentPicker)| Custom field to select a document (docx, pptx, pdf, etc.) thanks to a SharePoint visual browser.  | ![PropertyFieldDocumentPicker](./assets/OverviewDocumentPicker.png)
 [PropertyFieldSPListPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListPicker)| Custom field to select a list from the current SharePoint web site.   | ![PropertyFieldSPListPicker](./assets/OverviewSPListPicker.png)
 [PropertyFieldSPListMultiplePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListMultiplePicker)| Custom field to select multiple lists from the current SharePoint web site.   | ![PropertyFieldSPListMultiplePicker](./assets/OverviewSPListMultiplePicker.png)
 [PropertyFieldSPFolderPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPFolderPicker)| Custom field to select a folder from the current SharePoint web site.   | ![PropertyFieldSPFolderPicker](./assets/OverviewSPFolderPicker.png)
