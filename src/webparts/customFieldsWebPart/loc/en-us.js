@@ -15,6 +15,7 @@ define([], function() {
     "MaskedInputFieldLabel": "Masked Input Field",
     "GeoLocationFieldLabel": "Geolocation Field",
     "PictureFieldLabel": "Picture Field",
+    "IconFieldLabel": "Icon Field",
 
     //PicturePicker labels
     //Copy the following labels in your project if you want to use the PicturePicker

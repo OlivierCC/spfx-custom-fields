@@ -12,10 +12,6 @@ import { IPropertyFieldPicturePickerPropsInternal } from './PropertyFieldPicture
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Button, ButtonType } from 'office-ui-fabric-react/lib/Button';
 import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
-import { List } from 'office-ui-fabric-react/lib/List';
-import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb';
-import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
-import { Spinner, SpinnerType } from 'office-ui-fabric-react/lib/Spinner';
 
 import * as strings from 'customFieldsWebPartStrings';
 
@@ -153,7 +149,7 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
   *
   */
   private componentDidMount() {
-    window.addEventListener('message', this.handleIframeData, false)
+    window.addEventListener('message', this.handleIframeData, false);
   }
 
   /**
@@ -162,7 +158,7 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
   *
   */
   private componentWillUnmount() {
-    window.removeEventListener('message', this.handleIframeData, false)
+    window.removeEventListener('message', this.handleIframeData, false);
   }
 
   private onClickSite(element?: any): void {

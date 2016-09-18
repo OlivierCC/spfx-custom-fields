@@ -10,8 +10,7 @@ import * as ReactDom from 'react-dom';
 import {
   BaseClientSideWebPart,
   IPropertyPaneSettings,
-  IWebPartContext,
-  PropertyPaneTextField
+  IWebPartContext
 } from '@microsoft/sp-client-preview';
 import * as strings from 'customFieldsWebPartStrings';
 import CustomFieldsWebPart, { ICustomFieldsWebPartProps } from './components/CustomFieldsWebPart';
@@ -43,7 +42,8 @@ import { PropertyFieldMaskedInput } from './controls/PropertyFieldMaskedInput';
 import { PropertyFieldMapPicker } from './controls/PropertyFieldMapPicker';
 //Include the PropertyFieldPicturePicker component
 import { PropertyFieldPicturePicker } from './controls/PropertyFieldPicturePicker';
-
+//Include the PropertyFieldIconPicker component
+import { PropertyFieldIconPicker } from './controls/PropertyFieldIconPicker';
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -71,7 +71,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       phone: this.properties.phone,
       maskedInput: this.properties.maskedInput,
       geolocation: this.properties.geolocation,
-      picture: this.properties.picture
+      picture: this.properties.picture,
+      icon: this.properties.icon
     });
 
     ReactDom.render(element, this.domElement);
@@ -124,6 +125,12 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   label: strings.ColorFieldLabel,
                   initialColor: this.properties.color,
                   onPropertyChange: this.onPropertyChange
+                }),
+                PropertyFieldIconPicker('icon', {
+                  label: strings.IconFieldLabel,
+                  initialValue: this.properties.icon,
+                  orderAlphabetical: true,
+                  onPropertyChange: this.onPropertyChange
                 })
               ],
             },
@@ -165,8 +172,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   longitude: this.properties.geolocation != null ? this.properties.geolocation.substr(0, this.properties.geolocation.indexOf(",")) : '0',
                   latitude: this.properties.geolocation != null ? this.properties.geolocation.substr(this.properties.geolocation.indexOf(",") + 1, this.properties.geolocation.length - this.properties.geolocation.indexOf(",")) : '0',
                   onPropertyChange: this.onPropertyChange
-                }),
-
+                })
             ],
             },
             {

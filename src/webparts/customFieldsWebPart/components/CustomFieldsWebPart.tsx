@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { css } from 'office-ui-fabric-react';
 
 import styles from '../CustomFieldsWebPart.module.scss';
 import { ICustomFieldsWebPartWebPartProps } from '../ICustomFieldsWebPartWebPartProps';
@@ -59,6 +58,13 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 <b>Color</b>
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldColorPicker" target="_doc">(Doc)</a> : &nbsp;
                 {this.props.color}
+              </p>
+              <p >
+                <i className="ms-Icon ms-Icon--waffle" aria-hidden="true"></i>&nbsp;
+                <b>Icon</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldIconPicker" target="_doc">(Doc)</a> : &nbsp;
+                <i className={'ms-Icon ' + this.props.icon} aria-hidden="true" style={{fontSize:'large'}}></i>
+                &nbsp;{this.props.icon}
               </p>
 
               <p className="ms-fontSize-xxl">

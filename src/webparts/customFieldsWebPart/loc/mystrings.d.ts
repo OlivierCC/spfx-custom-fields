@@ -16,6 +16,7 @@ declare interface IStrings {
   MaskedInputFieldLabel: string;
   GeoLocationFieldLabel: string;
   PictureFieldLabel: string;
+  IconFieldLabel: string;
 
   //PicturePicker labels
   //Copy the following labels in your project if you want to use the PicturePicker

@@ -16,4 +16,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   maskedInput: string;
   geolocation: string;
   picture: string;
+  icon: string;
 }
