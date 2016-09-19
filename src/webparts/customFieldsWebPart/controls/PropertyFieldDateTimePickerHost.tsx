@@ -9,7 +9,7 @@ import * as React from 'react';
 import { IPropertyFieldDateTimePickerPropsInternal } from './PropertyFieldDateTimePicker';
 import { DatePicker, IDatePickerStrings } from 'office-ui-fabric-react/lib/DatePicker';
 import { Label } from 'office-ui-fabric-react/lib/Label';
-import { Dropdown } from 'office-ui-fabric-react/lib/Dropdown';
+import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 import * as strings from 'customFieldsWebPartStrings';
 
 /**
@@ -127,45 +127,47 @@ export default class PropertyFieldDateTimePickerHost extends React.Component<IPr
     var date: Date;
     if (this.props.initialDate != null && this.props.initialDate != '')
       date = new Date(this.props.initialDate);
+    var hours: IDropdownOption[] = [];
+    for (var i = 0; i < 24; i++) {
+      var digit: string;
+      if (i < 10)
+        digit = '0' + i;
+      else
+        digit = i.toString();
+      hours.push({ key: digit, text: digit});
+    }
+    var minutes: IDropdownOption[] = [];
+    for (var i = 0; i < 60; i++) {
+      var digit: string;
+      if (i < 10)
+        digit = '0' + i;
+      else
+        digit = i.toString();
+      minutes.push({ key: digit, text: digit});
+    }
     //Renders content
     return (
       <div>
         <Label>{this.props.label}</Label>
-        <div style={{width:'255px'}}>
-            <DatePicker value={date} strings={dateStrings}
-              isMonthPickerVisible={false} onSelectDate={this.onSelectDate} allowTextInput={false}
-              formatDate={this.formatDateIso}
-              />
-        </div>
-        <div style={{display: 'inline-flex', marginBottom: '8px'}}>
-          <div style={{width:'100px'}}>
-            <Dropdown
-              label=""
-              options={[
-                { text: '00', key: '00'},
-                { text: '01', key: '01'}
-              ]}
-              />
+        <div style={{display: 'inline-flex'}}>
+          <div style={{width:'180px', paddingTop: '10px'}}>
+              <DatePicker value={date} strings={dateStrings}
+                isMonthPickerVisible={false} onSelectDate={this.onSelectDate} allowTextInput={false}
+                />
           </div>
-          <div style={{paddingTop: '16px', paddingLeft: '2px', paddingRight: '2px'}}>:</div>
-          <div style={{width:'70px'}}>
+          <div style={{display: 'inline-flex', marginBottom: '8px'}}>
+            <div style={{width:'50px'}}>
               <Dropdown
-              label=""
-              options={[
-                { text: '00', key: '00'},
-                { text: '01', key: '01'}
-              ]}
-              />
-          </div>
-          <div style={{paddingTop: '16px', paddingLeft: '2px', paddingRight: '2px'}}>:</div>
-          <div style={{width:'70px'}}>
-              <Dropdown
-              label=""
-              options={[
-                { text: '00', key: '00'},
-                { text: '01', key: '01'}
-              ]}
-              />
+                label=""
+                options={hours}
+                />
+            </div>
+            <div style={{paddingTop: '16px', paddingLeft: '2px', paddingRight: '2px'}}>:</div>
+            <div style={{width:'50px'}}>
+                <Dropdown
+                label=""
+                options={minutes} />
+            </div>
           </div>
         </div>
       </div>
