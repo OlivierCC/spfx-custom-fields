@@ -171,7 +171,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                 PropertyFieldDateTimePicker('datetime', {
                   label: strings.DateTimeFieldLabel,
                   initialDate: this.properties.datetime,
-                  formatDate: this.formatDateIso,
+                  //formatDate: this.formatDateIso,
                   onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldPhoneNumber('phone', {

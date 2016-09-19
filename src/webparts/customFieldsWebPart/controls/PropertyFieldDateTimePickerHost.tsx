@@ -80,11 +80,17 @@ class DatePickerStrings implements IDatePickerStrings {
     public invalidInputErrorMessage: string = "";
 }
 
+export interface IPropertyFieldDateTimePickerHostPropsState {
+  day?: Date;
+  hours?: number;
+  minutes?: number;
+}
+
 /**
  * @class
  * Renders the controls for PropertyFieldDateTimePicker component
  */
-export default class PropertyFieldDateTimePickerHost extends React.Component<IPropertyFieldDateTimePickerHostProps, {}> {
+export default class PropertyFieldDateTimePickerHost extends React.Component<IPropertyFieldDateTimePickerHostProps, IPropertyFieldDateTimePickerHostPropsState> {
 
   /**
    * @function
@@ -94,6 +100,15 @@ export default class PropertyFieldDateTimePickerHost extends React.Component<IPr
     super(props);
     //Bind the current object to the external called onSelectDate method
     this.onSelectDate = this.onSelectDate.bind(this);
+    this.dropdownHoursChanged = this.dropdownHoursChanged.bind(this);
+    this.dropdownMinutesChanged = this.dropdownMinutesChanged.bind(this);
+
+    this.state = {
+      day: (this.props.initialDate != null && this.props.initialDate != '') ? new Date(this.props.initialDate) : null,
+      hours: (this.props.initialDate != null && this.props.initialDate != '') ? new Date(this.props.initialDate).getHours() : 0,
+      minutes: (this.props.initialDate != null && this.props.initialDate != '') ? new Date(this.props.initialDate).getMinutes() : 0,
+    };
+    this.setState(this.state);
   }
 
   /**
@@ -101,19 +116,48 @@ export default class PropertyFieldDateTimePickerHost extends React.Component<IPr
    * Function called when the DatePicker Office UI Fabric component selected date changed
    */
   private onSelectDate(date: Date): void {
-    //Checks if there is a method to called
-    if (this.props.onPropertyChange && date != null) {
-      //Checks if a formatDate function has been defined
-      if (this.props.formatDate)
-        this.props.onPropertyChange(this.props.targetProperty, this.props.formatDate(date));
-      else
-        this.props.onPropertyChange(this.props.targetProperty, date.toDateString());
-    }
+    if (date == null)
+      return;
+    this.state.day = date;
+    this.setState(this.state);
+    this.saveDate();
   }
 
-  private formatDateIso(date: Date): string {
-    //example for ISO date formatting
-    return date.toISOString().substr(0, 10);
+  private addHours(date: Date, hours: number) {
+    date.setTime(date.getTime() + (hours*60*60*1000));
+    return date;
+  }
+
+  private addMinutes(date, minutes) {
+    return new Date(date.getTime() + minutes*60000);
+  }
+
+  private dropdownHoursChanged(element?: IDropdownOption): void {
+    this.state.hours = Number(element.key);
+    this.setState(this.state);
+    this.saveDate();
+  }
+
+  private dropdownMinutesChanged(element?: any): void {
+    this.state.minutes = Number(element.key);
+    this.setState(this.state);
+    this.saveDate();
+  }
+
+  private saveDate(): void {
+    if (this.state.day == null)
+      return;
+    var finalDate = new Date(this.state.day.toISOString());
+    finalDate.setHours(this.state.hours);
+    finalDate.setMinutes(this.state.minutes);
+
+    if (this.props.onPropertyChange && finalDate != null) {
+      //Checks if a formatDate function has been defined
+      if (this.props.formatDate)
+        this.props.onPropertyChange(this.props.targetProperty, this.props.formatDate(finalDate));
+      else
+        this.props.onPropertyChange(this.props.targetProperty, finalDate.toString());
+    }
   }
 
   /**
@@ -124,9 +168,6 @@ export default class PropertyFieldDateTimePickerHost extends React.Component<IPr
     //Defines the DatePicker control labels
     var dateStrings: DatePickerStrings = new DatePickerStrings();
     //Constructs a Date type object from the initalDate string property
-    var date: Date;
-    if (this.props.initialDate != null && this.props.initialDate != '')
-      date = new Date(this.props.initialDate);
     var hours: IDropdownOption[] = [];
     for (var i = 0; i < 24; i++) {
       var digit: string;
@@ -134,7 +175,10 @@ export default class PropertyFieldDateTimePickerHost extends React.Component<IPr
         digit = '0' + i;
       else
         digit = i.toString();
-      hours.push({ key: digit, text: digit});
+      var selected: boolean = false;
+      if (i == this.state.hours)
+        selected = true;
+      hours.push({ key: i, text: digit, isSelected: selected});
     }
     var minutes: IDropdownOption[] = [];
     for (var i = 0; i < 60; i++) {
@@ -143,30 +187,33 @@ export default class PropertyFieldDateTimePickerHost extends React.Component<IPr
         digit = '0' + i;
       else
         digit = i.toString();
-      minutes.push({ key: digit, text: digit});
+      var selected: boolean = false;
+      if (i == this.state.minutes)
+        selected = true;
+      minutes.push({ key: i, text: digit, isSelected: selected});
     }
     //Renders content
     return (
       <div>
         <Label>{this.props.label}</Label>
         <div style={{display: 'inline-flex'}}>
-          <div style={{width:'180px', paddingTop: '10px'}}>
-              <DatePicker value={date} strings={dateStrings}
+          <div style={{width:'180px', paddingTop: '10px', marginRight:'2px'}}>
+              <DatePicker value={this.state.day} strings={dateStrings}
                 isMonthPickerVisible={false} onSelectDate={this.onSelectDate} allowTextInput={false}
                 />
           </div>
           <div style={{display: 'inline-flex', marginBottom: '8px'}}>
-            <div style={{width:'50px'}}>
+            <div style={{width:'47px'}}>
               <Dropdown
                 label=""
-                options={hours}
+                options={hours} onChanged={this.dropdownHoursChanged}
                 />
             </div>
             <div style={{paddingTop: '16px', paddingLeft: '2px', paddingRight: '2px'}}>:</div>
-            <div style={{width:'50px'}}>
+            <div style={{width:'47px'}}>
                 <Dropdown
                 label=""
-                options={minutes} />
+                options={minutes} onChanged={this.dropdownMinutesChanged} />
             </div>
           </div>
         </div>
