@@ -110,6 +110,11 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
             {
               groupName: 'Layout Fields',
               groupFields: [
+                PropertyFieldDisplayMode('displayMode', {
+                  label: strings.DisplayModeFieldLabel,
+                  initialValue: this.properties.displayMode,
+                  onPropertyChange: this.onPropertyChange
+                }),
                 PropertyFieldFontPicker('font', {
                   label: strings.FontFieldLabel,
                   useSafeFont: true,
@@ -131,20 +136,15 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   initialValue: this.properties.font,
                   onPropertyChange: this.onPropertyChange
                 }),
-                PropertyFieldColorPicker('color', {
-                  label: strings.ColorFieldLabel,
-                  initialColor: this.properties.color,
-                  onPropertyChange: this.onPropertyChange
-                }),
                 PropertyFieldIconPicker('icon', {
                   label: strings.IconFieldLabel,
                   initialValue: this.properties.icon,
                   orderAlphabetical: true,
                   onPropertyChange: this.onPropertyChange
                 }),
-                PropertyFieldDisplayMode('displayMode', {
-                  label: strings.DisplayModeFieldLabel,
-                  initialValue: this.properties.displayMode,
+                PropertyFieldColorPicker('color', {
+                  label: strings.ColorFieldLabel,
+                  initialColor: this.properties.color,
                   onPropertyChange: this.onPropertyChange
                 })
               ],
