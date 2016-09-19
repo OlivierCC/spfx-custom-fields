@@ -5,7 +5,7 @@
 This example is a kit of **16 + components** to customize SPFx web parts custom fields, to make the optimal experience to edit your Web parts.
 
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
-include an implementation of **PropertyFieldDatePicker**, **PropertyFieldPicturePicker**, **PropertyFieldDocumentPicker**,
+include an implementation of **PropertyFieldDatePicker**, **PropertyFieldDateTimePicker**, **PropertyFieldPicturePicker**, **PropertyFieldDocumentPicker**,
 **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
 **PropertyFieldFontPicker**, **PropertyFieldFontSizePicker**, **PropertyFieldIconPicker**, **PropertyFieldDisplayMode**,
  **PropertyFieldSPListPicker**, **PropertyFieldSPListMultiplePicker**, **PropertyFieldSPFolderPicker**,
@@ -24,6 +24,7 @@ all these custom fields and you can click on the custom field name to consult th
 Custom Field | Description |  Overview
 ------------ | ----------- | -----------
 [PropertyFieldDatePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDatePicker) | Custom field to select a Date with a mini-calendar based on the Office UI Fabric DatePicker control | ![PropertyFieldDatePicker](./assets/OverviewDatePicker.png)
+[PropertyFieldDateTimePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDateTimePicker) | Custom field to select a Date Time with a mini-calendar based on the Office UI Fabric DatePicker control | ![PropertyFieldDateTimePicker](./assets/OverviewDateTimePicker.png)
 [PropertyFieldColorPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldColorPicker) | Custom field to select a Color with a visual RGB editor based on the Office UI Fabric ColorPicker control | ![PropertyFieldColorPicker](./assets/OverviewColorPicker.png)
 [PropertyFieldFontPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldFontPicker) | Custom field to select a Font with a visual dropdown box and fonts preview | ![PropertyFieldFontPicker](./assets/OverviewFontPicker.png)
 [PropertyFieldFontSizePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldFontSizePicker) | Custom field to select a Font size with size preview as drop down | ![PropertyFieldFontSizePicker](./assets/OverviewFontSizePicker.png)
