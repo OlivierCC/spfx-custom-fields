@@ -250,16 +250,16 @@ export default class PropertyFieldSPFolderPickerHost extends React.Component<IPr
             <div style={{ height: '330px'}}>
                 { this.state.loading ? <div><Spinner type={ SpinnerType.normal } /></div> : null }
 
-                { this.state.loading === false && currentFolderisRoot === false ? <Button buttonType={ButtonType.icon} onClick={this.onClickParent} icon="reply">...</Button> : null }
+                { this.state.loading === false && currentFolderisRoot === false ? <Button buttonType={ButtonType.icon} onClick={this.onClickParent} icon="Reply">...</Button> : null }
 
                 <List items={this.state.childrenFolders.value}  onRenderCell={this.onRenderCell} />
                 { this.state.loading === false ?
-                <Button buttonType={ButtonType.icon} icon="arrowLeft" onClick={this.onClickPrevious}
+                <Button buttonType={ButtonType.icon} icon="CaretLeft8" onClick={this.onClickPrevious}
                   disabled={ this.currentPage > 0 ? false : true }
                   />
                 : null }
                 { this.state.loading === false ?
-                <Button buttonType={ButtonType.icon} icon="arrowRight" onClick={this.onClickNext}
+                <Button buttonType={ButtonType.icon} icon="CaretRight8" onClick={this.onClickNext}
                   disabled={ this.state.childrenFolders.value.length < this.pageItemCount ? true : false }
                    />
                 : null }
@@ -286,12 +286,12 @@ export default class PropertyFieldSPFolderPickerHost extends React.Component<IPr
     return (
       <div style={{fontSize: '14px', padding: '4px'}}>
         <div className="ms-ChoiceField">
-          <input id={idUnique} className="ms-ChoiceField-input"
+          <input id={idUnique}
             defaultChecked={item.ServerRelativeUrl === this.state.confirmFolder ? true: false}
             onChange={this.onFolderChecked} type="radio" name="radio1" value={item.ServerRelativeUrl}/>
-          <label htmlFor={idUnique} className="ms-ChoiceField-field">
+          <label htmlFor={idUnique} >
             <span className="ms-Label">
-              <i className="ms-Icon ms-Icon--Folder" style={{color: '#0062AF', fontSize: '22px'}}></i>
+              <i className="ms-Icon ms-Icon--FolderFill" style={{color: '#0062AF', fontSize: '22px'}}></i>
               <span style={{paddingLeft: '5px'}}>
                 <button style={{paddingBottom: '0', height: '27px'}} className="ms-Button ms-Button--command" value={item.ServerRelativeUrl} onClick={this.onClickLink}>
                   <span className="ms-Button-label">

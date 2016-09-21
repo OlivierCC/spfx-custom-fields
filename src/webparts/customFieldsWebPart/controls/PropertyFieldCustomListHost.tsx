@@ -505,10 +505,10 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                               onMouseLeave={index != this.state.selectedIndex ? this.onLeaveHoverItem : null} >
                               <td style={{paddingLeft: '6px', height:'40px'}}>
                                 <div style={{float: 'left'}}>
-                                <input id={"bulletRadio" + index} className="ms-ChoiceField-input"
+                                <input id={"bulletRadio" + index}
                                   type="radio" name="radio1" onChange={this.onChangeSelectedItem}
                                   value={index} defaultChecked={index == this.state.selectedIndex ? true: false}/>
-                                <label htmlFor={"bulletRadio" + index} className="ms-ChoiceField-field">
+                                <label htmlFor={"bulletRadio" + index}>
                                   <span className="ms-Label">
                                   </span>
                                 </label>

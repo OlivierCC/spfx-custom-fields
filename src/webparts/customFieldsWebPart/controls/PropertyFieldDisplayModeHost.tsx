@@ -112,30 +112,31 @@ export default class PropertyFieldDisplayModeHost extends React.Component<IPrope
         <Label>{this.props.label}</Label>
 
         <div style={{display: 'inline-flex'}}>
-          <div style={{width: '100px', marginRight: '30px', paddingLeft:'8px', backgroundColor: backgroundLists}}
+          <div style={{cursor: 'pointer', width: '100px', marginRight: '30px', paddingLeft:'8px', backgroundColor: backgroundLists}}
             onMouseEnter={this.mouseListEnterDropDown} onMouseLeave={this.mouseListLeaveDropDown}>
             <div style={{float: 'left'}}>
-              <input id="bulletRadio" className="ms-ChoiceField-input"
+
+              <input id="bulletRadio" className=""
                 onChange={this.onClickBullets} type="radio" name="radio1"
                 defaultChecked={this.state.mode == "list" ? true : false}
-                value="list"/>
-              <label htmlFor="bulletRadio" className="ms-ChoiceField-field">
+                value="list"  style={{cursor: 'pointer'}}/>
+              <label htmlFor="bulletRadio" className="">
                 <span className="ms-Label">
-                  <i className='ms-Icon ms-Icon--List' aria-hidden="true" style={{fontSize:'60px', paddingLeft: '30px', color: '#808080'}}></i>
+                  <i className='ms-Icon ms-Icon--List' aria-hidden="true" style={{cursor: 'pointer',fontSize:'60px', paddingLeft: '30px', color: '#808080'}}></i>
                 </span>
               </label>
             </div>
           </div>
-          <div style={{width: '100px', marginRight: '30px', paddingLeft:'8px', backgroundColor: backgroundTiles}}
+          <div style={{cursor: 'pointer', width: '100px', marginRight: '30px', paddingLeft:'8px', backgroundColor: backgroundTiles}}
             onMouseEnter={this.mouseTilesEnterDropDown} onMouseLeave={this.mouseTilesLeaveDropDown}>
             <div style={{float: 'left'}}>
-              <input id="tilesRadio" className="ms-ChoiceField-input"
+              <input id="tilesRadio" className=""
                onChange={this.onClickTiles} type="radio" name="radio1"
                defaultChecked={this.state.mode == "tiles" ? true : false}
-               value="tiles"/>
-              <label htmlFor="tilesRadio" className="ms-ChoiceField-field">
+               value="tiles"  style={{cursor: 'pointer'}}/>
+              <label htmlFor="tilesRadio" className="">
                 <span className="ms-Label">
-                  <i className='ms-Icon ms-Icon--Tiles' aria-hidden="true" style={{fontSize:'48px', paddingLeft: '30px', color: '#808080'}}></i>
+                  <i className='ms-Icon ms-Icon--Tiles' aria-hidden="true" style={{cursor: 'pointer',fontSize:'48px', paddingLeft: '30px', color: '#808080'}}></i>
                 </span>
               </label>
             </div>
