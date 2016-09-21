@@ -221,8 +221,9 @@ export default class PropertyFieldDocumentPickerHost extends React.Component<IPr
         </div>
         : ''}
 
+        { this.state.openPanel === true ?
         <Panel
-          isOpen={this.state.openPanel} hasCloseButton={true}
+          isOpen={this.state.openPanel} hasCloseButton={true} onDismiss={this.onClosePanel}
           isLightDismiss={true} type={PanelType.large}
           headerText={strings.DocumentPickerTitle}>
 
@@ -292,6 +293,7 @@ export default class PropertyFieldDocumentPickerHost extends React.Component<IPr
           : ''}
 
         </Panel>
+        : ''}
 
       </div>
     );

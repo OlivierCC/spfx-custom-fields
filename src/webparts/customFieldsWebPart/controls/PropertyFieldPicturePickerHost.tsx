@@ -216,8 +216,9 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
         </div>
         : ''}
 
+        { this.state.openPanel === true ?
         <Panel
-          isOpen={this.state.openPanel} hasCloseButton={true}
+          isOpen={this.state.openPanel} hasCloseButton={true} onDismiss={this.onClosePanel}
           isLightDismiss={true} type={PanelType.large}
           headerText={strings.PicturePickerTitle}>
 
@@ -262,13 +263,13 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
           </div>
           : '' }
 
+
           <div id="site" style={{marginLeft: '2px',paddingLeft: '0px', paddingTop:'0px', backgroundColor: 'white', visibility: this.state.openSite === true ? 'visible' : 'hidden', width: this.state.openSite === true ? '100%' : '0px', height: this.state.openSite === true ? '80vh' : '0px',}}>
 
             <iframe ref="filePickerIFrame" style={{width: this.state.openSite === true ? '100%':'0px', height: this.state.openSite === true ?'80vh':'0px', borderWidth:'0'}} className="filePickerIFrame_d791363d" role="application" title="Select files from site picker view. Use toolbaar menu to perform operations, breadcrumbs to navigate between folders and arrow keys to navigate within the list"
             src={iframeUrl}></iframe>
 
           </div>
-
 
           </div>
 
@@ -287,6 +288,7 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
           : ''}
 
         </Panel>
+        : '' }
 
       </div>
     );

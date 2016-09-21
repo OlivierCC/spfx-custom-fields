@@ -135,8 +135,8 @@ export default class PropertyFieldSPListMultiplePickerHost extends React.Compone
               var uniqueKey = this.props.targetProperty + '-' + item.key;
               return (
                 <div className="ms-ChoiceField">
-                  <input id={uniqueKey} value={item.key} name={uniqueKey} onClick={this.onChanged} defaultChecked={item.isChecked} className="ms-ChoiceField-input" type="checkbox" role="checkbox" />
-                  <label htmlFor={uniqueKey} className="ms-ChoiceField-field"><span className="ms-Label">{item.text}</span></label>
+                  <input id={uniqueKey} value={item.key} name={uniqueKey} onClick={this.onChanged} defaultChecked={item.isChecked} type="checkbox" role="checkbox" />
+                  <label htmlFor={uniqueKey}><span className="ms-Label">{item.text}</span></label>
                 </div>
               );
             })

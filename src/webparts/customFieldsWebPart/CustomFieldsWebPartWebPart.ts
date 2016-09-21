@@ -113,6 +113,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
             {
               groupName: 'Layout Fields',
               groupFields: [
+
                 PropertyFieldDisplayMode('displayMode', {
                   label: strings.DisplayModeFieldLabel,
                   initialValue: this.properties.displayMode,
