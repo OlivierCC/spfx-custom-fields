@@ -6,7 +6,6 @@
  * Released under MIT licence
  */
 import * as React from 'react';
-import { IWebPartContext } from '@microsoft/sp-client-preview';
 import { IPropertyFieldCustomListPropsInternal, ICustomListField, CustomListFieldType } from './PropertyFieldCustomList';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Button, ButtonType } from 'office-ui-fabric-react/lib/Button';
@@ -20,8 +19,8 @@ import PropertyFieldFontSizePickerHost from './PropertyFieldFontSizePickerHost';
 import PropertyFieldIconPickerHost from './PropertyFieldIconPickerHost';
 import PropertyFieldColorPickerHost from './PropertyFieldColorPickerHost';
 import PropertyFieldPasswordHost from './PropertyFieldPasswordHost';
-import PropertyFieldPicturePickerHost from './PropertyFieldPicturePickerHost';
-import PropertyFieldDocumentPickerHost from './PropertyFieldDocumentPickerHost';
+//import PropertyFieldPicturePickerHost from './PropertyFieldPicturePickerHost';
+//import PropertyFieldDocumentPickerHost from './PropertyFieldDocumentPickerHost';
 import PropertyFieldSPListPickerHost from './PropertyFieldSPListPickerHost';
 import PropertyFieldPeoplePickerHost from './PropertyFieldPeoplePickerHost';
 
