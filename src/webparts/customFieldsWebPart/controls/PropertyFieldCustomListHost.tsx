@@ -42,6 +42,8 @@ export interface IPropertyFieldCustomListHostState {
   hoverColor?: string;
   deleteOpen?: boolean;
   editOpen?: boolean;
+  mandatoryOpen?: boolean;
+  missingField?: string;
 }
 
 /**
@@ -80,7 +82,9 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
       openListAdd: false,
       openListEdit: false,
       deleteOpen: false,
-      editOpen: false
+      editOpen: false,
+      mandatoryOpen: false,
+      missingField: ''
     };
   }
 
@@ -100,6 +104,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
     this.state.openListView = true;
     this.state.openListAdd = false;
     this.state.editOpen = false;
+    this.state.mandatoryOpen = false;
     this.setState(this.state);
   }
 
@@ -108,6 +113,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
     this.state.openListAdd = true;
     this.state.openListEdit = false;
     this.state.editOpen = false;
+    this.state.mandatoryOpen = false;
     this.setState(this.state);
   }
 
@@ -121,6 +127,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
     this.state.openListAdd = false;
     this.state.openListEdit = false;
     this.state.editOpen = false;
+    this.state.mandatoryOpen = false;
     this.setState(this.state);
   }
 
@@ -135,6 +142,14 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
       var str = ctrl['value'];
       if (str.length > 0 && (str[0] == '[' || str[0] == '{'))
         str = JSON.parse(str);
+
+      if (this.props.fields[i].required === true && (str == null || str == '')) {
+        this.state.mandatoryOpen = true;
+        this.state.missingField = this.props.fields[i].title;
+        this.setState(this.state);
+        document.getElementById('input-' + this.props.fields[i].title).focus();
+        return;
+      }
       result[this.props.fields[i].title] = str;
     }
     this.state.data.push(result);
@@ -172,7 +187,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
         newData.push(this.state.data[i]);
     }
     this.state.data = newData;
-    this.state.selectedIndex = -1;
+    this.state.selectedIndex = null;
     this.setState(this.state);
     this.onDismissDelete();
     this.saveWebPart(this.state.data);
@@ -196,6 +211,15 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
       var str = ctrl['value'];
       if (str.length > 0 && (str[0] == '[' || str[0] == '{'))
         str = JSON.parse(str);
+
+      if (this.props.fields[i].required === true && (str == null || str == '')) {
+        this.state.mandatoryOpen = true;
+        this.state.missingField = this.props.fields[i].title;
+        this.setState(this.state);
+        document.getElementById('input-' + this.props.fields[i].title).focus();
+        return;
+      }
+
       result[this.props.fields[i].title] = str;
     }
     this.setState(this.state);
@@ -223,7 +247,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
       <div style={{ marginBottom: '8px'}}>
         <Label>{this.props.label}</Label>
 
-        <Button onClick={this.onOpenPanel}>Select</Button>
+
 
         <Panel
           isOpen={this.state.openPanel} hasCloseButton={true}
@@ -238,6 +262,19 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                 <Button buttonType={ButtonType.hero} disabled={true} icon='Add'> &nbsp;Add item</Button>
                 <Button buttonType={ButtonType.hero} onClick={this.onClickCancel} icon='Back'> &nbsp;Back</Button>
               </div>
+              { this.state.mandatoryOpen === true ?
+                    <div className="ms-MessageBar">
+                      <a name="anchorMessageBar"></a>
+                      <div className="ms-MessageBar-content">
+                        <div className="ms-MessageBar-icon">
+                          <i className="ms-Icon ms-Icon--Error"></i>
+                        </div>
+                        <div className="ms-MessageBar-text">
+                          Error the field '{this.state.missingField}' is mandatory
+                        </div>
+                      </div>
+                    </div>
+                    : ''}
               <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px', width: '100%'}}>
                   <tbody>
                       {
@@ -352,6 +389,19 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                     <Button buttonType={ButtonType.hero} disabled={true} icon='Edit'> &nbsp;Edit</Button>
                     <Button buttonType={ButtonType.hero} onClick={this.onClickCancel} icon='Back'> &nbsp;Back</Button>
                   </div>
+                  { this.state.mandatoryOpen === true ?
+                    <div className="ms-MessageBar">
+                      <a name="anchorMessageBar"></a>
+                      <div className="ms-MessageBar-content">
+                        <div className="ms-MessageBar-icon">
+                          <i className="ms-Icon ms-Icon--Error"></i>
+                        </div>
+                        <div className="ms-MessageBar-text">
+                          Error the field '{this.state.missingField}' is mandatory
+                        </div>
+                      </div>
+                    </div>
+                    : ''}
                   <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px', width: '100%'}}>
                   <tbody>
                       {
@@ -428,7 +478,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 }
                                 { value.type == CustomListFieldType.users ?
                                   <div>
-                                    <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} type="hidden" defaultValue={JSON.stringify(this.state.data[this.state.selectedIndex][value.title])}  style={{visibility: 'hidden'}}/>
                                     <PropertyFieldPeoplePickerHost label="" initialData={this.state.data[this.state.selectedIndex][value.title]}  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChangeJson} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
@@ -454,6 +504,9 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                 <Button buttonType={ButtonType.primary} onClick={this.onClickUpdate}>OK</Button>
                 <Button buttonType={ButtonType.normal} onClick={this.onClickCancel}>Cancel</Button>
               </div>
+
+
+
           </div>
           : ''}
 
@@ -536,6 +589,8 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
           : '' }
 
         </Panel>
+
+        <Button onClick={this.onOpenPanel}>{this.props.headerText}</Button>
 
       </div>
     );
