@@ -241,8 +241,8 @@ export default class PropertyFieldSPFolderPickerHost extends React.Component<IPr
         <Label>{this.props.label}</Label>
         <div style={{display:'flex'}}>
           <TextField style={{width:'220px'}} readOnly={true} value={this.state.confirmFolder} />
-          <Button buttonType={ButtonType.icon} icon="folder" onClick={this.onBrowseClick} />
-          <Button buttonType={ButtonType.icon} icon="x" onClick={this.onClearSelectionClick} />
+          <Button buttonType={ButtonType.icon} icon="FolderSearch" onClick={this.onBrowseClick} />
+          <Button buttonType={ButtonType.icon} icon="Delete" onClick={this.onClearSelectionClick} />
         </div>
 
         <Dialog type={DialogType.close} title={strings.SPFolderPickerDialogTitle} isOpen={this.state.isOpen} isDarkOverlay={true} isBlocking={false} onDismiss={this.onDismiss}>
@@ -291,7 +291,7 @@ export default class PropertyFieldSPFolderPickerHost extends React.Component<IPr
             onChange={this.onFolderChecked} type="radio" name="radio1" value={item.ServerRelativeUrl}/>
           <label htmlFor={idUnique} className="ms-ChoiceField-field">
             <span className="ms-Label">
-              <i className="ms-Icon ms-Icon--folder" style={{color: '#0062AF', fontSize: '22px'}}></i>
+              <i className="ms-Icon ms-Icon--Folder" style={{color: '#0062AF', fontSize: '22px'}}></i>
               <span style={{paddingLeft: '5px'}}>
                 <button style={{paddingBottom: '0', height: '27px'}} className="ms-Button ms-Button--command" value={item.ServerRelativeUrl} onClick={this.onClickLink}>
                   <span className="ms-Button-label">

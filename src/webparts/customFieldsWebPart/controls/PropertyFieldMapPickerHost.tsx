@@ -160,9 +160,9 @@ export default class PropertyFieldMapPickerHost extends React.Component<IPropert
     backgroundClip: 'padding-box'}} value={this.state.latitude} onChange={this.onLatitudeChange}/>
         </div>
         <div style={{width:'80px', float: 'right',top: '-30px', position: 'relative' }}>
-          <div style={{float: 'left' }}><Button buttonType={ButtonType.icon} icon="globe" onClick={this.onGetCurrentLocation}  /></div>
+          <div style={{float: 'left' }}><Button buttonType={ButtonType.icon} icon="MapPin" onClick={this.onGetCurrentLocation}  /></div>
           <div style={{display:'inline'}}>
-          <Button buttonType={ButtonType.icon} icon="chevronsUp"  onClick={this.onClickChevron}  /></div>
+          <Button buttonType={ButtonType.icon} icon="ChevronUpSmall"  onClick={this.onClickChevron}  /></div>
         </div>
         </div>
         <div style={{position: 'relative', top: '0px', paddingBottom: '30px'}}>
@@ -223,9 +223,9 @@ return (
     backgroundClip: 'padding-box'}} value={this.state.latitude}  onChange={this.onLatitudeChange} />
         </div>
         <div style={{width:'80px', float: 'right',top: '-30px', position: 'relative' }}>
-          <div style={{float: 'left' }}><Button buttonType={ButtonType.icon} icon="globe" onClick={this.onGetCurrentLocation} /></div>
+          <div style={{float: 'left' }}><Button buttonType={ButtonType.icon} icon="MapPin" onClick={this.onGetCurrentLocation} /></div>
           <div style={{display:'inline'}}>
-          <Button buttonType={ButtonType.icon} icon="chevronsDown"  onClick={this.onClickChevron}  /></div>
+          <Button buttonType={ButtonType.icon} icon="ChevronDownSmall"  onClick={this.onClickChevron}  /></div>
         </div>
         </div>
 

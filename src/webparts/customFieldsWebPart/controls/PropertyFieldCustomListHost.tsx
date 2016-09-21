@@ -235,10 +235,10 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                {this.props.fields != null ?
               <div>
               <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', padding: '5px'}}>
-                <Button buttonType={ButtonType.hero} disabled={true} icon='plus'> &nbsp;Add item</Button>
-                <Button buttonType={ButtonType.hero} onClick={this.onClickCancel} icon='arrowLeft'> &nbsp;Back</Button>
+                <Button buttonType={ButtonType.hero} disabled={true} icon='Add'> &nbsp;Add item</Button>
+                <Button buttonType={ButtonType.hero} onClick={this.onClickCancel} icon='Back'> &nbsp;Back</Button>
               </div>
-              <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px'}}>
+              <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px', width: '100%'}}>
                   <tbody>
                       {
                         this.props.fields.map((value: ICustomListField) => {
@@ -349,10 +349,10 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                {this.props.fields != null ?
                   <div>
                   <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', padding: '5px'}}>
-                    <Button buttonType={ButtonType.hero} disabled={true} icon='editBox'> &nbsp;Edit</Button>
-                    <Button buttonType={ButtonType.hero} onClick={this.onClickCancel} icon='arrowLeft'> &nbsp;Back</Button>
+                    <Button buttonType={ButtonType.hero} disabled={true} icon='Edit'> &nbsp;Edit</Button>
+                    <Button buttonType={ButtonType.hero} onClick={this.onClickCancel} icon='Back'> &nbsp;Back</Button>
                   </div>
-                  <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px'}}>
+                  <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px', width: '100%'}}>
                   <tbody>
                       {
                         this.props.fields.map((value: ICustomListField) => {
@@ -386,21 +386,21 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 }
                                 { value.type == CustomListFieldType.dateTime ?
                                   <div>
-                                    <input id={'input-' + value.title} style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} defaultValue={this.state.data[this.state.selectedIndex][value.title]} style={{visibility: 'hidden'}}/>
                                     <PropertyFieldDateTimePickerHost initialDate={this.state.data[this.state.selectedIndex][value.title]} label="" onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
                                 }
                                 { value.type == CustomListFieldType.font ?
                                   <div>
-                                    <input id={'input-' + value.title} style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} defaultValue={this.state.data[this.state.selectedIndex][value.title]} style={{visibility: 'hidden'}}/>
                                     <PropertyFieldFontPickerHost label="" initialValue={this.state.data[this.state.selectedIndex][value.title]} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
                                 }
                                 { value.type == CustomListFieldType.fontSize ?
                                   <div>
-                                    <input id={'input-' + value.title} style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} defaultValue={this.state.data[this.state.selectedIndex][value.title]}  style={{visibility: 'hidden'}}/>
                                     <PropertyFieldFontSizePickerHost label="" initialValue={this.state.data[this.state.selectedIndex][value.title]} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
@@ -414,14 +414,14 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 }
                                 { value.type == CustomListFieldType.icon ?
                                   <div>
-                                    <input id={'input-' + value.title} style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} defaultValue={this.state.data[this.state.selectedIndex][value.title]}  style={{visibility: 'hidden'}}/>
                                     <PropertyFieldIconPickerHost label="" initialValue={this.state.data[this.state.selectedIndex][value.title]} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
                                 }
                                 { value.type == CustomListFieldType.password ?
                                   <div>
-                                    <input id={'input-' + value.title} style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} defaultValue={this.state.data[this.state.selectedIndex][value.title]}  style={{visibility: 'hidden'}}/>
                                     <PropertyFieldPasswordHost label="" initialValue={this.state.data[this.state.selectedIndex][value.title]} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
@@ -429,13 +429,13 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 { value.type == CustomListFieldType.users ?
                                   <div>
                                     <input id={'input-' + value.title} style={{visibility: 'hidden'}}/>
-                                    <PropertyFieldPeoplePickerHost label="" initialData={this.state.data[this.state.selectedIndex][value.title]}  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
+                                    <PropertyFieldPeoplePickerHost label="" initialData={this.state.data[this.state.selectedIndex][value.title]}  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChangeJson} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
                                 }
                                 { value.type == CustomListFieldType.list ?
                                   <div>
-                                    <input id={'input-' + value.title} style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} defaultValue={this.state.data[this.state.selectedIndex][value.title]}  style={{visibility: 'hidden'}}/>
                                     <PropertyFieldSPListPickerHost label="" selectedList={this.state.data[this.state.selectedIndex][value.title]}  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
@@ -460,9 +460,9 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
           { this.state.openListView === true ?
           <div>
               <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', padding: '5px'}}>
-                <Button buttonType={ButtonType.hero} onClick={this.onClickAddItem} icon='plus'> &nbsp;Add item</Button>
-                <Button buttonType={ButtonType.hero} onClick={this.onClickEdit} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='editBox'> &nbsp;Edit</Button>
-                <Button buttonType={ButtonType.hero} onClick={this.onClickDeleteItem} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='trash'> &nbsp;Delete</Button>
+                <Button buttonType={ButtonType.hero} onClick={this.onClickAddItem} icon='Add'> &nbsp;Add item</Button>
+                <Button buttonType={ButtonType.hero} onClick={this.onClickEdit} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='Edit'> &nbsp;Edit</Button>
+                <Button buttonType={ButtonType.hero} onClick={this.onClickDeleteItem} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='Delete'> &nbsp;Delete</Button>
               </div>
                  <Dialog type={DialogType.close} isOpen={this.state.deleteOpen} title="Confirm Delete"
                   onDismiss={this.onDismissDelete}  isDarkOverlay={false} isBlocking={true}>
@@ -478,7 +478,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                  </Dialog>
 
                 {this.props.fields != null ?
-                  <table className="ms-Table" cellPadding="4" cellSpacing="0">
+                  <table className="ms-Table" cellPadding="4" cellSpacing="0" style={{width:'100%'}}>
                   <thead>
                     <tr>
                       <th style={{width: '35px', backgroundColor: '#F4F4F4', borderBottom: '1px', borderBottomColor: '#999999', borderBottomStyle: 'solid'}}></th>

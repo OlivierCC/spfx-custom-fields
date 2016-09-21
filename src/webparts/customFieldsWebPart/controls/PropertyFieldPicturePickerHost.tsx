@@ -233,7 +233,7 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
               borderLeftColor: this.state.openRecent === true ? 'blue' : 'white',
               backgroundColor: this.state.openRecent === true ? '#F4F4F4' : '#FFFFFF'
               }} onClick={this.onClickRecent}>
-                <i className="ms-Icon ms-Icon--clock" style={{fontSize: '30px'}}></i>
+                <i className="ms-Icon ms-Icon--Clock" style={{fontSize: '30px'}}></i>
                 &nbsp;{strings.PicturePickerRecent}
               </div>
               <div style={{cursor: 'pointer', paddingLeft: '20px', paddingTop: '10px', paddingBottom: '10px',
@@ -242,7 +242,7 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
               borderLeftColor: this.state.openSite === true ? 'blue' : 'white',
               backgroundColor: this.state.openSite === true ? '#F4F4F4' : '#FFFFFF'
               }} onClick={this.onClickSite}>
-                <i className="ms-Icon ms-Icon--globe" style={{fontSize: '30px'}}></i>
+                <i className="ms-Icon ms-Icon--Globe" style={{fontSize: '30px'}}></i>
                 &nbsp;{strings.PicturePickerSite}
               </div>
           </div>

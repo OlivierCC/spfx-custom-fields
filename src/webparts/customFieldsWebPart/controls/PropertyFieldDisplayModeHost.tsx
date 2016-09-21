@@ -121,7 +121,7 @@ export default class PropertyFieldDisplayModeHost extends React.Component<IPrope
                 value="list"/>
               <label htmlFor="bulletRadio" className="ms-ChoiceField-field">
                 <span className="ms-Label">
-                  <i className='ms-Icon ms-Icon--listBullets' aria-hidden="true" style={{fontSize:'60px', paddingLeft: '30px', color: '#808080'}}></i>
+                  <i className='ms-Icon ms-Icon--List' aria-hidden="true" style={{fontSize:'60px', paddingLeft: '30px', color: '#808080'}}></i>
                 </span>
               </label>
             </div>
@@ -135,7 +135,7 @@ export default class PropertyFieldDisplayModeHost extends React.Component<IPrope
                value="tiles"/>
               <label htmlFor="tilesRadio" className="ms-ChoiceField-field">
                 <span className="ms-Label">
-                  <i className='ms-Icon ms-Icon--tile' aria-hidden="true" style={{fontSize:'48px', paddingLeft: '30px', color: '#808080'}}></i>
+                  <i className='ms-Icon ms-Icon--Tiles' aria-hidden="true" style={{fontSize:'48px', paddingLeft: '30px', color: '#808080'}}></i>
                 </span>
               </label>
             </div>

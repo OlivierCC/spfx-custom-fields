@@ -308,7 +308,7 @@ export default class PropertyFieldFontSizePickerHost extends React.Component<IPr
         width: '100%',
         height: '100%',
         cursor: 'pointer',
-        marginTop: '7px'
+        marginTop: '2px'
       };
       var fsDrop = {
         background: '#fff',
@@ -331,7 +331,7 @@ export default class PropertyFieldFontSizePickerHost extends React.Component<IPr
         overflowX: 'hidden',
         overflowY: 'auto'
       };
-      var carret: string = this.state.isOpen ? 'ms-Icon ms-Icon--caretUp' : 'ms-Icon ms-Icon--caretDown';
+      var carret: string = this.state.isOpen ? 'ms-Icon ms-Icon--ChevronUp' : 'ms-Icon ms-Icon--ChevronDown';
       //Renders content
       return (
         <div style={{ marginBottom: '8px'}}>
