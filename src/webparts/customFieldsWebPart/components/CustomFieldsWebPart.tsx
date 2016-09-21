@@ -78,6 +78,12 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 &nbsp; Text Input Fields
               </p>
               <p >
+                <i className="ms-Icon ms-Icon--listBullets" aria-hidden="true"></i>&nbsp;
+                <b>Custom List</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldCustomList" target="_doc">(Doc)</a> : &nbsp;
+                {JSON.stringify(this.props.customList)}
+              </p>
+              <p >
                 <i className="ms-Icon ms-Icon--key" aria-hidden="true"></i>&nbsp;
                 <b>Password</b>
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPassword" target="_doc">(Doc)</a> : &nbsp;

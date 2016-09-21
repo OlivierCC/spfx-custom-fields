@@ -69,7 +69,7 @@ export interface IPropertyFieldDatePickerPropsInternal extends IPropertyPaneCust
  * Represents a PropertyFieldDatePicker object
  *
  */
-class PropertyFieldDatePickerBuilder implements IPropertyPaneField<IPropertyFieldDatePickerPropsInternal> {
+export class PropertyFieldDatePickerBuilder implements IPropertyPaneField<IPropertyFieldDatePickerPropsInternal> {
 
   //Properties defined by IPropertyPaneField
   public type: IPropertyPaneFieldType = IPropertyPaneFieldType.Custom;

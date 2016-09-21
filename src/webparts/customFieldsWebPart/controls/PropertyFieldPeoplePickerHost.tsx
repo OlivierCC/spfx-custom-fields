@@ -182,7 +182,7 @@ export default class PropertyFieldPeoplePickerHost extends React.Component<IProp
    * Creates the collection of initial personas from initial IPropertyFieldPeople collection
    */
   private createInitialPersonas(): void {
-    if (this.props.initialData == null)
+    if (this.props.initialData == null || typeof (this.props.initialData) != typeof Array<IPropertyFieldPeople>())
       return;
     this.props.initialData.map((element: IPropertyFieldPeople, index: number) => {
       var persona: IPersonaProps = this.getPersonaFromPeople(element, index);

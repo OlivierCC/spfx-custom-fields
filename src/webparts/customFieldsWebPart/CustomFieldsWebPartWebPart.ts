@@ -50,6 +50,8 @@ import { PropertyFieldIconPicker } from './controls/PropertyFieldIconPicker';
 import { PropertyFieldDocumentPicker } from './controls/PropertyFieldDocumentPicker';
 //Include the PropertyFieldDisplayMode component
 import { PropertyFieldDisplayMode } from './controls/PropertyFieldDisplayMode';
+//Include the PropertyFieldCustomList component
+import { PropertyFieldCustomList, CustomListFieldType } from './controls/PropertyFieldCustomList';
 
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
@@ -82,7 +84,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       picture: this.properties.picture,
       icon: this.properties.icon,
       document: this.properties.document,
-      displayMode: this.properties.displayMode
+      displayMode: this.properties.displayMode,
+      customList: this.properties.customList
     });
 
     ReactDom.render(element, this.domElement);
@@ -152,6 +155,28 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
             {
               groupName: 'Text Input Fields',
               groupFields: [
+                PropertyFieldCustomList('customList', {
+                  label: strings.CustomListFieldLabel,
+                  value: this.properties.customList,
+                  headerText: "Select List Items",
+                  fields: [
+                    { title: 'Title', required: true, type: CustomListFieldType.string },
+                    { title: 'Description', required: false, type: CustomListFieldType.string },
+                    { title: 'Quantity', required: true, type: CustomListFieldType.number },
+                    { title: 'Required', required: false, type: CustomListFieldType.boolean },,
+                    { title: 'Date', required: false, type: CustomListFieldType.date, hidden: true },
+                    { title: 'Date Time', required: false, type: CustomListFieldType.dateTime, hidden: true },
+                    { title: 'Font', required: false, type: CustomListFieldType.font, hidden: true },
+                    { title: 'Font Size', required: false, type: CustomListFieldType.fontSize, hidden: true },
+                    { title: 'Icon', required: false, type: CustomListFieldType.icon, hidden: true },
+                    { title: 'Password', required: false, type: CustomListFieldType.password, hidden: true },
+                    { title: 'Users', required: false, type: CustomListFieldType.users, hidden: true },
+                    { title: 'List', required: false, type: CustomListFieldType.list, hidden: true },
+                    { title: 'Color', required: false, type: CustomListFieldType.color, hidden: true }
+                  ],
+                  onPropertyChange: this.onPropertyChange,
+                  context: this.context
+                }),
                 PropertyFieldPassword('password', {
                   label: strings.PasswordFieldLabel,
                   initialValue: this.properties.password,

@@ -20,4 +20,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   icon: string;
   document: string;
   displayMode: string;
+  customList: any[];
 }

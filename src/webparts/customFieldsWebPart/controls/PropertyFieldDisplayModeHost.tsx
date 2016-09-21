@@ -8,8 +8,6 @@
 import * as React from 'react';
 import { IPropertyFieldDisplayModePropsInternal } from './PropertyFieldDisplayMode';
 import { Label } from 'office-ui-fabric-react/lib/Label';
-import { Button, ButtonType } from 'office-ui-fabric-react/lib/Button';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
 
 /**
  * @interface

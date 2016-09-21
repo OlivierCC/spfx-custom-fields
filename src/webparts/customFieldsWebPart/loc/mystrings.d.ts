@@ -20,6 +20,7 @@ declare interface IStrings {
   IconFieldLabel: string;
   DocumentFieldLabel: string;
   DisplayModeFieldLabel: string;
+  CustomListFieldLabel: string;
 
   //PicturePicker labels
   //Copy the following labels in your project if you want to use the PicturePicker

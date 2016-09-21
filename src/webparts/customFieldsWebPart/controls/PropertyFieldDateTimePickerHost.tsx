@@ -123,15 +123,6 @@ export default class PropertyFieldDateTimePickerHost extends React.Component<IPr
     this.saveDate();
   }
 
-  private addHours(date: Date, hours: number) {
-    date.setTime(date.getTime() + (hours*60*60*1000));
-    return date;
-  }
-
-  private addMinutes(date, minutes) {
-    return new Date(date.getTime() + minutes*60000);
-  }
-
   private dropdownHoursChanged(element?: IDropdownOption): void {
     this.state.hours = Number(element.key);
     this.setState(this.state);
@@ -181,16 +172,16 @@ export default class PropertyFieldDateTimePickerHost extends React.Component<IPr
       hours.push({ key: i, text: digit, isSelected: selected});
     }
     var minutes: IDropdownOption[] = [];
-    for (var i = 0; i < 60; i++) {
-      var digit: string;
-      if (i < 10)
-        digit = '0' + i;
+    for (var j = 0; j < 60; j++) {
+      var digitMin: string;
+      if (j < 10)
+        digitMin = '0' + j;
       else
-        digit = i.toString();
-      var selected: boolean = false;
-      if (i == this.state.minutes)
-        selected = true;
-      minutes.push({ key: i, text: digit, isSelected: selected});
+        digitMin = j.toString();
+      var selected2: boolean = false;
+      if (j == this.state.minutes)
+        selected2 = true;
+      minutes.push({ key: j, text: digitMin, isSelected: selected2});
     }
     //Renders content
     return (
