@@ -11,8 +11,6 @@ import { IPropertyFieldCustomListPropsInternal, ICustomListField, CustomListFiel
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Button, ButtonType } from 'office-ui-fabric-react/lib/Button';
 import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
-import { Toggle } from 'office-ui-fabric-react/lib/Toggle';
 import { Dialog, DialogType } from 'office-ui-fabric-react/lib/Dialog';
 import PropertyFieldDatePickerHost from './PropertyFieldDatePickerHost';
 import PropertyFieldDateTimePickerHost from './PropertyFieldDateTimePickerHost';
@@ -164,6 +162,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
         document.getElementById('input-' + this.props.fields[i].title).focus();
         return;
       }
+
       result[this.props.fields[i].title] = str;
     }
     this.state.data.push(result);
@@ -313,7 +312,24 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 { value.type == CustomListFieldType.boolean ?
                                   <div  style={{marginBottom: '8px'}}>
                                     <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
-                                    <Toggle onChanged={this.onChangedCheckbox} offText='false' onText='true' label='' />
+                                    <input type="radio" name={'input-' + value.title} value={'input-' + value.title} onChange={
+                                      function(elm:any) {
+                                        if (elm.currentTarget.checked == true) {
+                                            var name = elm.currentTarget.value;
+                                            var input = document.getElementById(name);
+                                            input['value'] = true;
+                                        }
+                                      }
+                                    } /> True
+                                    <input type="radio" name={'input-' + value.title} value={'input-' + value.title} onChange={
+                                      function(elm:any) {
+                                        if (elm.currentTarget.checked == true) {
+                                            var name = elm.currentTarget.value;
+                                            var input = document.getElementById(name);
+                                            input['value'] = false;
+                                        }
+                                      }
+                                    } /> False
                                   </div>
                                 : ''
                                 }
@@ -411,7 +427,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                   </div>
                 : ''
                }
-               <div style={{marginTop: '30px'}}>
+               <div style={{marginTop: '30px', marginBottom: '30px'}}>
                 <Button buttonType={ButtonType.primary} onClick={this.onClickAdd}>OK</Button>
                 <Button buttonType={ButtonType.normal} onClick={this.onClickCancel}>Cancel</Button>
               </div>
@@ -459,8 +475,29 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 }
                                 { value.type == CustomListFieldType.boolean ?
                                   <div  style={{marginBottom: '8px'}}>
-                                    <input id={'input-' + value.title} type="hidden" defaultValue={this.state.data[this.state.selectedIndex][value.title]}  style={{visibility: 'hidden'}}/>
-                                    <Toggle onChanged={this.onChangedCheckbox} offText='false' onText='true' label='' />
+                                    <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
+                                    <input type="radio" name={'input-' + value.title} value={'input-' + value.title} onChange={
+                                      function(elm:any) {
+                                        if (elm.currentTarget.checked == true) {
+                                            var name = elm.currentTarget.value;
+                                            var input = document.getElementById(name);
+                                            input['value'] = true;
+                                        }
+                                      }
+                                    }
+                                    defaultChecked={this.state.data[this.state.selectedIndex][value.title] == "true"}
+                                    /> True
+                                    <input type="radio" name={'input-' + value.title} value={'input-' + value.title} onChange={
+                                      function(elm:any) {
+                                        if (elm.currentTarget.checked == true) {
+                                            var name = elm.currentTarget.value;
+                                            var input = document.getElementById(name);
+                                            input['value'] = false;
+                                        }
+                                      }
+                                    }
+                                    defaultChecked={this.state.data[this.state.selectedIndex][value.title] == "false"}
+                                    /> False
                                   </div>
                                 : ''
                                 }
@@ -558,7 +595,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                   </div>
                 : ''
                }
-               <div style={{marginTop: '30px'}}>
+               <div style={{marginTop: '30px', marginBottom: '30px'}}>
                 <Button buttonType={ButtonType.primary} onClick={this.onClickUpdate}>OK</Button>
                 <Button buttonType={ButtonType.normal} onClick={this.onClickCancel}>Cancel</Button>
               </div>

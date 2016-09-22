@@ -159,15 +159,17 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                 PropertyFieldCustomList('customList', {
                   label: strings.CustomListFieldLabel,
                   value: this.properties.customList,
-                  headerText: "Select List Items",
+                  headerText: "Manage News",
                   fields: [
                     { title: 'News Title', required: true, type: CustomListFieldType.string },
                     { title: 'Sub title', required: true, type: CustomListFieldType.string },
-                    { title: 'Order', required: true, type: CustomListFieldType.number },
-                    { title: 'Required', required: false, type: CustomListFieldType.boolean },
-                    { title: 'Start Date', required: false, type: CustomListFieldType.dateTime, hidden: true },
-                    { title: 'End Date', required: false, type: CustomListFieldType.dateTime, hidden: true },
                     { title: 'Link', required: false, type: CustomListFieldType.string, hidden: true },
+                    { title: 'Order', required: true, type: CustomListFieldType.number },
+                    { title: 'Active', required: false, type: CustomListFieldType.boolean },
+                    { title: 'Start Date', required: false, type: CustomListFieldType.date, hidden: true },
+                    { title: 'End Date', required: false, type: CustomListFieldType.date, hidden: true },
+                    { title: 'Picture', required: false, type: CustomListFieldType.picture, hidden: true }
+                    /*,
                     { title: 'Font', required: false, type: CustomListFieldType.font, hidden: true },
                     { title: 'Font size', required: false, type: CustomListFieldType.fontSize, hidden: true },
                     { title: 'Icon', required: false, type: CustomListFieldType.icon, hidden: true },
@@ -175,9 +177,10 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                     { title: 'Users', required: false, type: CustomListFieldType.users, hidden: true },
                     { title: 'Color', required: false, type: CustomListFieldType.color, hidden: true },
                     { title: 'List', required: false, type: CustomListFieldType.list, hidden: true },
-                    { title: 'Folder', required: false, type: CustomListFieldType.folder, hidden: true },
                     { title: 'Picture', required: false, type: CustomListFieldType.picture, hidden: true },
-                    { title: 'Document', required: false, type: CustomListFieldType.document, hidden: true }
+                    { title: 'Document', required: false, type: CustomListFieldType.document, hidden: true },
+                    { title: 'Folder', required: false, type: CustomListFieldType.folder, hidden: true }
+                    */
                   ],
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
