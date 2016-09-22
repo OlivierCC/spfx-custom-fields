@@ -6,11 +6,13 @@
  * Released under MIT licence
  */
 import * as React from 'react';
+import styles from '../CustomFieldsWebPart.module.scss';
 import { IPropertyFieldCustomListPropsInternal, ICustomListField, CustomListFieldType } from './PropertyFieldCustomList';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Button, ButtonType } from 'office-ui-fabric-react/lib/Button';
 import { Panel, PanelType } from 'office-ui-fabric-react/lib/Panel';
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
+import { Toggle } from 'office-ui-fabric-react/lib/Toggle';
 import { Dialog, DialogType } from 'office-ui-fabric-react/lib/Dialog';
 import PropertyFieldDatePickerHost from './PropertyFieldDatePickerHost';
 import PropertyFieldDateTimePickerHost from './PropertyFieldDateTimePickerHost';
@@ -19,9 +21,10 @@ import PropertyFieldFontSizePickerHost from './PropertyFieldFontSizePickerHost';
 import PropertyFieldIconPickerHost from './PropertyFieldIconPickerHost';
 import PropertyFieldColorPickerHost from './PropertyFieldColorPickerHost';
 import PropertyFieldPasswordHost from './PropertyFieldPasswordHost';
-//import PropertyFieldPicturePickerHost from './PropertyFieldPicturePickerHost';
-//import PropertyFieldDocumentPickerHost from './PropertyFieldDocumentPickerHost';
+import PropertyFieldPicturePickerHost from './PropertyFieldPicturePickerHost';
+import PropertyFieldDocumentPickerHost from './PropertyFieldDocumentPickerHost';
 import PropertyFieldSPListPickerHost from './PropertyFieldSPListPickerHost';
+import PropertyFieldSPFolderPickerHost from './PropertyFieldSPFolderPickerHost';
 import PropertyFieldPeoplePickerHost from './PropertyFieldPeoplePickerHost';
 
 /**
@@ -74,6 +77,8 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
     this.onClickUpdate = this.onClickUpdate.bind(this);
     this.onPropertyChange = this.onPropertyChange.bind(this);
     this.onPropertyChangeJson = this.onPropertyChangeJson.bind(this);
+    this.onChangedCheckbox = this.onChangedCheckbox.bind(this);
+    this.onCancel = this.onCancel.bind(this);
 
     this.state = {
       data: this.props.value != null ? this.props.value : [],
@@ -102,6 +107,15 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
   private onOpenPanel(element?: any): void {
     this.state.openPanel = true;
     this.state.openListView = true;
+    this.state.openListAdd = false;
+    this.state.editOpen = false;
+    this.state.mandatoryOpen = false;
+    this.setState(this.state);
+  }
+
+  private onCancel(element?: any): void {
+    this.state.openPanel = false;
+    this.state.openListView = false;
     this.state.openListAdd = false;
     this.state.editOpen = false;
     this.state.mandatoryOpen = false;
@@ -237,6 +251,10 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
     input['value'] = JSON.stringify(value);
   }
 
+  private onChangedCheckbox(isChecked: boolean): void {
+
+  }
+
   /**
    * @function
    * Renders the datepicker controls with Office UI  Fabric
@@ -248,11 +266,10 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
         <Label>{this.props.label}</Label>
 
 
+        <Dialog type={DialogType.close} isOpen={this.state.openPanel} title={this.props.headerText} onDismiss={this.onCancel}
+                containerClassName={styles.msDialogMainCustom} isDarkOverlay={true} isBlocking={false}>
 
-        <Panel
-          isOpen={this.state.openPanel} hasCloseButton={true}
-          isLightDismiss={true} type={PanelType.medium}
-          headerText={this.props.headerText}>
+          <div style={{width: '630px', height: '500px', overflow: 'scroll'}}>
 
           { this.state.openListAdd === true ?
           <div>
@@ -290,13 +307,13 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 : ''
                                 }
                                 { value.type == CustomListFieldType.number ?
-                                  <input id={'input-' + value.title} className='ms-TextField-field' style={{width: '100px', marginBottom: '8px'}} />
+                                  <input type="number" id={'input-' + value.title} className='ms-TextField-field' style={{width: '100px', marginBottom: '8px'}} />
                                 : ''
                                 }
                                 { value.type == CustomListFieldType.boolean ?
                                   <div  style={{marginBottom: '8px'}}>
                                     <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
-                                    <Checkbox/>
+                                    <Toggle onChanged={this.onChangedCheckbox} offText='false' onText='true' label='' />
                                   </div>
                                 : ''
                                 }
@@ -356,11 +373,31 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                   </div>
                                 : ''
                                 }
-
                                 { value.type == CustomListFieldType.list ?
                                   <div>
                                     <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
                                     <PropertyFieldSPListPickerHost label=""  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
+                                  </div>
+                                : ''
+                                }
+                                { value.type == CustomListFieldType.folder ?
+                                  <div>
+                                    <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
+                                    <PropertyFieldSPFolderPickerHost label=""  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
+                                  </div>
+                                : ''
+                                }
+                                { value.type == CustomListFieldType.picture ?
+                                  <div>
+                                    <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
+                                    <PropertyFieldPicturePickerHost label=""  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
+                                  </div>
+                                : ''
+                                }
+                                { value.type == CustomListFieldType.document ?
+                                  <div>
+                                    <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
+                                    <PropertyFieldDocumentPickerHost label=""  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
                                   </div>
                                 : ''
                                 }
@@ -417,13 +454,13 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 : ''
                                 }
                                 { value.type == CustomListFieldType.number ?
-                                  <input id={'input-' + value.title} className='ms-TextField-field' defaultValue={this.state.data[this.state.selectedIndex][value.title]} style={{width: '100px', marginBottom: '8px'}} />
+                                  <input type="number" id={'input-' + value.title} className='ms-TextField-field' defaultValue={this.state.data[this.state.selectedIndex][value.title]} style={{width: '100px', marginBottom: '8px'}} />
                                 : ''
                                 }
                                 { value.type == CustomListFieldType.boolean ?
                                   <div  style={{marginBottom: '8px'}}>
-                                    <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
-                                    <Checkbox/>
+                                    <input id={'input-' + value.title} type="hidden" defaultValue={this.state.data[this.state.selectedIndex][value.title]}  style={{visibility: 'hidden'}}/>
+                                    <Toggle onChanged={this.onChangedCheckbox} offText='false' onText='true' label='' />
                                   </div>
                                 : ''
                                 }
@@ -490,6 +527,27 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                   </div>
                                 : ''
                                 }
+                                { value.type == CustomListFieldType.folder ?
+                                  <div>
+                                    <input id={'input-' + value.title} type="hidden" defaultValue={this.state.data[this.state.selectedIndex][value.title]}  style={{visibility: 'hidden'}}/>
+                                    <PropertyFieldSPFolderPickerHost label="" initialFolder={this.state.data[this.state.selectedIndex][value.title]}  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
+                                  </div>
+                                : ''
+                                }
+                                { value.type == CustomListFieldType.picture ?
+                                  <div>
+                                    <input id={'input-' + value.title} type="hidden" defaultValue={this.state.data[this.state.selectedIndex][value.title]} style={{visibility: 'hidden'}}/>
+                                    <PropertyFieldPicturePickerHost label=""  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
+                                  </div>
+                                : ''
+                                }
+                                { value.type == CustomListFieldType.document ?
+                                  <div>
+                                    <input id={'input-' + value.title} type="hidden" defaultValue={this.state.data[this.state.selectedIndex][value.title]} style={{visibility: 'hidden'}}/>
+                                    <PropertyFieldDocumentPickerHost label=""  context={this.props.context} onDispose={null} onRender={null} onPropertyChange={this.onPropertyChange} targetProperty={'input-' + value.title}  />
+                                  </div>
+                                : ''
+                                }
                               </td>
                             </tr>
                           );
@@ -539,7 +597,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                         this.props.fields.map((value: ICustomListField) => {
                           if (value.hidden != true) {
                             return (
-                              <th style={{backgroundColor: '#F4F4F4', borderBottom: '1px', borderBottomColor: '#999999', borderBottomStyle: 'solid'}}>
+                              <th style={{textAlign: 'left', backgroundColor: '#F4F4F4', borderBottom: '1px', borderBottomColor: '#999999', borderBottomStyle: 'solid'}}>
                                 <Label style={{color: '#999999'}}>{value.title}</Label></th>
                             );
                           }
@@ -588,7 +646,8 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
           </div>
           : '' }
 
-        </Panel>
+          </div>
+        </Dialog>
 
         <Button onClick={this.onOpenPanel}>{this.props.headerText}</Button>
 

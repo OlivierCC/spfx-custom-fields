@@ -164,6 +164,7 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                     { title: 'News Title', required: true, type: CustomListFieldType.string },
                     { title: 'Sub title', required: true, type: CustomListFieldType.string },
                     { title: 'Order', required: true, type: CustomListFieldType.number },
+                    { title: 'Required', required: false, type: CustomListFieldType.boolean },
                     { title: 'Start Date', required: false, type: CustomListFieldType.dateTime, hidden: true },
                     { title: 'End Date', required: false, type: CustomListFieldType.dateTime, hidden: true },
                     { title: 'Link', required: false, type: CustomListFieldType.string, hidden: true },
@@ -173,7 +174,10 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                     { title: 'Password', required: false, type: CustomListFieldType.password, hidden: true },
                     { title: 'Users', required: false, type: CustomListFieldType.users, hidden: true },
                     { title: 'Color', required: false, type: CustomListFieldType.color, hidden: true },
-                    { title: 'List', required: false, type: CustomListFieldType.list, hidden: true }
+                    { title: 'List', required: false, type: CustomListFieldType.list, hidden: true },
+                    { title: 'Folder', required: false, type: CustomListFieldType.folder, hidden: true },
+                    { title: 'Picture', required: false, type: CustomListFieldType.picture, hidden: true },
+                    { title: 'Document', required: false, type: CustomListFieldType.document, hidden: true }
                   ],
                   onPropertyChange: this.onPropertyChange,
                   context: this.context

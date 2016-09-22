@@ -30,7 +30,8 @@ export enum CustomListFieldType {
   picture = 10,
   document = 11,
   list = 12,
-  users = 13
+  users = 13,
+  folder = 14
 }
 
 export interface ICustomListField {
