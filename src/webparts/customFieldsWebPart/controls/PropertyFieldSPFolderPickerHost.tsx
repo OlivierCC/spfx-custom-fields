@@ -286,7 +286,7 @@ export default class PropertyFieldSPFolderPickerHost extends React.Component<IPr
     return (
       <div style={{fontSize: '14px', padding: '4px'}}>
         <div className="ms-ChoiceField">
-          <input id={idUnique}
+          <input id={idUnique} style={{width: '18px', height: '18px'}}
             defaultChecked={item.ServerRelativeUrl === this.state.confirmFolder ? true: false}
             onChange={this.onFolderChecked} type="radio" name="radio1" value={item.ServerRelativeUrl}/>
           <label htmlFor={idUnique} >

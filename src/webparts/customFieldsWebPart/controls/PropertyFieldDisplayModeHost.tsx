@@ -119,7 +119,7 @@ export default class PropertyFieldDisplayModeHost extends React.Component<IPrope
               <input id="bulletRadio" className=""
                 onChange={this.onClickBullets} type="radio" name="radio1"
                 defaultChecked={this.state.mode == "list" ? true : false}
-                value="list"  style={{cursor: 'pointer'}}/>
+                value="list"  style={{cursor: 'pointer', width: '18px', height: '18px'}}/>
               <label htmlFor="bulletRadio" className="">
                 <span className="ms-Label">
                   <i className='ms-Icon ms-Icon--List' aria-hidden="true" style={{cursor: 'pointer',fontSize:'60px', paddingLeft: '30px', color: '#808080'}}></i>
@@ -133,7 +133,7 @@ export default class PropertyFieldDisplayModeHost extends React.Component<IPrope
               <input id="tilesRadio" className=""
                onChange={this.onClickTiles} type="radio" name="radio1"
                defaultChecked={this.state.mode == "tiles" ? true : false}
-               value="tiles"  style={{cursor: 'pointer'}}/>
+               value="tiles"  style={{cursor: 'pointer', width: '18px', height: '18px'}}/>
               <label htmlFor="tilesRadio" className="">
                 <span className="ms-Label">
                   <i className='ms-Icon ms-Icon--Tiles' aria-hidden="true" style={{cursor: 'pointer',fontSize:'48px', paddingLeft: '30px', color: '#808080'}}></i>
