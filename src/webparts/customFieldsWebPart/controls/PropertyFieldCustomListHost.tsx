@@ -275,7 +275,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
           <div>
                {this.props.fields != null ?
               <div>
-              <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', padding: '5px'}}>
+              <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', paddingTop: '5px', paddingBottom: '5px'}}>
                 <Button buttonType={ButtonType.hero} disabled={true} icon='Add'> &nbsp;Add item</Button>
                 <Button buttonType={ButtonType.hero} onClick={this.onClickCancel} icon='Back'> &nbsp;Back</Button>
               </div>
@@ -292,7 +292,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                       </div>
                     </div>
                     : ''}
-              <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px', width: '100%'}}>
+              <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px', width: '100%', paddingRight:'10px'}}>
                   <tbody>
                       {
                         this.props.fields.map((value: ICustomListField) => {
@@ -422,7 +422,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
           <div>
                {this.props.fields != null ?
                   <div>
-                  <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', padding: '5px'}}>
+                  <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', paddingTop: '5px', paddingBottom: '5px'}}>
                     <Button buttonType={ButtonType.hero} disabled={true} icon='Edit'> &nbsp;Edit</Button>
                     <Button buttonType={ButtonType.hero} onClick={this.onClickCancel} icon='Back'> &nbsp;Back</Button>
                   </div>
@@ -439,7 +439,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                       </div>
                     </div>
                     : ''}
-                  <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px', width: '100%'}}>
+                  <table className="ms-Table" cellSpacing="0" style={{marginTop: '30px', width: '100%', paddingRight:'10px'}}>
                   <tbody>
                       {
                         this.props.fields.map((value: ICustomListField) => {
@@ -570,7 +570,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
 
           { this.state.openListView === true ?
           <div>
-              <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', padding: '5px'}}>
+              <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', paddingTop: '5px', paddingBottom: '5px'}}>
                 <Button buttonType={ButtonType.hero} onClick={this.onClickAddItem} icon='Add'> &nbsp;Add item</Button>
                 <Button buttonType={ButtonType.hero} onClick={this.onClickEdit} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='Edit'> &nbsp;Edit</Button>
                 <Button buttonType={ButtonType.hero} onClick={this.onClickDeleteItem} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='Delete'> &nbsp;Delete</Button>
