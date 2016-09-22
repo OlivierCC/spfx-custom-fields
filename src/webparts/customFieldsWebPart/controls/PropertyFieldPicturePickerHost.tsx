@@ -126,6 +126,8 @@ export default class PropertyFieldPicturePickerHost extends React.Component<IPro
   *
   */
   private handleIframeData(element?: any) {
+    if (this.state.openSite != true || this.state.openPanel != true)
+      return;
     var data: string = element.data;
     var indexOfPicker = data.indexOf("[OneDrive-FromPicker]");
     if (indexOfPicker != -1) {
