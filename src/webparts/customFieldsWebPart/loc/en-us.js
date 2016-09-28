@@ -22,6 +22,23 @@ define([], function() {
     "CustomListFieldLabel": "Custom List Field",
     "QueryFieldLabel": "List Query Field",
 
+    //SPListQuery labels
+    //Copy the following labels in your project if you want to use the SPListQuery
+    "SPListQueryList": "List",
+    "SPListQueryOrderBy": "Order By",
+    "SPListQueryArranged": "Arranged",
+    "SPListQueryMax": "Max",
+    "SPListQueryAdd": "Add filter",
+    "SPListQueryRemove": "Remove",
+    "SPListQueryOperatorEq": "Equals",
+    "SPListQueryOperatorNe": "Not Equals",
+    "SPListQueryOperatorStartsWith": "Starts With",
+    "SPListQueryOperatorSubstringof": "Sub String of",
+    "SPListQueryOperatorLt":  "Less than",
+    "SPListQueryOperatorLe": "Less or equal to",
+    "SPListQueryOperatorGt": "Greater than",
+    "SPListQueryOperatorGe": "Greater or equal to",
+
     //PicturePicker labels
     //Copy the following labels in your project if you want to use the PicturePicker
     "PicturePickerTitle": "Select a picture",

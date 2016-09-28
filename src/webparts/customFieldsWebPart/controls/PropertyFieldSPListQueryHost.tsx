@@ -11,8 +11,12 @@ import { IWebPartContext } from '@microsoft/sp-client-preview';
 import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Slider } from 'office-ui-fabric-react/lib/Slider';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
+import { Button, ButtonType } from 'office-ui-fabric-react/lib/Button';
 import { EnvironmentType } from '@microsoft/sp-client-base';
 import { IPropertyFieldSPListQueryPropsInternal, PropertyFieldSPListQueryOrderBy } from './PropertyFieldSPListQuery';
+
+import * as strings from 'customFieldsWebPartStrings';
 
 /**
  * @interface
@@ -22,6 +26,13 @@ import { IPropertyFieldSPListQueryPropsInternal, PropertyFieldSPListQueryOrderBy
 export interface IPropertyFieldSPListQueryHostProps extends IPropertyFieldSPListQueryPropsInternal {
 }
 
+export interface IFilter {
+  field?: string;
+  operator?: string;
+  value?: string;
+}
+
+
 export interface IPropertyFieldSPListQueryHostState {
   lists: IDropdownOption[];
   fields: IDropdownOption[];
@@ -30,6 +41,8 @@ export interface IPropertyFieldSPListQueryHostState {
   selectedField?: string;
   selectedArrange?: string;
   max?: number;
+  operators?: IDropdownOption[];
+  filters?: IFilter[];
 }
 
 /**
@@ -49,14 +62,30 @@ export default class PropertyFieldSPListQueryHost extends React.Component<IPrope
     this.onChangedArranged = this.onChangedArranged.bind(this);
     this.onChangedMax = this.onChangedMax.bind(this);
     this.loadFields = this.loadFields.bind(this);
+    this.onClickAddFilter = this.onClickAddFilter.bind(this);
+    this.onClickRemoveFilter = this.onClickRemoveFilter.bind(this);
+    this.onChangedFilterField = this.onChangedFilterField.bind(this);
+    this.onChangedFilterOperator = this.onChangedFilterOperator.bind(this);
+    this.onChangedFilterValue = this.onChangedFilterValue.bind(this);
 
     this.state = {
 			lists: [],
       fields: [],
-      arranged: [{key: 'asc', text: 'Asc', isSelected: true}, {key: 'desc', text: 'Desc'}],
+      arranged: [{key: 'asc', text: 'Asc'}, {key: 'desc', text: 'Desc'}],
       selectedList: '',
       selectedField: '',
       selectedArrange: '',
+      operators: [
+        {key: 'Eq', text: strings.SPListQueryOperatorEq},
+         {key: 'Ne', text: strings.SPListQueryOperatorNe},
+          {key: 'startsWith', text: strings.SPListQueryOperatorStartsWith},
+           {key: 'substringof', text: strings.SPListQueryOperatorSubstringof},
+            {key: 'Lt', text: strings.SPListQueryOperatorLt},
+             {key: 'Le', text: strings.SPListQueryOperatorLe},
+              {key: 'Gt', text: strings.SPListQueryOperatorGt},
+               {key: 'Ge', text: strings.SPListQueryOperatorGe}
+      ],
+      filters: [],
       max: 100
     };
 
@@ -111,7 +140,10 @@ export default class PropertyFieldSPListQueryHost extends React.Component<IPrope
         lists: this.state.lists,
         fields: this.state.fields,
         max: this.state.max,
-        arranged: this.state.arranged});
+        arranged: this.state.arranged,
+        operators: this.state.operators,
+        filters: this.state.filters
+      });
   }
 
   private saveQuery(): void {
@@ -121,13 +153,35 @@ export default class PropertyFieldSPListQueryHost extends React.Component<IPrope
       queryUrl += "/_api/lists(guid'";
       queryUrl += this.state.selectedList
       queryUrl += "')/items?";
-      queryUrl += "$orderBy=";
-      queryUrl += this.state.selectedField;
-      queryUrl += "%20";
-      queryUrl += this.state.selectedArrange;
-      queryUrl += '&$top=';
-      queryUrl += this.state.max;
-
+      if (this.state.selectedField != null && this.state.selectedField != '') {
+        queryUrl += "$orderBy=";
+        queryUrl += this.state.selectedField;
+        queryUrl += "%20";
+        queryUrl += this.state.selectedArrange;
+        queryUrl += '&';
+      }
+      if (this.state.max != null) {
+        queryUrl += '$top=';
+        queryUrl += this.state.max;
+        queryUrl += '&';
+      }
+      if (this.state.filters != null && this.state.filters.length > 0) {
+        queryUrl += '$filters=';
+        for (var i = 0; i < this.state.filters.length; i++) {
+          if (this.state.filters[i].field != null && this.state.filters[i].operator != null) {
+            if (i > 0) {
+              queryUrl += "%20AND%20";
+            }
+            queryUrl += this.state.filters[i].field;
+            queryUrl += "%20";
+            queryUrl += this.state.filters[i].operator;
+            queryUrl += "%20'";
+            queryUrl += this.state.filters[i].value;
+            queryUrl += "'";
+          }
+        }
+        queryUrl += '&';
+      }
       this.props.onPropertyChange(this.props.targetProperty, queryUrl);
     }
   }
@@ -161,6 +215,38 @@ export default class PropertyFieldSPListQueryHost extends React.Component<IPrope
     this.saveState();
   }
 
+  private onClickAddFilter(elm?: any): void {
+    this.state.filters.push({});
+    this.saveState();
+    this.saveQuery();
+  }
+
+  private onClickRemoveFilter(index: number): void {
+    if (index > -1) {
+      this.state.filters.splice(index, 1);
+      this.saveState();
+      this.saveQuery();
+    }
+  }
+
+  private onChangedFilterField(option: IDropdownOption, index?: number, selectedIndex?: number): void {
+    this.state.filters[selectedIndex].field = option.key as string;
+    this.saveState();
+    this.saveQuery();
+  }
+
+  private onChangedFilterOperator(option: IDropdownOption, index?: number, selectedIndex?: number): void {
+    this.state.filters[selectedIndex].operator = option.key as string;
+    this.saveState();
+    this.saveQuery();
+  }
+
+  private onChangedFilterValue(value?: string, index?: number): void {
+    this.state.filters[index].value = value;
+    this.saveState();
+    this.saveQuery();
+  }
+
 
   /**
    * @function
@@ -170,33 +256,75 @@ export default class PropertyFieldSPListQueryHost extends React.Component<IPrope
     //Renders content
     return (
       <div>
+        <Label>{this.props.label}</Label>
         <Dropdown
-          label="List"
+          label={strings.SPListQueryList}
           onChanged={this.onChangedList}
           options={this.state.lists}
           selectedKey={this.state.selectedList}
         />
-        <Dropdown
-          label="Order By"
-          options={this.state.fields}
-          selectedKey={this.state.selectedField}
-          onChanged={this.onChangedField}
-          isDisabled={this.state.selectedList != null && this.state.selectedList != '' ? false : true }
-        />
-        <Dropdown
-          label="Arranged"
-          options={this.state.arranged}
-          selectedKey={this.state.selectedArrange}
-          onChanged={this.onChangedArranged}
-          isDisabled={this.state.selectedList != null && this.state.selectedList != '' ? false : true }
-        />
-        <Slider label="Max"
-          min={0}
-          max={500}
-          defaultValue={this.state.max}
-          onChange={this.onChangedMax}
-          disabled={this.state.selectedList != null && this.state.selectedList != '' ? false : true }
-        />
+
+        {this.props.showOrderBy != false ?
+          <div>
+            <Dropdown
+              label={strings.SPListQueryOrderBy}
+              options={this.state.fields}
+              selectedKey={this.state.selectedField}
+              onChanged={this.onChangedField}
+              isDisabled={this.state.selectedList != null && this.state.selectedList != '' ? false : true }
+            />
+            <Dropdown
+              label={strings.SPListQueryArranged}
+              options={this.state.arranged}
+              selectedKey={this.state.selectedArrange}
+              onChanged={this.onChangedArranged}
+              isDisabled={this.state.selectedList != null && this.state.selectedList != '' ? false : true }
+            />
+           </div>
+          : ''}
+
+        {this.props.showMax != false ?
+          <Slider label={strings.SPListQueryMax}
+            min={0}
+            max={500}
+            defaultValue={this.state.max}
+            onChange={this.onChangedMax}
+            disabled={this.state.selectedList != null && this.state.selectedList != '' ? false : true }
+          />
+          : ''}
+
+        {this.state.filters.map((value: IFilter, index: number) => {
+          return (
+            <div>
+              <Label>Filter</Label>
+              <Dropdown
+                label=''
+                options={this.state.fields}
+                selectedKey={value.field}
+                onChanged={(option: IDropdownOption, selectIndex?: number) => this.onChangedFilterField(option, selectIndex, index)}
+              />
+              <Dropdown
+                label=''
+                options={this.state.operators}
+                selectedKey={value.operator}
+                onChanged={(option: IDropdownOption, selectIndex?: number) => this.onChangedFilterOperator(option, selectIndex, index)}
+              />
+              <TextField defaultValue={value.value} onChanged={(value: string) => this.onChangedFilterValue(value, index)} />
+              <Button buttonType={ButtonType.command} onClick={() => this.onClickRemoveFilter(index)} icon="Delete">
+                {strings.SPListQueryRemove}
+              </Button>
+            </div>
+          );
+        })
+        }
+
+        {this.props.showFilters != false ?
+          <Button buttonType={ButtonType.command} onClick={this.onClickAddFilter}
+          disabled={this.state.selectedList != null && this.state.selectedList != '' ? false : true } icon="Add">
+          {strings.SPListQueryAdd}
+          </Button>
+          : ''}
+
       </div>
     );
   }

@@ -38,6 +38,9 @@ export interface IPropertyFieldSPListQueryProps {
   baseTemplate?: number;
   includeHidden?: boolean;
   orderBy?: PropertyFieldSPListQueryOrderBy;
+  showOrderBy?: boolean;
+  showMax?: boolean;
+  showFilters?: boolean;
   /**
    * @function
    * Defines a onPropertyChange function to raise when the selected value changed.
@@ -63,6 +66,9 @@ export interface IPropertyFieldSPListQueryPropsInternal extends IPropertyFieldSP
   baseTemplate?: number;
   orderBy?: PropertyFieldSPListQueryOrderBy;
   includeHidden?: boolean;
+  showOrderBy?: boolean;
+  showMax?: boolean;
+  showFilters?: boolean;
   onRender(elem: HTMLElement): void;
   onDispose(elem: HTMLElement): void;
   onPropertyChange(propertyPath: string, newValue: any): void;
@@ -87,6 +93,9 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
   private baseTemplate: number;
   private orderBy: PropertyFieldSPListQueryOrderBy;
   private includeHidden: boolean;
+  private showOrderBy: boolean;
+  private showMax: boolean;
+  private showFilters: boolean;
 
   public onPropertyChange(propertyPath: string, newValue: any): void {}
 
@@ -105,6 +114,9 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
     this.baseTemplate = _properties.baseTemplate;
     this.orderBy = _properties.orderBy;
     this.includeHidden = _properties.includeHidden;
+    this.showOrderBy = _properties.showOrderBy;
+    this.showMax = _properties.showMax;
+    this.showFilters = _properties.showFilters;
     this.onPropertyChange = _properties.onPropertyChange;
   }
 
@@ -122,6 +134,9 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
       baseTemplate: this.baseTemplate,
       orderBy: this.orderBy,
       includeHidden: this.includeHidden,
+      showOrderBy: this.showOrderBy,
+      showMax: this.showMax,
+      showFilters: this.showFilters,
       onDispose: this.dispose,
       onRender: this.render,
       onPropertyChange: this.onPropertyChange
@@ -157,6 +172,9 @@ export function PropertyFieldSPListQuery(targetProperty: string, properties: IPr
       baseTemplate: properties.baseTemplate,
       orderBy: properties.orderBy,
       includeHidden: properties.includeHidden,
+      showOrderBy: properties.showOrderBy,
+      showMax: properties.showMax,
+      showFilters: properties.showFilters,
       onPropertyChange: properties.onPropertyChange,
       onDispose: null,
       onRender: null

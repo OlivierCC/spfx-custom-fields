@@ -23,6 +23,23 @@ declare interface IStrings {
   CustomListFieldLabel: string;
   QueryFieldLabel: string;
 
+  //SPListQuery labels
+  //Copy the following labels in your project if you want to use the SPListQuery
+  SPListQueryList: string;
+  SPListQueryOrderBy: string;
+  SPListQueryArranged: string;
+  SPListQueryMax: string;
+  SPListQueryAdd: string;
+  SPListQueryRemove: string;
+  SPListQueryOperatorEq: string;
+  SPListQueryOperatorNe: string;
+  SPListQueryOperatorStartsWith: string;
+  SPListQueryOperatorSubstringof: string;
+  SPListQueryOperatorLt: string;
+  SPListQueryOperatorLe: string;
+  SPListQueryOperatorGt: string;
+  SPListQueryOperatorGe: string;
+
   //PicturePicker labels
   //Copy the following labels in your project if you want to use the PicturePicker
   PicturePickerTitle: string;

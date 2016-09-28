@@ -146,11 +146,6 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   label: strings.ColorFieldLabel,
                   initialColor: this.properties.color,
                   onPropertyChange: this.onPropertyChange
-                }),
-                 PropertyFieldDisplayMode('displayMode', {
-                  label: strings.DisplayModeFieldLabel,
-                  initialValue: this.properties.displayMode,
-                  onPropertyChange: this.onPropertyChange
                 })
               ],
             },
@@ -288,8 +283,16 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   includeHidden: false,
                   //baseTemplate: 109,
                   orderBy: PropertyFieldSPListQueryOrderBy.Title,
+                  showOrderBy: true,
+                  showMax: true,
+                  showFilters: true,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
+                }),
+                 PropertyFieldDisplayMode('displayMode', {
+                  label: strings.DisplayModeFieldLabel,
+                  initialValue: this.properties.displayMode,
+                  onPropertyChange: this.onPropertyChange
                 })
               ]
             }

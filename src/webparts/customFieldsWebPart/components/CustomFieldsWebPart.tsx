@@ -67,12 +67,6 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 <i className={'ms-Icon ' + this.props.icon} aria-hidden="true" style={{fontSize:'large'}}></i>
                 &nbsp;{this.props.icon}
               </p>
-              <p >
-                <i className="ms-Icon ms-Icon--List" aria-hidden="true"></i>&nbsp;
-                <b>Display Mode</b>
-                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDisplayMode" target="_doc">(Doc)</a> : &nbsp;
-                {this.props.displayMode}
-              </p>
 
               <p className="ms-fontSize-xxl">
                <i className="ms-Icon ms-Icon--InsertTextBox" aria-hidden="true"></i>
@@ -175,6 +169,12 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 <b>Query</b>
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListQuery" target="_doc">(Doc)</a> :&nbsp;
                 {this.props.query}
+              </p>
+              <p >
+                <i className="ms-Icon ms-Icon--List" aria-hidden="true"></i>&nbsp;
+                <b>Display Mode</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDisplayMode" target="_doc">(Doc)</a> : &nbsp;
+                {this.props.displayMode}
               </p>
               <p >
                 <i className="ms-Icon ms-Icon--FolderSearch" aria-hidden="true"></i>&nbsp;
