@@ -279,13 +279,14 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
               groupFields: [
                 PropertyFieldSPListQuery('query', {
                   label: strings.QueryFieldLabel,
-                  selectedList: this.properties.query,
+                  query: this.properties.query,
                   includeHidden: false,
                   //baseTemplate: 109,
                   orderBy: PropertyFieldSPListQueryOrderBy.Title,
                   showOrderBy: true,
                   showMax: true,
                   showFilters: true,
+                  max: 50,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
                 }),

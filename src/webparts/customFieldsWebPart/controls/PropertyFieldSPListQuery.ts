@@ -34,6 +34,7 @@ export interface IPropertyFieldSPListQueryProps {
    */
   label: string;
   context: IWebPartContext;
+  query?: string;
   selectedList?: string;
   baseTemplate?: number;
   includeHidden?: boolean;
@@ -41,6 +42,7 @@ export interface IPropertyFieldSPListQueryProps {
   showOrderBy?: boolean;
   showMax?: boolean;
   showFilters?: boolean;
+  max?: number;
   /**
    * @function
    * Defines a onPropertyChange function to raise when the selected value changed.
@@ -62,6 +64,7 @@ export interface IPropertyFieldSPListQueryPropsInternal extends IPropertyFieldSP
   label: string;
   targetProperty: string;
   context: IWebPartContext;
+  query?: string;
   selectedList?: string;
   baseTemplate?: number;
   orderBy?: PropertyFieldSPListQueryOrderBy;
@@ -69,6 +72,7 @@ export interface IPropertyFieldSPListQueryPropsInternal extends IPropertyFieldSP
   showOrderBy?: boolean;
   showMax?: boolean;
   showFilters?: boolean;
+  max?: number;
   onRender(elem: HTMLElement): void;
   onDispose(elem: HTMLElement): void;
   onPropertyChange(propertyPath: string, newValue: any): void;
@@ -89,6 +93,7 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
   //Custom properties label: string;
   private label: string;
   private context: IWebPartContext;
+  private query: string;
   private selectedList: string;
   private baseTemplate: number;
   private orderBy: PropertyFieldSPListQueryOrderBy;
@@ -96,7 +101,7 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
   private showOrderBy: boolean;
   private showMax: boolean;
   private showFilters: boolean;
-
+  private max: number;
   public onPropertyChange(propertyPath: string, newValue: any): void {}
 
   /**
@@ -110,6 +115,7 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
     this.properties.onRender = this.render;
     this.label = _properties.label;
     this.context = _properties.context;
+    this.query = _properties.query;
     this.selectedList = _properties.selectedList;
     this.baseTemplate = _properties.baseTemplate;
     this.orderBy = _properties.orderBy;
@@ -117,6 +123,7 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
     this.showOrderBy = _properties.showOrderBy;
     this.showMax = _properties.showMax;
     this.showFilters = _properties.showFilters;
+    this.max = _properties.max;
     this.onPropertyChange = _properties.onPropertyChange;
   }
 
@@ -130,6 +137,7 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
       label: this.label,
       targetProperty: this.targetProperty,
       context: this.context,
+      query: this.query,
       selectedList: this.selectedList,
       baseTemplate: this.baseTemplate,
       orderBy: this.orderBy,
@@ -137,6 +145,7 @@ class PropertyFieldSPListQueryBuilder implements IPropertyPaneField<IPropertyFie
       showOrderBy: this.showOrderBy,
       showMax: this.showMax,
       showFilters: this.showFilters,
+      max: this.max,
       onDispose: this.dispose,
       onRender: this.render,
       onPropertyChange: this.onPropertyChange
@@ -168,6 +177,7 @@ export function PropertyFieldSPListQuery(targetProperty: string, properties: IPr
       label: properties.label,
       targetProperty: targetProperty,
       context: properties.context,
+      query: properties.query,
       selectedList: properties.selectedList,
       baseTemplate: properties.baseTemplate,
       orderBy: properties.orderBy,
@@ -175,6 +185,7 @@ export function PropertyFieldSPListQuery(targetProperty: string, properties: IPr
       showOrderBy: properties.showOrderBy,
       showMax: properties.showMax,
       showFilters: properties.showFilters,
+      max: properties.max,
       onPropertyChange: properties.onPropertyChange,
       onDispose: null,
       onRender: null

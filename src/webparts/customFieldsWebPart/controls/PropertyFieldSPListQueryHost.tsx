@@ -86,10 +86,73 @@ export default class PropertyFieldSPListQueryHost extends React.Component<IPrope
                {key: 'Ge', text: strings.SPListQueryOperatorGe}
       ],
       filters: [],
-      max: 100
+      max: 20
     };
 
+    this.loadDefaultData();
     this.loadLists();
+  }
+
+  private loadDefaultData(): void {
+    if (this.props.query == null || this.props.query == '')
+      return;
+    var indexOfGuid: number = this.props.query.indexOf("lists(guid'");
+    if (indexOfGuid > -1) {
+      var listId: string = this.props.query.substr(indexOfGuid);
+      listId = listId.replace("lists(guid'", "");
+      var indexOfEndGuid: number = listId.indexOf("')/items");
+      listId = listId.substr(0, indexOfEndGuid);
+      this.state.selectedList = listId;
+      if (listId != null && listId != '')
+        this.loadFields();
+    }
+    var indexOfOrderBy: number = this.props.query.indexOf("$orderBy=");
+    if (indexOfOrderBy > -1) {
+      var orderBy: string = this.props.query.substr(indexOfOrderBy);
+      orderBy = orderBy.replace("$orderBy=", "");
+      var indexOfEndOrderBy: number = orderBy.indexOf("%20");
+      var field: string = orderBy.substr(0, indexOfEndOrderBy);
+      this.state.selectedField = field;
+      var arranged: string = orderBy.substr(indexOfEndOrderBy);
+      arranged = arranged.replace("%20", "");
+      var indexOfEndArranged: number = arranged.indexOf("&");
+      arranged = arranged.substr(0, indexOfEndArranged);
+      this.state.selectedArrange = arranged;
+    }
+    var indexOfTop: number = this.props.query.indexOf("$top=");
+    if (indexOfTop > -1) {
+      var top: string = this.props.query.substr(indexOfTop);
+      top = top.replace("$top=", "");
+      var indexOfEndTop: number = top.indexOf("&");
+      top = top.substr(0, indexOfEndTop);
+      this.state.max = Number(top);
+    }
+    var indexOfFilters: number = this.props.query.indexOf("$filters=");
+    if (indexOfFilters > -1) {
+      var filter: string = this.props.query.substr(indexOfFilters);
+      filter = filter.replace("$filters=", "");
+      var indexOfEndFilter: number = filter.indexOf("&");
+      filter = filter.substr(0, indexOfEndFilter);
+      if (filter != null && filter != '') {
+        var subFilter = filter.split("%20AND%20");
+        for (var i = 0; i < subFilter.length; i++) {
+          var fieldId: string = subFilter[i].substr(0, subFilter[i].indexOf("%20"));
+          var operator: string = subFilter[i].substr(subFilter[i].indexOf("%20"));
+          operator = operator.substr(3);
+          operator = operator.substr(0, operator.indexOf("%20"));
+          var value: string = subFilter[i].substr(subFilter[i].indexOf(operator + "%20"));
+          value = value.replace(operator + "%20", "");
+          value = value.replace("'", "").replace("'", "").replace("'", "");
+          if (value == "undefined")
+            value = '';
+          var newObj: IFilter = {};
+          newObj.field = fieldId;
+          newObj.operator = operator;
+          newObj.value = value;
+          this.state.filters.push(newObj);
+        }
+      }
+    }
   }
 
   /**
@@ -286,7 +349,7 @@ export default class PropertyFieldSPListQueryHost extends React.Component<IPrope
         {this.props.showMax != false ?
           <Slider label={strings.SPListQueryMax}
             min={0}
-            max={500}
+            max={this.props.max == null ? 500 : this.props.max}
             defaultValue={this.state.max}
             onChange={this.onChangedMax}
             disabled={this.state.selectedList != null && this.state.selectedList != '' ? false : true }
