@@ -52,7 +52,8 @@ import { PropertyFieldDocumentPicker } from './controls/PropertyFieldDocumentPic
 import { PropertyFieldDisplayMode } from './controls/PropertyFieldDisplayMode';
 //Include the PropertyFieldCustomList component
 import { PropertyFieldCustomList, CustomListFieldType } from './controls/PropertyFieldCustomList';
-
+//Include the PropertyFieldSPListQuery component
+import { PropertyFieldSPListQuery, PropertyFieldSPListQueryOrderBy } from './controls/PropertyFieldSPListQuery';
 
 export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<ICustomFieldsWebPartWebPartProps> {
 
@@ -85,7 +86,8 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
       icon: this.properties.icon,
       document: this.properties.document,
       displayMode: this.properties.displayMode,
-      customList: this.properties.customList
+      customList: this.properties.customList,
+      query: this.properties.query
     });
 
     ReactDom.render(element, this.domElement);
@@ -272,6 +274,20 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   includeHidden: false,
                   baseTemplate: 109,
                   orderBy: PropertyFieldSPListMultiplePickerOrderBy.Title,
+                  onPropertyChange: this.onPropertyChange,
+                  context: this.context
+                })
+              ]
+            },
+            {
+              groupName: 'SharePoint Query',
+              groupFields: [
+                PropertyFieldSPListQuery('query', {
+                  label: strings.QueryFieldLabel,
+                  selectedList: this.properties.query,
+                  includeHidden: false,
+                  //baseTemplate: 109,
+                  orderBy: PropertyFieldSPListQueryOrderBy.Title,
                   onPropertyChange: this.onPropertyChange,
                   context: this.context
                 })

@@ -21,4 +21,5 @@ export interface ICustomFieldsWebPartWebPartProps {
   document: string;
   displayMode: string;
   customList: any[];
+  query: string;
 }

@@ -170,6 +170,12 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
                 &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListPicker" target="_doc">(Doc)</a> :&nbsp;
                 {this.props.list}
               </p>
+              <p>
+                <i className="ms-Icon ms-Icon--List" aria-hidden="true"></i>&nbsp;
+                <b>Query</b>
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListQuery" target="_doc">(Doc)</a> :&nbsp;
+                {this.props.query}
+              </p>
               <p >
                 <i className="ms-Icon ms-Icon--FolderSearch" aria-hidden="true"></i>&nbsp;
                 <b>Folder</b>
