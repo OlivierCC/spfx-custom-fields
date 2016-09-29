@@ -2,7 +2,7 @@
 
 > Note: The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production enviornments.
 
-This example is a kit of **18 + components** to customize SPFx web parts custom fields, to make the
+This example is a kit of **19+ components** to customize SPFx web parts custom fields, to make the
 **optimal experience to edit your Web parts**.
 
 These samples show how to implement custom fields with the new SharePoint Framework (SPFx). These samples
@@ -10,7 +10,7 @@ include an implementation of **PropertyFieldDatePicker**, **PropertyFieldDateTim
 **PropertyFieldPeoplePicker**, **PropertyFieldColorPicker**,
 **PropertyFieldFontPicker**, **PropertyFieldFontSizePicker**, **PropertyFieldIconPicker**, **PropertyFieldDisplayMode**,
 **PropertyFieldCustomList**,
- **PropertyFieldSPListPicker**, **PropertyFieldSPListMultiplePicker**, **PropertyFieldSPFolderPicker**,
+ **PropertyFieldSPListPicker**,  **PropertyFieldSPListQuery**,**PropertyFieldSPListMultiplePicker**, **PropertyFieldSPFolderPicker**,
  **PropertyFieldPhoneNumber**, **PropertyFieldMaskedInput**, **PropertyFieldMapPicker**
  controls, based on the Office UI Fabric framework and React.
 
@@ -38,6 +38,7 @@ Custom Field | Description |  Overview
 [PropertyFieldCustomList](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldCustomList)| Custom field to select a collection of data with forms as an object property of your web part  | ![PropertyFieldCustomList](./assets/OverviewCustomList.png)
 [PropertyFieldSPListPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListPicker)| Custom field to select a list from the current SharePoint web site.   | ![PropertyFieldSPListPicker](./assets/OverviewSPListPicker.png)
 [PropertyFieldSPListMultiplePicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListMultiplePicker)| Custom field to select multiple lists from the current SharePoint web site.   | ![PropertyFieldSPListMultiplePicker](./assets/OverviewSPListMultiplePicker.png)
+[PropertyFieldSPListQuery](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPListQuery)| Custom field to query parameters and to get a REST web url to get items.   | ![PropertyFieldSPListQuery](./assets/OverviewSPListQuery.png)
 [PropertyFieldSPFolderPicker](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldSPFolderPicker)| Custom field to select a folder from the current SharePoint web site.   | ![PropertyFieldSPFolderPicker](./assets/OverviewSPFolderPicker.png)
 [PropertyFieldPassword](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPassword) | Custom field to select a password | ![PropertyFieldPassword](./assets/OverviewPassword.png)
 [PropertyFieldPhoneNumber](https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPhoneNumber) | Custom field to select a phone number with a masked control based on phone numbers international formats. | ![PropertyFieldPhoneNumber](./assets/OverviewPhoneNumber.png)
