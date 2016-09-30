@@ -155,7 +155,7 @@ export default class CustomFieldsWebPart extends React.Component<ICustomFieldsWe
               <p>
                 <i className="ms-Icon ms-Icon--Document" aria-hidden="true"></i>&nbsp;
                 <b>Document</b>
-                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldPicturePicker" target="_doc">(Doc)</a> :&nbsp;
+                &nbsp;<a className="ms-fontSize-sPlus" href="https://github.com/OlivierCC/spfx-custom-fields/wiki/PropertyFieldDocumentPicker" target="_doc">(Doc)</a> :&nbsp;
                 {this.props.document}
               </p>
               <p>

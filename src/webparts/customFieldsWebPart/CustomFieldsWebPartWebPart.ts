@@ -126,14 +126,14 @@ export default class CustomFieldsWebPartWebPart extends BaseClientSideWebPart<IC
                   label: strings.FontSizeFieldLabel,
                   usePixels: false,
                   preview: true,
-                  initialValue: this.properties.font,
+                  initialValue: this.properties.fontSize,
                   onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldFontSizePicker('fontSize', {
                   label: strings.FontSizeFieldLabel,
                   usePixels: true,
                   preview: true,
-                  initialValue: this.properties.font,
+                  initialValue: this.properties.fontSize,
                   onPropertyChange: this.onPropertyChange
                 }),
                 PropertyFieldIconPicker('icon', {
