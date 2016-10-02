@@ -77,6 +77,8 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
     this.onPropertyChangeJson = this.onPropertyChangeJson.bind(this);
     this.onChangedCheckbox = this.onChangedCheckbox.bind(this);
     this.onCancel = this.onCancel.bind(this);
+    this.onClickMoveUp = this.onClickMoveUp.bind(this);
+    this.onClickMoveDown = this.onClickMoveDown.bind(this);
 
     this.state = {
       data: this.props.value != null ? this.props.value : [],
@@ -192,6 +194,28 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
     this.setState(this.state);
   }
 
+  private onClickMoveUp(element?: any): void {
+     var indexToMove: number = Number(this.state.selectedIndex);
+     if (indexToMove > 0) {
+       var obj = this.state.data[indexToMove - 1];
+       this.state.data[indexToMove - 1] = this.state.data[indexToMove];
+       this.state.data[indexToMove] = obj;
+       this.state.selectedIndex = indexToMove - 1;
+       this.setState(this.state);
+     }
+  }
+
+  private onClickMoveDown(element?: any): void {
+     var indexToMove: number = Number(this.state.selectedIndex);
+     if (indexToMove < this.state.data.length - 1) {
+       var dataRestore = this.state.data[indexToMove + 1];
+       this.state.data[indexToMove + 1] = this.state.data[indexToMove];
+       this.state.data[indexToMove] = dataRestore;
+       this.state.selectedIndex = indexToMove + 1;
+       this.setState(this.state);
+     }
+  }
+
   private clickDelete(element?: any): void {
     var indexToDelete = this.state.selectedIndex;
     var newData: any[] = [];
@@ -199,6 +223,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
       if (i != indexToDelete)
         newData.push(this.state.data[i]);
     }
+    this.state.selectedIndex = -1;
     this.state.data = newData;
     this.state.selectedIndex = null;
     this.setState(this.state);
@@ -475,7 +500,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 }
                                 { value.type == CustomListFieldType.boolean ?
                                   <div  style={{marginBottom: '8px'}}>
-                                    <input id={'input-' + value.title} defaultValue={this.state.data[this.state.selectedIndex][value.title]} type="hidden" style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} type="hidden" defaultValue={this.state.data[this.state.selectedIndex][value.title]} style={{visibility: 'hidden'}}/>
                                     <input type="radio" name={'input-' + value.title} style={{width: '18px', height: '18px'}} value={'input-' + value.title} onChange={
                                       function(elm:any) {
                                         if (elm.currentTarget.checked == true) {
@@ -610,7 +635,9 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
               <div style={{marginBottom: '20px', backgroundColor: '#F4F4F4', width: '100%', paddingTop: '5px', paddingBottom: '5px'}}>
                 <Button buttonType={ButtonType.hero} onClick={this.onClickAddItem} icon='Add'> &nbsp;Add item</Button>
                 <Button buttonType={ButtonType.hero} onClick={this.onClickEdit} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='Edit'> &nbsp;Edit</Button>
-                <Button buttonType={ButtonType.hero} onClick={this.onClickDeleteItem} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='Delete'> &nbsp;Delete</Button>
+                <Button buttonType={ButtonType.hero} onClick={this.onClickDeleteItem} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='Delete'> &nbsp;Del</Button>
+                <Button buttonType={ButtonType.hero} onClick={this.onClickMoveUp} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='ChevronUp'> </Button>
+                <Button buttonType={ButtonType.hero} onClick={this.onClickMoveDown} disabled={this.state.selectedIndex == null || this.state.selectedIndex < 0 ? true:false} icon='ChevronDown'> </Button>
               </div>
                  <Dialog type={DialogType.close} isOpen={this.state.deleteOpen} title="Confirm Delete"
                   onDismiss={this.onDismissDelete}  isDarkOverlay={false} isBlocking={true}>
@@ -655,7 +682,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 <div style={{float: 'left'}}>
                                 <input id={"bulletRadio" + index} style={{width: '18px', height: '18px'}}
                                   type="radio" name="radio1" onChange={this.onChangeSelectedItem}
-                                  value={index} defaultChecked={index == this.state.selectedIndex ? true: false}/>
+                                  value={index} checked={index == this.state.selectedIndex ? true : false}/>
                                 <label htmlFor={"bulletRadio" + index}>
                                   <span className="ms-Label">
                                   </span>
@@ -664,7 +691,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                               </td>
                             {
                               this.props.fields.map((field: ICustomListField) => {
-                                if (field.hidden != true) {
+                                if (value != null && field != null && field.hidden != true) {
                                   return (
                                     <td><Label htmlFor={"bulletRadio" + index} >{value[field.title]}</Label></td>
                                   );
