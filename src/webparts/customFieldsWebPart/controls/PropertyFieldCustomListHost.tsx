@@ -320,7 +320,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                             input['value'] = true;
                                         }
                                       }
-                                    } /> True
+                                    } /> <span style={{fontSize: '14px'}}>True</span>
                                     <input type="radio" name={'input-' + value.title} style={{width: '18px', height: '18px'}} value={'input-' + value.title} onChange={
                                       function(elm:any) {
                                         if (elm.currentTarget.checked == true) {
@@ -329,7 +329,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                             input['value'] = false;
                                         }
                                       }
-                                    } /> False
+                                    } /> <span style={{fontSize: '14px'}}>False</span>
                                   </div>
                                 : ''
                                 }
@@ -475,7 +475,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                 }
                                 { value.type == CustomListFieldType.boolean ?
                                   <div  style={{marginBottom: '8px'}}>
-                                    <input id={'input-' + value.title} type="hidden" style={{visibility: 'hidden'}}/>
+                                    <input id={'input-' + value.title} defaultValue={this.state.data[this.state.selectedIndex][value.title]} type="hidden" style={{visibility: 'hidden'}}/>
                                     <input type="radio" name={'input-' + value.title} style={{width: '18px', height: '18px'}} value={'input-' + value.title} onChange={
                                       function(elm:any) {
                                         if (elm.currentTarget.checked == true) {
@@ -486,7 +486,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                       }
                                     }
                                     defaultChecked={this.state.data[this.state.selectedIndex][value.title] == "true"}
-                                    /> True
+                                    /> <span style={{fontSize: '14px'}}>True</span>
                                     <input type="radio" name={'input-' + value.title} style={{width: '18px', height: '18px'}} value={'input-' + value.title} onChange={
                                       function(elm:any) {
                                         if (elm.currentTarget.checked == true) {
@@ -497,7 +497,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
                                       }
                                     }
                                     defaultChecked={this.state.data[this.state.selectedIndex][value.title] == "false"}
-                                    /> False
+                                    /> <span style={{fontSize: '14px'}}>False</span>
                                   </div>
                                 : ''
                                 }
