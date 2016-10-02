@@ -202,6 +202,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
        this.state.data[indexToMove] = obj;
        this.state.selectedIndex = indexToMove - 1;
        this.setState(this.state);
+       this.saveWebPart(this.state.data);
      }
   }
 
@@ -213,6 +214,7 @@ export default class PropertyFieldCustomListHost extends React.Component<IProper
        this.state.data[indexToMove] = dataRestore;
        this.state.selectedIndex = indexToMove + 1;
        this.setState(this.state);
+       this.saveWebPart(this.state.data);
      }
   }
 
